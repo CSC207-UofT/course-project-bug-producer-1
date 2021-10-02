@@ -1,4 +1,4 @@
-Running the project starts a shell that allows the user to interact with an inventory system.\\
+Running the project starts a shell that allows the user to interact with an inventory system.
 
 While running, the Admin class updates the inventory (UpdateInventory) and updates the order (UpdateOrder). This class interacts with Order and Inventory.
 
