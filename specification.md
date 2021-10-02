@@ -4,10 +4,14 @@
 * While running, if the logged-in user is a customer, the program will show a welcome message and display the following options:
   * Edit Wish list
   * Place Order
+  * View Message
+  * Write Message to Admin
 
 * If logged-in user is an Admin, the program will show a welcome message and display the following options:
   * Update Inventory
   * Update Order
+  * View Message
+  * Write Message to Customer by entering customer ID
   * Approve order process request
   * Review Order(Message customer optional) if order failed to process due to lack of items
 
