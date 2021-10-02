@@ -6,6 +6,7 @@
   * Place Order
   * View Message
   * Write Message to Admin
+  * OPTIONAL real time order status
 
 * If logged-in user is an Admin, the program will show a welcome message and display the following options:
   * Update Inventory
