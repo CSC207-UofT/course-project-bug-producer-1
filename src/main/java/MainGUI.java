@@ -2,6 +2,8 @@ package main.java;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class MainGUI extends JFrame{
     private Container container = getContentPane();
@@ -43,6 +45,18 @@ public class MainGUI extends JFrame{
         label.setIcon(img);
         bkgPanel.add(label);
         container.add(bkgPanel, "Center");
+        listener();
 
+    }
+
+    private void listener(){
+        exitButton.addActionListener(
+                e -> {
+                    dispose();
+                    JOptionPane.showMessageDialog(null, "You have logged off!");
+                    new LoginGUI();
+
+                }
+        );
     }
 }

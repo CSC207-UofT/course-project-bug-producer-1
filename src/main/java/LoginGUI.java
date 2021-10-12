@@ -51,35 +51,29 @@ public class LoginGUI extends JFrame {
 
     private void listener(){
         loginButton.addActionListener(
-                new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        String username = usernameField.getText();
-                        String password = String.valueOf(passwordField.getPassword());
-                        if (null == username
-                                || username.trim().length() == 0
-                                || password.trim().length() == 0){
-                            JOptionPane.showMessageDialog(null, "Username or Password cannot be empty!");
-                        }
+                e -> {
+                    String username = usernameField.getText();
+                    String password = String.valueOf(passwordField.getPassword());
+                    if (null == username
+                            || username.trim().length() == 0
+                            || password.trim().length() == 0){
+                        JOptionPane.showMessageDialog(null, "Username or Password cannot be empty!");
+                    }
 
-                        else if ("root".equals(username) && "admin".equals(password)){
-                            JOptionPane.showMessageDialog(null, "Login Success!");
-                            MainGUI gui = new MainGUI();
-                            dispose();
-                        }else{
-                            JOptionPane.showMessageDialog(null, "Incorrect Credentials!");
-                        }
+                    else if ("root".equals(username) && "admin".equals(password)){
+                        JOptionPane.showMessageDialog(null, "Login Success!");
+                        MainGUI gui = new MainGUI();
+                        dispose();
+                    }else{
+                        JOptionPane.showMessageDialog(null, "Incorrect Credentials!");
                     }
                 }
         );
 
         clearButton.addActionListener(
-                new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        usernameField.setText("");
-                        passwordField.setText("");
-                    }
+                e -> {
+                    usernameField.setText("");
+                    passwordField.setText("");
                 }
         );
     }
