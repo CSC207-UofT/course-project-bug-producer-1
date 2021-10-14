@@ -12,6 +12,11 @@ public class MainGUI extends JFrame{
     private static JButton wlButton = new JButton("Wish list");
     private static JButton msgButton = new JButton("Messages");
     private static JButton exitButton = new JButton("Log out");
+    private final JPanel msgPanel = new MsgPanel();
+    private final JPanel bkgPanel = new JPanel();
+    private final JPanel wlPanel = new JPanel();
+    private final JPanel orderPanel = new JPanel();
+    private JPanel hisPanel = new JPanel();
 
     public MainGUI(){
         setTitle("Bug-Producer Inventory System");
@@ -20,7 +25,6 @@ public class MainGUI extends JFrame{
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         init();
         setVisible(true);
-
 
     }
 
@@ -35,17 +39,18 @@ public class MainGUI extends JFrame{
         buttonPanel.add(exitButton);
         container.add(buttonPanel, "North");
 
-        // bkg
-
-        JPanel bkgPanel = new JPanel();
+        // bkgPanel
         JLabel label = new JLabel();
-
         bkgPanel.setLayout(new FlowLayout());
         ImageIcon img = new ImageIcon("src/main/resources/bug.png");
         label.setIcon(img);
         bkgPanel.add(label);
         container.add(bkgPanel, "Center");
+
+
         listener();
+
+
 
     }
 
@@ -58,5 +63,36 @@ public class MainGUI extends JFrame{
 
                 }
         );
+
+        msgButton.addActionListener(
+                e -> {
+                    bkgPanel.removeAll();
+                    bkgPanel.add(msgPanel);
+                    bkgPanel.repaint();
+                    bkgPanel.revalidate();
+                }
+        );
+
+        wlButton.addActionListener(
+                e -> {
+                    bkgPanel.removeAll();
+                    bkgPanel.add(wlPanel);
+                    bkgPanel.repaint();
+                    bkgPanel.revalidate();
+                }
+        );
+
+        orderButton.addActionListener(
+                e -> {
+                    bkgPanel.removeAll();
+                    bkgPanel.add(orderPanel);
+                    bkgPanel.repaint();
+                    bkgPanel.revalidate();
+                }
+        );
     }
+    public static void main(String[] args){
+        new MainGUI();
+    }
+
 }
