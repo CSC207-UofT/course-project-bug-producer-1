@@ -1,6 +1,6 @@
 package main.java.item;
-import main.java.item.Order;
-import main.java.item.Inventory;
+import main.java.order.Order;
+import main.java.inventory.Inventory;
 
 import java.util.HashMap;
 

@@ -7,7 +7,7 @@ import java.util.HashMap;
 
 public class OrderController {
 
-    public boolean process_order(Order order, Inventory inventory){
+    public boolean review_order(Order order, Inventory inventory){
         HashMap<Item, Integer> inter = order.get_item_list();
         HashMap<Item, Integer> invenlst = inventory.get_item_list();
         for(Item key: inter.keySet()){
