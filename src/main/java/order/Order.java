@@ -7,16 +7,16 @@ import java.util.HashMap;
 public class Order {
 
     private final Date date;
-    private final HashMap<Item, Integer> item_list;
-    private final String itemID;
-    private int customerID;
+    private final String item_name;
+//    private final String itemID;
+    private String customerID;
     private String status;
     private String stocking;
 
-    public Order(Date date,HashMap<Item, Integer> item_list,String itemID,int customerID){
+    public Order(Date date,String item_name,String customerID){
         this.date = date;
-        this.item_list = item_list;
-        this.itemID = itemID;
+        this.item_name = item_name;
+//        this.itemID = itemID;
         this.customerID = customerID;
         this.status = "accepted";
     }
@@ -25,13 +25,13 @@ public class Order {
         return this.date;
     }
 
-    public HashMap<Item, Integer> get_item_list(){
-        return this.item_list;
+    public String get_item_name(){
+        return this.item_name;
     }
 
-    public String get_id(){
-        return this.itemID;
-    }
+//    public String get_id(){
+//        return this.itemID;
+//    }
 
     public String get_status(){
         return this.status;
