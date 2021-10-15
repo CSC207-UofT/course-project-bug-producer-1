@@ -8,10 +8,13 @@ import java.awt.event.ActionListener;
 public class MainGUI extends JFrame{
     private Container container = getContentPane();
     private static JButton orderButton = new JButton("New order");
-    private static JButton hisButton = new JButton("Order History");
+    private static JButton hisButton = new JButton("Order history");
     private static JButton wlButton = new JButton("Wish list");
     private static JButton msgButton = new JButton("Messages");
     private static JButton exitButton = new JButton("Log out");
+    private static JButton newOrderButton = new JButton("Place new order");
+    private static JLabel userOrderLabel = new JLabel("Enter item, separate by , ");
+    private static JTextField OrderField = new JTextField();
     private final JPanel msgPanel = new MsgPanel();
     private final JPanel bkgPanel = new JPanel();
     private final JPanel wlPanel = new JPanel();
@@ -46,10 +49,13 @@ public class MainGUI extends JFrame{
         label.setIcon(img);
         bkgPanel.add(label);
         container.add(bkgPanel, "Center");
+        orderPanel.add(userOrderLabel);
+        orderPanel.add(OrderField);
+        orderPanel.add(newOrderButton);
+
 
 
         listener();
-
 
 
     }
