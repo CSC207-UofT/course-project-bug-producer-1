@@ -6,11 +6,12 @@ import java.util.HashMap;
 
 public class Order {
 
-    private Date date;
-    private HashMap<Item, Integer> item_list;
-    private String itemID;
+    private final Date date;
+    private final HashMap<Item, Integer> item_list;
+    private final String itemID;
     private int customerID;
     private String status;
+    private String stocking;
 
     public Order(Date date,HashMap<Item, Integer> item_list,String itemID,int customerID){
         this.date = date;
