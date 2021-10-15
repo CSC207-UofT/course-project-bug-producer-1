@@ -25,5 +25,15 @@ public class Item {
         this.quantity = this.quantity - num;
     }
 
+    public String getName() {
+        return name;
+    }
 
+    public int getCapacity() {
+        return capacity;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
 }
