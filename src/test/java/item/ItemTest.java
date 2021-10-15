@@ -1,5 +1,6 @@
-package java.item;
+package test.java.item;
 
+import main.java.item.Item;
 import org.junit.*;
 
 import static org.junit.Assert.*;
@@ -22,7 +23,7 @@ public class ItemTest {
         System.setOut(new PrintStream(bos));
 
         // action
-        Item.main(null);
+//        Item.main(null);
 
         System.setOut(originalOut);
 
@@ -32,18 +33,18 @@ public class ItemTest {
     @Test(timeout = 50)
     public void testgetName(){
         Item sample = new Item("Vegetables", 12345, 5, 6);
-        assertEquals("Vegetables", sample.name);
+        assertEquals("Vegetables", sample.getName());
     }
 
     @Test(timeout = 50)
     public void testgetCapacity(){
         Item sample = new Item("Vegetables", 12345, 5, 6);
-        assertEquals(5, sample.capacity);
+        assertEquals(5, sample.getCapacity());
     }
 
     @Test(timeout = 50)
     public void testgetQuantity(){
         Item sample = new Item("Vegetables", 12345, 5, 6);
-        assertEquals(6, sample.quantity);
+        assertEquals(6, sample.getQuantity());
     }
 }
