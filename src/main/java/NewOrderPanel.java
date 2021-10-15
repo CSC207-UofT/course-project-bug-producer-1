@@ -1,5 +1,6 @@
 package main.java;
 
+import main.java.order.Order;
 import main.java.order.OrderController;
 
 import javax.swing.*;
@@ -29,11 +30,12 @@ public class NewOrderPanel extends JPanel {
                     System.out.println(OrderField.getText());
                     Date date = new Date();
                     System.out.println(date);
-                    String customer_id = "000";
+                    String customer_id = LoginGUI.getUsername();
                     OrderController.generate_order(date, name, customer_id);
                     JOptionPane.showMessageDialog(null, "New Order Created! [WiP]");
-                    String message_to_show = "Oreder Time: " + date + '\n' + "Item_name: " + name + '\n' + "Order ID: " + "000";
-
+                    String message_to_show = "Oreder Time: " + date + '\n' + "Customer ID: " + customer_id + '\n' +
+                            "Item_name: " + name + '\n' + "Order ID: " + "000";
+                    OrderField.setText("");
                     JOptionPane.showMessageDialog(null, message_to_show);
 
 

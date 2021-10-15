@@ -16,6 +16,7 @@ public class LoginGUI extends JFrame {
     private static JPasswordField passwordField = new JPasswordField();
     private static JButton loginButton = new JButton("Login");
     private static JButton clearButton = new JButton("Clear");
+    private static String username = "";
 
     public LoginGUI(){
         setTitle("Bug-Producer Login Window");
@@ -24,6 +25,10 @@ public class LoginGUI extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         init();
         setVisible(true);
+    }
+
+    public static String getUsername(){
+        return username;
     }
 
     private void init(){
@@ -52,7 +57,7 @@ public class LoginGUI extends JFrame {
     private void listener(){
         loginButton.addActionListener(
                 e -> {
-                    String username = usernameField.getText();
+                    username = usernameField.getText();
                     String password = String.valueOf(passwordField.getPassword());
                     if (null == username
                             || username.trim().length() == 0
