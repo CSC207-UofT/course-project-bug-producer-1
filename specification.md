@@ -5,7 +5,7 @@
   * Edit Wish list
   * Generate Order
   * View Message
-  * view Item in Inventory
+  * View Order Histroy
 
 * If logged-in user is an Admin, the program will show a welcome message and display the following options:
   * Write and Send Message to Customer by entering customer ID
