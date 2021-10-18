@@ -1,7 +1,7 @@
 
 ## Bug-Producer - Inventory System
 
-![Bug-Producer](main/src/main/resources/banner.png)
+![Bug-Producer](src/main/resources/banner.png)
 
 > Note that this project requires `JDK16` 
 > 
