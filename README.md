@@ -1,6 +1,8 @@
 
 ## Bug-Producer - Inventory System
 
+![Bug-Producer](main/src/main/resources/banner.png)
+
 > Note that this project requires `JDK16` 
 > 
 > Running the project starts a window using JFrame from swing package that allows the user to interact with an inventory control system.
