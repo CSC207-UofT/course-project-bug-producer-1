@@ -1,29 +1,29 @@
-## Specification
+# Specification
 
-* Running the project starts a GUI that allows the users to log in to interact with an initially-setup 1 Storage, 1 items (Admin users can add more) storage system.
-* While running, if the logged-in user is a customer, the program will show a welcome message and display the following options:
-  * Edit Wish list
-  * Generate Order
-  * View Message
-  * View Order Histroy
+## Feature Discussions
 
-* If logged-in user is an Admin, the program will show a welcome message and display the following options:
-  * Write and Send Message to Customer by entering customer ID
-  * View Order History
+### 1. User Register/Login & Data Storage
 
-* For any orders placed, the order will include the following information:
-  * Order ID
-  * Requested items name
-  * Requested item quantity
-  * Date order placed
-  * Customer information
+- When a user registers for an account, they will be required to create a username and password so that they can save
+any changes to their account then log back in when needed. The user account will store information such as the user’s
+ID, wish list, as well as their order history and most importantly, their passwords.
 
-* After order creation, it will be forwarded to Inventory by Order Controller to process the order.
-  * Order processed
-    * Inventory stock_out based on item quantity * item capacity
-  * Supply (Will be implemented in the future)
-    * Inventory stock_in based on item quantity * item capacity
+Note that the course planning list and course wish list are different when it comes to course planning, course planning list your mandatory course list but wish list is your "electives". They have a priority difference in course planning.
 
-* After order processing, the update will be forwarded to Admin by Inventory Controller.
-  * Change order status and return message to both Admin and Customer.
+This program is designed to provide a complete set of functions consistent with the needs of enterprise warehouse management:
 
+(1). Establish a basic item stock information database and inventory information as well.
+
+The system as a whole can be divided into multiple subsystems, each corresponding to some specific aspects of the function. On the whole, the whole system can be divided into 8 subsystems:
+
+(1). Login management: including authority management, account management, account authentication, and role assignment.
+
+(2). Warehousing management: including the generation of purchase requisitions, purchase details, and warehousing.
+
+(3) Warehouse Management: Including inventory details, query, storage, inventory, and allocation.
+
+(4) Outbound management: including sales outbound.
+
+(5) Query and report generation
+
+(6) Intelligent inventory analysis and alarm management: including decision generation.

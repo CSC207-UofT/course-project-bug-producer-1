@@ -3,14 +3,15 @@ package main.java;
 import javax.swing.*;
 import java.awt.*;
 
+
 public class WishlistPanel extends JPanel {
-    private static JButton newItemButton = new JButton("Add new item to wish list");
-    private static JLabel userItemLabel = new JLabel("Enter item, separate by , ");
-    private static JTextField ItemField = new JTextField();
+    private final JButton newItemButton = new JButton("Add new item to wish list");
+    private final JTextField ItemField = new JTextField();
 
     public WishlistPanel(){
         JPanel orderPanel = new JPanel();
         orderPanel.setBackground(Color.DARK_GRAY);
+        JLabel userItemLabel = new JLabel("Enter item, separate by , ");
         orderPanel.add(userItemLabel);
         orderPanel.add(ItemField);
         orderPanel.add(newItemButton);

@@ -1,21 +1,17 @@
 package main.java;
 
-import com.sun.tools.javac.Main;
-
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 
 public class LoginGUI extends JFrame {
-    private Container container = getContentPane();
-    private static JLabel userLabel = new JLabel("Username: ");
-    private static JTextField usernameField = new JTextField();
-    private static JLabel pwdLabel = new JLabel("Password: ");
-    private static JPasswordField passwordField = new JPasswordField();
-    private static JButton loginButton = new JButton("Login");
-    private static JButton clearButton = new JButton("Clear");
+    private final Container container = getContentPane();
+    private final JLabel userLabel = new JLabel("Username: ");
+    private final JTextField usernameField = new JTextField();
+    private final JLabel pwdLabel = new JLabel("Password: ");
+    private final JPasswordField passwordField = new JPasswordField();
+    private final JButton loginButton = new JButton("Login");
+    private final JButton clearButton = new JButton("Clear");
     private static String username = "";
 
     public LoginGUI(){
@@ -67,7 +63,7 @@ public class LoginGUI extends JFrame {
 
                     else if ("root".equals(username) && "admin".equals(password)){
                         JOptionPane.showMessageDialog(null, "Login Success!");
-                        MainGUI gui = new MainGUI();
+                        new MainGUI();
                         dispose();
                     }else{
                         JOptionPane.showMessageDialog(null, "Incorrect Credentials!");

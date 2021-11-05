@@ -1,8 +1,5 @@
 package main.java;
 
-import main.java.message.MessageController;
-import main.java.order.OrderController;
-
 import javax.swing.*;
 import java.awt.*;
 
@@ -21,19 +18,11 @@ public class MsgPanel extends JPanel {
 
     private void listener(){
         newMsgButton.addActionListener(
-                e -> {
-                    JOptionPane.showMessageDialog(null, "Create a new Message! [WiP]");
-
-
-                }
+                e -> JOptionPane.showMessageDialog(null, "Create a new Message! [WiP]")
         );
 
         viewMsgButton.addActionListener(
-                e -> {
-                    JOptionPane.showMessageDialog(null, "You have no new Message!");
-
-
-                }
+                e -> JOptionPane.showMessageDialog(null, "You have no new Message!")
         );
 
     }
