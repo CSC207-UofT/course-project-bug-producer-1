@@ -7,6 +7,11 @@ import javax.mail.internet.MimeMessage;
 import java.util.Date;
 import java.util.Properties;
 
+/**
+ * This class is a UseCase class, which is used for sending email via the application.
+ * The content of the email is the content typed by the User in the Chat panel.
+ */
+
 public class SendChatMessageUseCase {
 
 //    public static String senderAccount = "bugproducer207@gmail.com";
@@ -14,18 +19,28 @@ public class SendChatMessageUseCase {
 
     public static String SMTPHost = "smtp.gmail.com";
 
-//    public static String receiverAccount = "reagan.li@icloud.com";
+    /**
+     * This method is used for creating an email with sender and receiver.
+     * It returns an email with needed information. It requires the session,sender email address, receiver email address
+     * and the content of the email.
+     */
 
-    public static MimeMessage createMimeMessage(Session session, String sendMail, String receiveMail, String user_input) throws Exception {
-        MimeMessage message = new MimeMessage(session);
-        message.setFrom(new InternetAddress(sendMail, "bugproducer", "UTF-8"));
-        message.setRecipient(MimeMessage.RecipientType.TO, new InternetAddress(receiveMail, "reagan.li8589", "UTF-8"));
-        message.setSubject("Chat Message", "UTF-8");
-        message.setContent(user_input, "text/html;charset=UTF-8");
-        message.setSentDate(new Date());
-        message.saveChanges();
-        return message;
+    public static MimeMessage createMail(Session session_R, String senderMail, String receiverMail, String user_input) throws Exception {
+        MimeMessage message_R = new MimeMessage(session_R);
+        message_R.setFrom(new InternetAddress(senderMail, "bugproducer", "UTF-8"));
+        message_R.setRecipient(MimeMessage.RecipientType.TO, new InternetAddress(receiverMail, "reagan.li8589", "UTF-8"));
+        message_R.setSubject("Chat Message", "UTF-8");
+        message_R.setContent(user_input, "text/html;charset=UTF-8");
+        message_R.setSentDate(new Date());
+        message_R.saveChanges();
+        return message_R;
     }
+
+    /**
+     * This method is used for sending an email to receiverAccount from senderAccount.
+     * Specifically, the method requires content of the email, senderAccount, receiverAccount and senderPassword as parameters.
+     * This method returns nothing.
+     */
 
     public static void sendChatMessage_mail(String user_input, String senderAccount, String receiverAccount, String senderPassword) throws Exception {
         Properties props = new Properties();
@@ -43,12 +58,11 @@ public class SendChatMessageUseCase {
         Session session = Session.getInstance(props);
         session.setDebug(true);
 
-        MimeMessage message = createMimeMessage(session, senderAccount, receiverAccount, user_input);
+        MimeMessage message = createMail(session, senderAccount, receiverAccount, user_input);
 
         Transport transport = session.getTransport();
         transport.connect(senderAccount, senderPassword);
         transport.sendMessage(message, message.getAllRecipients());
         transport.close();
     }
-
 }
