@@ -14,6 +14,11 @@ public class LoginGUI extends JFrame {
     private final JButton clearButton = new JButton("Clear");
     private static String username = "";
 
+    /**
+     * Class constructor
+     * Creates a new Login GUI window.
+     * This method does not have any return type.
+     */
     public LoginGUI(){
         setTitle("Bug-Producer Login Window");
         setBounds(600, 200, 400, 200);
@@ -23,10 +28,19 @@ public class LoginGUI extends JFrame {
         setVisible(true);
     }
 
+    /**
+     * Returns the username of the user who is currently using this software.
+     * @return the username of the User
+     */
     public static String getUsername(){
         return username;
     }
 
+    /**
+     * Initialize the program
+     * This method does not have any return type.
+     *
+     */
     private void init(){
         // FieldPanel
         JPanel fieldPanel = new JPanel();
@@ -50,6 +64,11 @@ public class LoginGUI extends JFrame {
         listener();
     }
 
+    /**
+     * Class which contains the listener function allow the program to react according to the activities.
+     *
+     * This method does not have any return value.
+     */
     private void listener(){
         loginButton.addActionListener(
                 e -> {

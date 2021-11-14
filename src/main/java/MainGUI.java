@@ -15,7 +15,11 @@ public class MainGUI extends JFrame{
     private final JPanel wlPanel = new WishlistPanel();
     private final JPanel orderPanel = new NewOrderPanel();
     // --Commented out by Inspection (2021-11-04, 10:06 p.m.):private final JPanel hisPanel = new JPanel();
-
+    /**
+     * Class constructor
+     * Creates a new main program GUI window.
+     * This method does not have any return type.
+     */
     public MainGUI(){
         setTitle("Bug-Producer Inventory System");
         setBounds(600, 200, 1024, 768);
@@ -25,7 +29,11 @@ public class MainGUI extends JFrame{
         setVisible(true);
 
     }
-
+    /**
+     * Initialize the program
+     * This method does not have any return type.
+     *
+     */
     private void init(){
         // ButtonPanel
         JPanel buttonPanel = new JPanel();

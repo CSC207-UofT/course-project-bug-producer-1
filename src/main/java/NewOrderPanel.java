@@ -10,6 +10,11 @@ public class NewOrderPanel extends JPanel {
     private final JButton newOrderButton = new JButton("Place new order");
     private final JTextField OrderField = new JTextField();
 
+    /**
+     * Class constructor
+     * Creates a new order panel inside the main program GUI window.
+     * This method does not have any return type.
+     */
     public NewOrderPanel(){
         JPanel orderPanel = new JPanel();
         orderPanel.setBackground(Color.DARK_GRAY);
@@ -22,6 +27,11 @@ public class NewOrderPanel extends JPanel {
         listener();
     }
 
+    /**
+     * Class which contains the listener function allow the program to react according to the activities.
+     *
+     * This method does not have any return value.
+     */
     private void listener(){
         newOrderButton.addActionListener(
                 e -> {
