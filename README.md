@@ -30,3 +30,10 @@ Currently we have a pre-set account for you to try things out!
 -class `customer` could generate order and make wish list.It collabrates with order and admin.
 
 -class `order` contains item-list, date of order,customer name.It collabrates with item,inventory,customer and admin.
+
+## Requirements software
+
+To use the function of sending email, JavaMail version 1.6.0 and jaf1.1.1 should be installed. 
+The activation.jar and javax.mail.jar needed to be put in the lib of the project. 
+The email used to send emails must have the access permission for low-security applications and must be authenticated (recommend Gmail). 
+It also requires to enable the POP/IMAP function. JDK version 1.7 or later is required.

@@ -1,29 +1,19 @@
 ## Specification
 
-* Running the project starts a GUI that allows the users to log in to interact with an initially-setup 1 Storage, 1 items (Admin users can add more) storage system.
-* While running, if the logged-in user is a customer, the program will show a welcome message and display the following options:
-  * Edit Wish list
-  * Generate Order
-  * View Message
-  * View Order Histroy
-
-* If logged-in user is an Admin, the program will show a welcome message and display the following options:
-  * Write and Send Message to Customer by entering customer ID
-  * View Order History
-
-* For any orders placed, the order will include the following information:
-  * Order ID
-  * Requested items name
-  * Requested item quantity
-  * Date order placed
-  * Customer information
-
-* After order creation, it will be forwarded to Inventory by Order Controller to process the order.
-  * Order processed
-    * Inventory stock_out based on item quantity * item capacity
-  * Supply (Will be implemented in the future)
-    * Inventory stock_in based on item quantity * item capacity
-
-* After order processing, the update will be forwarded to Admin by Inventory Controller.
-  * Change order status and return message to both Admin and Customer.
-
+Our project is a program designed to provide an easy way to track the products, 
+customers, as well as purchases and sales information. There are two basic types of users: administrator and customer. 
+To create an account, users need to provide a personal email address, create their username and password, 
+and choose the corresponding user’s type. All personal information will be stored in a hash table and linked with an auto-generated id. 
+For instance, the first user of our program will be assigned an id of “001”; then, the second user will have “002” as his/her id. 
+After logging in, the welcome message will show up for users. In the customer case, they can click the “new order” 
+bottom to access all the available items in the system; then, create their wish list in the text field at the top of the page. 
+A search bar will be displayed at the top of the page as well for searching efficiency. If all requirements in one wish list have been fulfilled, 
+the purchase information including order ID, requested items’ name and quantity, date, and customer id will be forwarded to the inventory for further processing. 
+Inventory can be stocked and restocked by Inventory Controller based on previous information. 
+Finally, an auto-generated receipt containing purchase information will be delivered to customers in a pop-up window. 
+If some requirements cannot be fulfilled, for instance, the requested item quantity exceeds the available item quantity or wish list includes an absent item’s name, 
+an auto-generated text which shows “failure” will pop-up and be displayed in the GUI.
+In our program, administrators can view the purchase information that is gathered during customers place a new order. 
+Moreover, administrators and customers can communicate with each other through email by clicking the “Message” bottom. 
+By having the communication function available in our program, customers can reach out to administrators for asking questions 
+and raising other requirements about adding new items in inventory, etc.
