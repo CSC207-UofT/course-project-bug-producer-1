@@ -10,6 +10,7 @@ import java.util.Properties;
 /**
  * This class is a UseCase class, which is used for sending email via the application.
  * The content of the email is the content typed by the User in the Chat panel.
+ * @author GEN LI (Reagan)
  */
 
 public class SendChatMessageUseCase {
@@ -19,10 +20,14 @@ public class SendChatMessageUseCase {
 
     public static String SMTPHost = "smtp.gmail.com";
 
+
     /**
      * This method is used for creating an email with sender and receiver.
-     * It returns an email with needed information. It requires the session,sender email address, receiver email address
-     * and the content of the email.
+     * @param session_R Session object for this email, which represents a mail session.
+     * @param senderMail The email address of the sender.
+     * @param receiverMail The email address of the receiver.
+     * @param user_input The user's input, which is used as the content of th email.
+     * @return message_R an email with needed information.
      */
 
     public static MimeMessage createMail(Session session_R, String senderMail, String receiverMail, String user_input) throws Exception {
@@ -36,10 +41,13 @@ public class SendChatMessageUseCase {
         return message_R;
     }
 
+
     /**
      * This method is used for sending an email to receiverAccount from senderAccount.
-     * Specifically, the method requires content of the email, senderAccount, receiverAccount and senderPassword as parameters.
-     * This method returns nothing.
+     * @param user_input The user's input, which is used as the content of th email.
+     * @param senderAccount The email address of the sender.
+     * @param receiverAccount The email address of the receiver.
+     * @param senderPassword The password of the sender account, which is used for the access permission of the application.
      */
 
     public static void sendChatMessage_mail(String user_input, String senderAccount, String receiverAccount, String senderPassword) throws Exception {
