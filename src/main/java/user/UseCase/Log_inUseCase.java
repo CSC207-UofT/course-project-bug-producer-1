@@ -1,4 +1,6 @@
-package main.java.user;
+package main.java.user.UseCase;
+
+import main.java.user.Database;
 
 /**
  * This class is used for the login of users.
@@ -16,7 +18,10 @@ public class Log_inUseCase {
      */
 
     public static boolean log_in(String user_name, String user_pwd, Database database){
-        return database.database.get(user_name).get(1).equals(user_pwd);
+        try
+        {
+            return database.database.get(user_name).get(1).equals(user_pwd);
+        }catch(NullPointerException e){return false;}
 
     }
 }
