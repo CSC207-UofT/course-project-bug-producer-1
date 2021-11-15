@@ -6,17 +6,16 @@ import java.util.HashMap;
 /**
  * Database a place for storing Users information.
  */
-public class Database {
+public class Database{
 
     protected final HashMap<String, ArrayList<String>> database;
 
     /**
      * Constructs an instance of Database.
      */
-    public Database () {
+    public Database(){
         this.database = new HashMap<>();
     }
-
 
 }
 

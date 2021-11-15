@@ -3,7 +3,7 @@ package main.java.user;
 import java.util.ArrayList;
 
 public class RegisterUseCase {
-    public boolean register(String username, String secret_code, String user_input_secret_code, Database database) {
+    public static boolean register(String username, String secret_code, String user_input_secret_code, Database database) {
         if(secret_code.equals(user_input_secret_code)) {
             ArrayList<String> info = new ArrayList<>();
             info.add(User.getUser_email());

@@ -2,6 +2,7 @@ package main.java.user;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Objects;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
@@ -10,10 +11,10 @@ import java.util.concurrent.atomic.AtomicInteger;
  */
 
 public abstract class User {
+    private static int user_id;
     protected static String name;
     protected static String user_email;
     protected static String password;
-//    private final int user_id = 0;
     private static AtomicInteger id_generator = new AtomicInteger(0);
     protected static String user_type;
 
@@ -29,35 +30,9 @@ public abstract class User {
         User.user_email = user_email;
         User.password = pwd;
         User.user_type = user_type;
-//        User.user_id = user_id;
+        User.user_id = user_id;
 
     }
-
-
-
-
-//    /**
-//     * Create an account.
-//     * @param OlPassword A string representing the old password of the User's account.
-//     * @param entered_password A string representing the new password of the User's account.
-//     */
-//    public void setPassword(String OlPassword, String entered_password){
-//        if (authenticateUser (OlPassword)){
-//            password = entered_password;
-//        }
-//    }
-//    /**
-//     * Verifies if the password entered by the User matches the saved password for authentication.
-//     * @param entered_password A string representing the password that user entered to log in.
-//     * @return true iff the saved password
-//     */
-//    public boolean authenticateUser(String entered_password){
-//        if (password == null){
-//            return true;
-//        }
-//        return password.equals(entered_password);
-//    }
-
 
     /**
      * Gets the username of the User.
@@ -93,7 +68,7 @@ public abstract class User {
     }
 
     public static String getType(){
-        if (user_type == "admin"){
+        if (Objects.equals(user_type, "admin")){
             return "admin";
         }
         else {
