@@ -1,4 +1,4 @@
-package java.item;
+package test.java.item;
 
 import main.java.item.Item;
 import org.junit.*;

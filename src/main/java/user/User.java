@@ -1,7 +1,6 @@
 package main.java.user;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Objects;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -19,6 +18,7 @@ public abstract class User {
     protected static String user_type;
 
 
+
     /**
      * Constructs an instance of User
      * @param user_name A string representing user's name.
@@ -31,6 +31,7 @@ public abstract class User {
         User.password = pwd;
         User.user_type = user_type;
         User.user_id = user_id;
+
 
     }
 
@@ -67,6 +68,11 @@ public abstract class User {
         return String.valueOf(id);
     }
 
+    /**
+     * Gets the type of the User.
+     * @return A String that represents the type of the user.
+     */
+
     public static String getType(){
         if (Objects.equals(user_type, "admin")){
             return "admin";
@@ -75,4 +81,6 @@ public abstract class User {
             return "customer";
         }
     }
+
+
 }

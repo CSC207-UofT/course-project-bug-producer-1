@@ -2,7 +2,12 @@ package main.java;
 
 import javax.swing.*;
 import java.awt.*;
-
+/**
+ * This class is the main class for GUI which handles
+ * and represents other panels and connects to other GUIs
+ *
+ * @author Yuehao Huang
+ */
 public class MainGUI extends JFrame{
     private final Container container = getContentPane();
     private final JButton orderButton = new JButton("New order");
@@ -71,9 +76,7 @@ public class MainGUI extends JFrame{
         );
 
         msgButton.addActionListener(
-                e -> {
-                    new MailGUI();
-                }
+                e -> new MailGUI()
         );
 
         wlButton.addActionListener(

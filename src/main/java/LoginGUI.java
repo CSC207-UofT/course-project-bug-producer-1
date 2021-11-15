@@ -3,6 +3,11 @@ package main.java;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * This class is the login class for GUI which handles
+ * the login and registration process. (only GUI)
+ * @author Yuehao Huang
+ */
 
 public class LoginGUI extends JFrame {
     private final Container container = getContentPane();
@@ -14,6 +19,7 @@ public class LoginGUI extends JFrame {
     private final JButton clearButton = new JButton("Clear");
     private static String username = "";
     private final JButton regButton = new JButton("Register");
+    private final JPanel bkgPanel = new JPanel();
 
     /**
      * Class constructor
@@ -22,7 +28,7 @@ public class LoginGUI extends JFrame {
      */
     public LoginGUI(){
         setTitle("Bug-Producer Login Window");
-        setBounds(600, 200, 400, 200);
+        setBounds(600, 200, 600, 300);
         container.setLayout(new BorderLayout());
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         init();
@@ -46,10 +52,10 @@ public class LoginGUI extends JFrame {
         // FieldPanel
         JPanel fieldPanel = new JPanel();
         fieldPanel.setLayout(null);
-        userLabel.setBounds(50, 20, 80, 20);
-        pwdLabel.setBounds(50, 60, 80, 20);
-        usernameField.setBounds(130, 20, 160, 20);
-        passwordField.setBounds(130, 60, 160, 20);
+        userLabel.setBounds(180, 20, 80, 20);
+        pwdLabel.setBounds(180, 60, 80, 20);
+        usernameField.setBounds(260, 20, 160, 20);
+        passwordField.setBounds(260, 60, 160, 20);
         fieldPanel.add(userLabel);
         fieldPanel.add(pwdLabel);
         fieldPanel.add(usernameField);
@@ -64,6 +70,15 @@ public class LoginGUI extends JFrame {
         buttonPanel.add(regButton);
         container.add(buttonPanel, "South");
         listener();
+
+        // bkgPanel
+        JLabel label = new JLabel();
+        bkgPanel.setLayout(new FlowLayout());
+        ImageIcon img = new ImageIcon("src/main/resources/banner.png");
+        label.setIcon(img);
+        bkgPanel.add(label);
+        container.add(bkgPanel, "North");
+
     }
 
     /**
@@ -92,9 +107,7 @@ public class LoginGUI extends JFrame {
                 }
         );
         regButton.addActionListener(
-                e -> {
-                    new RegisterGUI();
-                }
+                e -> new RegisterGUI()
         );
 
         clearButton.addActionListener(

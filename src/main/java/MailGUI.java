@@ -2,6 +2,12 @@ package main.java;
 
 import javax.swing.*;
 import java.awt.*;
+/**
+ * This class is the mailing class for GUI which handles
+ * the mailing notification procedure.
+ *
+ * @author Yuehao Huang
+ */
 
 public class MailGUI extends JFrame {
     private final Container container = getContentPane();
