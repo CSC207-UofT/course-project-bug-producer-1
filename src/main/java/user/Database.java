@@ -8,7 +8,7 @@ import java.util.HashMap;
  */
 public class Database{
 
-    protected final HashMap<String, ArrayList<String>> database;
+    public HashMap<String, ArrayList<String>> database;
 
     /**
      * Constructs an instance of Database.
