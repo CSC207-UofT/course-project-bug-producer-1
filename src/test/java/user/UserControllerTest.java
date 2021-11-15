@@ -22,6 +22,8 @@ public class UserControllerTest {
         Assert.assertTrue(actual);
     }
 
+
+
     @Test
     public void test_register(){
         Database database_S = new Database();
@@ -31,6 +33,7 @@ public class UserControllerTest {
         Assert.assertTrue(actual);
 
     }
+
 
     @Test
     public void test_register_2(){

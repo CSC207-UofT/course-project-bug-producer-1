@@ -31,6 +31,7 @@ public class RegisterUseCase {
             database.database.put(username, info);
             return true;
         }
+
         else{
             ArrayList<String> info = new ArrayList<>();
             info.add(email);
