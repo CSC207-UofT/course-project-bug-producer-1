@@ -1,4 +1,7 @@
-package main.java.user;
+package main.java.user.UseCase;
+
+import main.java.user.Database;
+import main.java.user.User;
 
 import java.util.ArrayList;
 

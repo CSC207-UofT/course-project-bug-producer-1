@@ -1,7 +1,12 @@
 package main.java;
 
+import main.java.user.UseCase.RegisterUseCase;
+import main.java.user.UserController;
+
 import javax.swing.*;
 import java.awt.*;
+
+import static main.java.GUI.dat;
 
 public class RegisterGUI extends JFrame {
     private final Container container = getContentPane();
@@ -76,8 +81,18 @@ public class RegisterGUI extends JFrame {
     private void listener(){
         regButton.addActionListener(
                 e -> {
-                    JOptionPane.showMessageDialog(null, "Registration successful");
-                    dispose();
+                    String user = usernameField.getText();
+                    String pass = String.valueOf(passwordField.getPassword());
+                    String secret_code = code.getText();
+                    boolean flag = UserController.register(user, "bug", secret_code, dat);
+                    if (flag){
+                        JOptionPane.showMessageDialog(null, "Registration successful");
+                        dispose();
+                    }
+                    else{
+                        JOptionPane.showMessageDialog(null, "Registration failed!");
+                    }
+
                 }
         );
 
