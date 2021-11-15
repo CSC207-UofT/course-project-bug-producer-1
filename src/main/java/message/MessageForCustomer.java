@@ -37,7 +37,7 @@ public class MessageForCustomer extends Message_R {
         super(item_list, order_date, order_id, order_status);
         this.content = "Dear Customer," + "\n" + " We are trying our best to process your order." + "\n" +
                 "Order details: " + order_id + "\n" + order_date + "\n" + item_list + "\n" + order_status + "\n" +
-                "Thank you for your patience and have a nice day!" + "\n" + message_date;
+                "Thank you for your patience and have a nice day!" ;
 
     }
 }
