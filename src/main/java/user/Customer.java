@@ -1,11 +1,12 @@
 package main.java.user;
 
-import java.util.ArrayList;
+import main.java.item.Item;
+
 import java.util.HashMap;
 
 public class Customer extends User {
 
-    protected static HashMap<String, Integer> wish_list;
+    protected static HashMap<Item, Integer> wish_list;
     /**
      * Constructs an instance of User
      *
@@ -25,7 +26,7 @@ public class Customer extends User {
      * @return A list that represents the wish_list of the user.
      */
 
-    public static HashMap<String, Integer> getWish_list(){
+    public static HashMap<Item, Integer> getWish_list(){
         return wish_list;
     }
 }
