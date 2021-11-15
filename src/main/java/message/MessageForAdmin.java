@@ -9,12 +9,14 @@ import java.util.HashMap;
 /**
  * This class is an entity class of the message sent to Admin. It is a subclass of Message_R.
  * It defines the format of the message shown to admin when the admin requires to view the order details.
- * @author GEN LI
+ * @author GEN LI (Reagan)
  */
 
 public class MessageForAdmin extends Message_R {
 
+
     /**
+     * This method defines the message shown in a popup way for Admin when he/she requires to see the details of the order.
      * This is the initiator of the MessageForAdmin class, which set the content of the MessageForAdmin to
      *
      * Order details: order_id
@@ -22,8 +24,10 @@ public class MessageForAdmin extends Message_R {
      * item_list
      * order_status
      *
-     * It requires the item_list, order_date, order_id and order_status, which can be obtained from the order
-     * by using the methods provided by the Order part.
+     * @param item_list The list of items bought by the customer.
+     * @param order_date The date when the order placed.
+     * @param order_id The id of the order placed by the customer.
+     * @param order_status The status of the order.
      */
     public MessageForAdmin(HashMap<Item, Integer> item_list, Date order_date, String order_id, String order_status){
         super(item_list, order_date, order_id, order_status);
