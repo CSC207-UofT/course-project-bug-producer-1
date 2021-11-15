@@ -16,7 +16,7 @@ public class UserController {
      * @return return a boolean type result, if login successfully, return true, else, return false.
      */
     public static boolean log_in(String user_name, String user_pwd, Database database){
-        return main.java.user.Log_inUseCase.log_in(user_name, user_pwd, database);
+        return main.java.user.UseCase.Log_inUseCase.log_in(user_name, user_pwd, database);
     }
 
     /**

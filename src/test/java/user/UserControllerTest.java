@@ -6,8 +6,9 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 
-import static main.java.user.Log_inUseCase.log_in;
 import static main.java.user.UseCase.RegisterUseCase.register;
+import static main.java.user.UserController.log_in;
+
 public class UserControllerTest {
     @Test
     public void test_log_in(){
