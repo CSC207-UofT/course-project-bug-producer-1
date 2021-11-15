@@ -22,33 +22,26 @@ public class UserControllerTest {
         Assert.assertTrue(actual);
     }
 
+
+
     @Test
     public void test_register(){
         Database database_S = new Database();
-        ArrayList<String> list = new ArrayList<>();
-        list.add("reagan.li@icloud.com");
-        list.add("12345");
-        list.add("1");
-        list.add("Customer");
-        database_S.database.put("Elva", list);
-        boolean actual = register("Elva", "0000", "0000", database_S);
+
+        boolean actual = register("Elva", "0000", database_S, "12345", "123.li@icloud.com");
         Assert.assertTrue(database_S.database.containsKey("Elva"));
         Assert.assertTrue(actual);
 
     }
 
+
     @Test
     public void test_register_2(){
         Database database_S = new Database();
-        ArrayList<String> list = new ArrayList<>();
-        list.add("reagan.li@icloud.com");
-        list.add("12345");
-        list.add("1");
-        list.add("Customer");
-        database_S.database.put("Elva", list);
-        boolean actual = register("Elva", "0000", "1111", database_S);
-        Assert.assertFalse(database_S.database.containsKey("Elva"));
-        Assert.assertFalse(actual);
+
+        boolean actual = register("Elva", "bug", database_S, "12345", "123.li@icloud.com");
+        Assert.assertTrue(database_S.database.containsKey("Elva"));
+        Assert.assertTrue(actual);
     }
 
 }
