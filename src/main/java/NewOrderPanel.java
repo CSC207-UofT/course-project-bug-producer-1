@@ -48,12 +48,8 @@ public class NewOrderPanel extends JPanel {
                     OrderField.setText("");
                     JOptionPane.showMessageDialog(null, message_to_show);
 
-
-
                 }
         );
-
-
 
     }
 }
