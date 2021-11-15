@@ -18,6 +18,7 @@ public class NewOrderPanel extends JPanel {
     public NewOrderPanel(){
         JPanel orderPanel = new JPanel();
         orderPanel.setBackground(Color.DARK_GRAY);
+        orderPanel.setBounds(800, 600, 800, 600);
         OrderField.setBounds(130, 20, 160, 20);
         JLabel userOrderLabel = new JLabel("Enter item, separate by , ");
         orderPanel.add(userOrderLabel);

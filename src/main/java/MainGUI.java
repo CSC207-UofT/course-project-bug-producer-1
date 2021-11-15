@@ -10,7 +10,6 @@ public class MainGUI extends JFrame{
     private final JButton wlButton = new JButton("Wish list");
     private final JButton msgButton = new JButton("Messages");
     private final JButton exitButton = new JButton("Log out");
-    private final JPanel msgPanel = new MsgPanel();
     private final JPanel bkgPanel = new JPanel();
     private final JPanel wlPanel = new WishlistPanel();
     private final JPanel orderPanel = new NewOrderPanel();
@@ -73,10 +72,7 @@ public class MainGUI extends JFrame{
 
         msgButton.addActionListener(
                 e -> {
-                    bkgPanel.removeAll();
-                    bkgPanel.add(msgPanel);
-                    bkgPanel.repaint();
-                    bkgPanel.revalidate();
+                    new MailGUI();
                 }
         );
 
