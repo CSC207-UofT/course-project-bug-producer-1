@@ -1,31 +1,51 @@
 package main.java.inventory;
 
 import main.java.item.Item;
-import main.java.inventory.InventoryController;
-import main.java.order.Order;
-import java.util.ArrayList;
+
 import java.util.HashMap;
 
-public class Inventory {
-    private int capacity;
-    private HashMap<Item, Integer> item_list ;
-    private ArrayList<Order> order_list;
+/**
+ * this class is a class of the inventory.
+ * @author kurisu
+ */
 
-    public Inventory(int capacity, HashMap<Item, Integer> item_list,ArrayList<Order> order_list){
+public class Inventory {
+    private final int capacity;
+    private HashMap<Item, Integer> item_list = new HashMap<Item, Integer>();
+    private HashMap<Item, Integer> order_list = new HashMap<Item, Integer>();
+    /**
+    * this method is the initiator of the Inventory
+    * Used to view the item_list and order_list in the inventory, and the capacity of the inventory
+    * @param capacity the capacity of the inventory
+    * @param item_list show the item in the inventory
+    * @param order_list show the order that the inventory need to be done
+     */
+    public Inventory(int capacity, HashMap<Item, Integer> item_list, HashMap<Item, Integer> order_list){
         this.capacity = capacity;
         this.item_list = item_list;
         this.order_list = order_list;
     }
 
-    public HashMap<Item, Integer> get_item_list(){
+    /**
+     *this method is used to get the items in the inventory
+     * @return return the list of the items in the inventory
+     */
+    public HashMap<Item, Integer> get_item_list() {
         return this.item_list;
     }
-
-    public ArrayList<Order> get_order_list(){
+    /**
+     *this method is used to get the order in the inventory
+     * @return return the list of the order in the inventory
+     */
+    public HashMap<Item, Integer> get_orders_list() {
         return this.order_list;
     }
-
-    public int get_capacity(){
-        return this.capacity;
+    /**
+     *this method is used to get the capacity of the inventory
+     * @return return the value of the capacity of the inventory
+     */
+    public int get_capacity() {
+        return capacity;
     }
 }
+
