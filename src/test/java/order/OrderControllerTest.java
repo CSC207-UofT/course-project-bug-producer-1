@@ -7,7 +7,7 @@ import java.util.HashMap;
 import main.java.order.OrderGenerateUseCase;
 import java.util.Date;
 
-public class OrderTest {
+public class OrderControllerTest {
     HashMap<Item, Integer> f;
     HashMap<Item, Integer> k;
     Order m;
