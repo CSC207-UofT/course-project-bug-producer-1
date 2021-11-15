@@ -33,7 +33,7 @@ Currently we have a pre-set account for you to try things out!
 
 ## Requirements software
 
-To use the function of sending email, JavaMail version 1.6.0 and jaf1.1.1 should be installed. 
-The activation.jar and javax.mail.jar needed to be put in the lib of the project. 
+To use the function of sending email, `JavaMail 1.6.0` and `jaf 1.1.1` should be installed. 
+The `activation.jar` and `javax.mail.jar` needed to be put in the library of this project library in order to be loaded correctly. 
 The email used to send emails must have the access permission for low-security applications and must be authenticated (recommend Gmail). 
 It also requires to enable the POP/IMAP function. JDK version 1.7 or later is required.
