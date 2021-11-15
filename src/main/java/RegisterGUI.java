@@ -84,7 +84,8 @@ public class RegisterGUI extends JFrame {
                     String user = usernameField.getText();
                     String pass = String.valueOf(passwordField.getPassword());
                     String secret_code = code.getText();
-                    boolean flag = UserController.register(user, "bug", secret_code, dat);
+                    String email = emailField.getText();
+                    boolean flag = UserController.register(user, secret_code, dat, pass, email);
                     if (flag){
                         JOptionPane.showMessageDialog(null, "Registration successful");
                         dispose();
