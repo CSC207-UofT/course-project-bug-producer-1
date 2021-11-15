@@ -1,4 +1,4 @@
-package java.user;
+package test.java.user;
 
 import main.java.user.Database;
 import org.junit.Assert;

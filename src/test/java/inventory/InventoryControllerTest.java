@@ -1,4 +1,4 @@
-package java.inventory;
+package test.java.inventory;
 
 public class InventoryControllerTest {
 }

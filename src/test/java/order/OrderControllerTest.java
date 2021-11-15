@@ -1,4 +1,4 @@
-package java.order;
+package test.java.order;
 
 public class OrderControllerTest {
 }
