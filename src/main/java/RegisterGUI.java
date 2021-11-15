@@ -3,42 +3,36 @@ package main.java;
 import javax.swing.*;
 import java.awt.*;
 
-
-public class LoginGUI extends JFrame {
+public class RegisterGUI extends JFrame {
     private final Container container = getContentPane();
     private final JLabel userLabel = new JLabel("Username: ");
     private final JTextField usernameField = new JTextField();
     private final JLabel pwdLabel = new JLabel("Password: ");
     private final JPasswordField passwordField = new JPasswordField();
-    private final JButton loginButton = new JButton("Login");
-    private final JButton clearButton = new JButton("Clear");
-    private static String username = "";
+    private final JLabel emailLabel = new JLabel("Email: ");
+    private final JTextField emailField = new JTextField();
     private final JButton regButton = new JButton("Register");
+    private final JButton clearButton = new JButton("Clear");
+    private final JTextField code = new JTextField();
+    private final JLabel codeLabel = new JLabel("Secret code: ");
 
     /**
      * Class constructor
-     * Creates a new Login GUI window.
+     * Creates a new Register window inside the main program GUI window.
      * This method does not have any return type.
      */
-    public LoginGUI(){
-        setTitle("Bug-Producer Login Window");
-        setBounds(600, 200, 400, 200);
+    public RegisterGUI(){
+        setTitle("User Register");
+        setBounds(600, 300, 400, 300);
         container.setLayout(new BorderLayout());
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         init();
         setVisible(true);
     }
 
-    /**
-     * Returns the username of the user who is currently using this software.
-     * @return the username of the User
-     */
-    public static String getUsername(){
-        return username;
-    }
 
     /**
-     * Initialize the program
+     * Initialize the program window
      * This method does not have any return type.
      *
      */
@@ -48,23 +42,31 @@ public class LoginGUI extends JFrame {
         fieldPanel.setLayout(null);
         userLabel.setBounds(50, 20, 80, 20);
         pwdLabel.setBounds(50, 60, 80, 20);
+        emailLabel.setBounds(50, 100, 80, 20);
+        codeLabel.setBounds(50, 140, 80, 20);
         usernameField.setBounds(130, 20, 160, 20);
         passwordField.setBounds(130, 60, 160, 20);
+        emailField.setBounds(130, 100, 160, 20);
+        code.setBounds(130, 140, 160, 20);
         fieldPanel.add(userLabel);
         fieldPanel.add(pwdLabel);
         fieldPanel.add(usernameField);
         fieldPanel.add(passwordField);
+        fieldPanel.add(emailField);
+        fieldPanel.add(emailLabel);
+        fieldPanel.add(code);
+        fieldPanel.add(codeLabel);
         container.add(fieldPanel, "Center");
 
         // ButtonPanel
         JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(new FlowLayout());
-        buttonPanel.add(loginButton);
-        buttonPanel.add(clearButton);
         buttonPanel.add(regButton);
+        buttonPanel.add(clearButton);
         container.add(buttonPanel, "South");
         listener();
     }
+
 
     /**
      * Class which contains the listener function allow the program to react according to the activities.
@@ -72,28 +74,10 @@ public class LoginGUI extends JFrame {
      * This method does not have any return value.
      */
     private void listener(){
-        loginButton.addActionListener(
-                e -> {
-                    username = usernameField.getText();
-                    String password = String.valueOf(passwordField.getPassword());
-                    if (null == username
-                            || username.trim().length() == 0
-                            || password.trim().length() == 0){
-                        JOptionPane.showMessageDialog(null, "Username or Password cannot be empty!");
-                    }
-
-                    else if ("root".equals(username) && "admin".equals(password)){
-                        JOptionPane.showMessageDialog(null, "Login Success!");
-                        new MainGUI();
-                        dispose();
-                    }else{
-                        JOptionPane.showMessageDialog(null, "Incorrect Credentials!");
-                    }
-                }
-        );
         regButton.addActionListener(
                 e -> {
-                    new RegisterGUI();
+                    JOptionPane.showMessageDialog(null, "Registration successful");
+                    dispose();
                 }
         );
 
@@ -105,3 +89,6 @@ public class LoginGUI extends JFrame {
         );
     }
 }
+
+
+

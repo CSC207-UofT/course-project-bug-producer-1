@@ -2,22 +2,23 @@ package main.java;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class MainGUI extends JFrame{
-    private Container container = getContentPane();
-    private static JButton orderButton = new JButton("New order");
-    private static JButton hisButton = new JButton("Order history [WiP]");
-    private static JButton wlButton = new JButton("Wish list");
-    private static JButton msgButton = new JButton("Messages");
-    private static JButton exitButton = new JButton("Log out");
-    private final JPanel msgPanel = new MsgPanel();
+    private final Container container = getContentPane();
+    private final JButton orderButton = new JButton("New order");
+    private final JButton hisButton = new JButton("Order history [WiP]");
+    private final JButton wlButton = new JButton("Wish list");
+    private final JButton msgButton = new JButton("Messages");
+    private final JButton exitButton = new JButton("Log out");
     private final JPanel bkgPanel = new JPanel();
     private final JPanel wlPanel = new WishlistPanel();
     private final JPanel orderPanel = new NewOrderPanel();
-    private final JPanel hisPanel = new JPanel();
-
+    // --Commented out by Inspection (2021-11-04, 10:06 p.m.):private final JPanel hisPanel = new JPanel();
+    /**
+     * Class constructor
+     * Creates a new main program GUI window.
+     * This method does not have any return type.
+     */
     public MainGUI(){
         setTitle("Bug-Producer Inventory System");
         setBounds(600, 200, 1024, 768);
@@ -27,7 +28,11 @@ public class MainGUI extends JFrame{
         setVisible(true);
 
     }
-
+    /**
+     * Initialize the program
+     * This method does not have any return type.
+     *
+     */
     private void init(){
         // ButtonPanel
         JPanel buttonPanel = new JPanel();
@@ -67,10 +72,7 @@ public class MainGUI extends JFrame{
 
         msgButton.addActionListener(
                 e -> {
-                    bkgPanel.removeAll();
-                    bkgPanel.add(msgPanel);
-                    bkgPanel.repaint();
-                    bkgPanel.revalidate();
+                    new MailGUI();
                 }
         );
 
