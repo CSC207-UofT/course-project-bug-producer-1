@@ -1,5 +1,9 @@
 package main.java.user;
 
+/**
+ * This is a class that represents the entity Admin, which is a subclass of User.
+ */
+
 public class Admin extends User {
 
     /**
