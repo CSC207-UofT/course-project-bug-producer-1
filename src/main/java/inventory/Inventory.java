@@ -11,18 +11,16 @@ import java.util.HashMap;
 
 public class Inventory {
     private final int capacity;
-    private HashMap<Item, Integer> item_list = new HashMap<Item, Integer>();
-    private HashMap<Item, Integer> order_list = new HashMap<Item, Integer>();
+    public static final HashMap<Item, Integer> item_list = new HashMap<>();
+    private HashMap<Item, Integer> order_list = new HashMap<>();
     /**
     * this method is the initiator of the Inventory
     * Used to view the item_list and order_list in the inventory, and the capacity of the inventory
     * @param capacity the capacity of the inventory
-    * @param item_list show the item in the inventory
     * @param order_list show the order that the inventory need to be done
      */
-    public Inventory(int capacity, HashMap<Item, Integer> item_list, HashMap<Item, Integer> order_list){
+    public Inventory(int capacity, HashMap<Item, Integer> order_list){
         this.capacity = capacity;
-        this.item_list = item_list;
         this.order_list = order_list;
     }
 
@@ -30,8 +28,8 @@ public class Inventory {
      *this method is used to get the items in the inventory
      * @return return the list of the items in the inventory
      */
-    public HashMap<Item, Integer> get_item_list() {
-        return this.item_list;
+    public static HashMap<Item, Integer> get_item_list() {
+        return item_list;
     }
     /**
      *this method is used to get the order in the inventory
