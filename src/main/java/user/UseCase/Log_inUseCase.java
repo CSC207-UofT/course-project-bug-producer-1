@@ -12,7 +12,7 @@ public class Log_inUseCase {
      * @param user_name The name of the user. A String.
      * @param user_pwd  A string that represents the password of the user.
      * @param database The database that store the information of user's name and passwords etc.
-     * @return reture a boolean type result, if matches, return true, otherwise, return false.
+     * @return return a boolean type result, if matches, return true, otherwise, return false.
      */
 
     public static boolean log_in(String user_name, String user_pwd, Database database){

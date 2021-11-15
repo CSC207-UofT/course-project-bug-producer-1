@@ -34,10 +34,10 @@ public class MessageController {
      * @return return a message String that generated for customers.
      */
 
-    public String generate_message_for_customer(Order order) {
-        return SendMessageUseCase.generate_message_for_customer(this.order);
-
-    }
+//    public String generate_message_for_customer(Order order) {
+//        return SendMessageUseCase.generate_message_for_customer(this.order);
+//
+//    }
 
 
     /**
@@ -46,9 +46,9 @@ public class MessageController {
      * @return return a message String that generated for admins.
      */
 
-    public String generate_message_for_admin(Order order) {
-        return SendMessageUseCase.generate_message_for_admin(order);
-    }
+//    public String generate_message_for_admin(Order order) {
+//        return SendMessageUseCase.generate_message_for_admin(order);
+//    }
 
 
     /**
@@ -56,11 +56,10 @@ public class MessageController {
      * @param user_input The user's input, which is used as the content of th email.
      * @param senderAccount The email address of the sender.
      * @param receiverAccount The email address of the receiver.
-     * @param senderPassword The password of the sender account, which is used for the access permission of the application.
      */
 
-    public void send_chat_message_mail(String user_input, String senderAccount,
-                                       String receiverAccount, String senderPassword) throws Exception {
-        SendChatMessageUseCase.sendChatMessage_mail(user_input, senderAccount, receiverAccount, senderPassword);
+    public static void send_chat_message_mail(String user_input, String senderAccount,
+                                       String receiverAccount){
+//        SendChatMessageUseCase.sendChatMessage_mail(user_input, senderAccount, receiverAccount);
     }
 }

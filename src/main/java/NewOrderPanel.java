@@ -41,7 +41,7 @@ public class NewOrderPanel extends JPanel {
                     Date date = new Date();
                     System.out.println(date);
                     String customer_id = LoginGUI.getUsername();
-                    OrderController.generate_order(date, name, customer_id);
+//                    OrderController.generate_order_customer(date, name, customer_id);
                     JOptionPane.showMessageDialog(null, "New Order Created! [WiP]");
                     String message_to_show = "Order Time: " + date + '\n' + "Customer ID: " + customer_id + '\n' +
                             "Item_name: " + name + '\n' + "Order ID: " + "000";

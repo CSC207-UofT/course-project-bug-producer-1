@@ -1,5 +1,4 @@
-
-package java.order;
+package test.java.order;
 import main.java.item.*;
 import main.java.order.Order;
 import org.junit.*;
@@ -7,7 +6,7 @@ import static org.junit.Assert.*;
 import java.util.HashMap;
 import main.java.order.OrderGenerateUseCase;
 import java.util.Date;
-package test.java.order;
+
 
 public class OrderControllerTest {
     HashMap<Item, Integer> f;

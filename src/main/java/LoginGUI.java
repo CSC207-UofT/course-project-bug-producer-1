@@ -1,7 +1,12 @@
 package main.java;
 
+import main.java.user.Log_inUseCase;
+import main.java.user.UserController;
+
 import javax.swing.*;
 import java.awt.*;
+
+import static main.java.GUI.dat;
 
 /**
  * This class is the login class for GUI which handles
@@ -89,15 +94,14 @@ public class LoginGUI extends JFrame {
     private void listener(){
         loginButton.addActionListener(
                 e -> {
-                    username = usernameField.getText();
-                    String password = String.valueOf(passwordField.getPassword());
-                    if (null == username
-                            || username.trim().length() == 0
-                            || password.trim().length() == 0){
+                    String user = usernameField.getText();
+                    String pass = String.valueOf(passwordField.getPassword());
+                    if (null == user
+                            || user.trim().length() == 0
+                            || pass.trim().length() == 0){
                         JOptionPane.showMessageDialog(null, "Username or Password cannot be empty!");
                     }
-
-                    else if ("root".equals(username) && "admin".equals(password)){
+                    else if (UserController.log_in(user, pass, dat)){
                         JOptionPane.showMessageDialog(null, "Login Success!");
                         new MainGUI();
                         dispose();
