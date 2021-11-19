@@ -5,6 +5,7 @@ import main.java.order.OrderController;
 import javax.swing.*;
 import java.awt.*;
 import java.util.Date;
+import java.util.HashMap;
 
 public class NewOrderPanel extends JPanel {
     private final JButton newOrderButton = new JButton("Place new order");
