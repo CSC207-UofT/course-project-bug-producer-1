@@ -1,5 +1,4 @@
-package main.java.message;
-
+package main.java.message.UseCase;
 import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
@@ -13,7 +12,7 @@ import java.util.Properties;
  * @author GEN LI (Reagan)
  */
 
-public class SendChatMessageUseCase {
+public class SendMailUseCase {
 
 //    public static String senderAccount = "bugproducer207@gmail.com";
 //    public static String senderPassword = "Bugproducer123";
@@ -50,7 +49,7 @@ public class SendChatMessageUseCase {
      * @param senderPassword The password of the sender account, which is used for the access permission of the application.
      */
 
-    public static void sendChatMessage_mail(String user_input, String senderAccount, String receiverAccount, String senderPassword) throws Exception {
+    public static void send_mail(String user_input, String senderAccount, String receiverAccount, String senderPassword) throws Exception {
         Properties props = new Properties();
         props.setProperty("mail.transport.protocol", "smtp");
         props.setProperty("mail.smtp.host", SMTPHost);
