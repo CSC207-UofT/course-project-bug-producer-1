@@ -12,7 +12,7 @@ import java.util.Properties;
  * @author GEN LI (Reagan)
  */
 
-public class SendMailUseCase {
+public class SendMailUseCase_Admin {
 
 //    public static String senderAccount = "bugproducer207@gmail.com";
 //    public static String senderPassword = "Bugproducer123";
@@ -31,9 +31,9 @@ public class SendMailUseCase {
 
     public static MimeMessage createMail(Session session_R, String senderMail, String receiverMail, String user_input) throws Exception {
         MimeMessage message_R = new MimeMessage(session_R);
-        message_R.setFrom(new InternetAddress(senderMail, "bugproducer", "UTF-8"));
-        message_R.setRecipient(MimeMessage.RecipientType.TO, new InternetAddress(receiverMail, "reagan.li8589", "UTF-8"));
-        message_R.setSubject("Chat Message", "UTF-8");
+        message_R.setFrom(new InternetAddress(senderMail, "Bugproducer", "UTF-8"));
+        message_R.setRecipient(MimeMessage.RecipientType.TO, new InternetAddress(receiverMail, "Customer", "UTF-8"));
+        message_R.setSubject("Message from Admin", "UTF-8");
         message_R.setContent(user_input, "text/html;charset=UTF-8");
         message_R.setSentDate(new Date());
         message_R.saveChanges();
@@ -46,10 +46,9 @@ public class SendMailUseCase {
      * @param user_input The user's input, which is used as the content of th email.
      * @param senderAccount The email address of the sender.
      * @param receiverAccount The email address of the receiver.
-     * @param senderPassword The password of the sender account, which is used for the access permission of the application.
      */
 
-    public static void send_mail(String user_input, String senderAccount, String receiverAccount, String senderPassword) throws Exception {
+    public static void send_mail(String user_input, String senderAccount, String receiverAccount) throws Exception {
         Properties props = new Properties();
         props.setProperty("mail.transport.protocol", "smtp");
         props.setProperty("mail.smtp.host", SMTPHost);
@@ -68,7 +67,7 @@ public class SendMailUseCase {
         MimeMessage message = createMail(session, senderAccount, receiverAccount, user_input);
 
         Transport transport = session.getTransport();
-        transport.connect(senderAccount, senderPassword);
+        transport.connect(senderAccount, "Bugproducer123");
         transport.sendMessage(message, message.getAllRecipients());
         transport.close();
     }

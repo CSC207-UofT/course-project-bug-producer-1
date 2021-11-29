@@ -1,6 +1,8 @@
-package main.java.message;
+package main.java.message.UseCase;
 
 import main.java.item.Item;
+import main.java.message.MessageForAdmin;
+import main.java.message.MessageForCustomer;
 import main.java.order.Order;
 
 import java.util.Date;

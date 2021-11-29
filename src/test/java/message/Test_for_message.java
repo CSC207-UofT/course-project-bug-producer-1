@@ -3,7 +3,7 @@ package test.java.message;
 import main.java.item.Item;
 import main.java.item.Apple;
 import main.java.item.Beef;
-import main.java.message.SendMessageUseCase;
+import main.java.message.UseCase.SendMessageUseCase;
 import main.java.order.Order;
 import org.junit.Assert;
 import org.junit.Test;
