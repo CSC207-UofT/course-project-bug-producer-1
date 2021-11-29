@@ -13,6 +13,7 @@ public class WishlistPanel extends JPanel {
      * Creates a new wish list panel inside the main program GUI window.
      * This method does not have any return type.
      */
+
     public WishlistPanel(){
         JPanel orderPanel = new JPanel();
         orderPanel.setBackground(Color.DARK_GRAY);

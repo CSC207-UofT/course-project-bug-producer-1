@@ -2,6 +2,7 @@ package main.java;
 
 import javax.swing.*;
 import java.awt.*;
+
 /**
  * This class is the main class for GUI which handles
  * and represents other panels and connects to other GUIs
@@ -18,6 +19,7 @@ public class MainGUI extends JFrame{
     private final JPanel bkgPanel = new JPanel();
     private final JPanel wlPanel = new WishlistPanel();
     private final JPanel orderPanel = new NewOrderPanel();
+
     // --Commented out by Inspection (2021-11-04, 10:06 p.m.):private final JPanel hisPanel = new JPanel();
     /**
      * Class constructor
@@ -31,6 +33,7 @@ public class MainGUI extends JFrame{
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         init();
         setVisible(true);
+
 
     }
     /**

@@ -71,7 +71,6 @@ public class MailGUI extends JFrame {
                     String txt = textField.getText();
                     String send = senderField.getText();
                     String rec = receiveField.getText();
-
                     main.java.message.MessageController.send_chat_message_mail(txt, send, rec);
                     JOptionPane.showMessageDialog(null, "Email Sent!");
                     dispose();

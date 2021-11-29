@@ -1,11 +1,8 @@
 package main.java;
 
-import main.java.order.OrderController;
-
 import javax.swing.*;
 import java.awt.*;
 import java.util.Date;
-import java.util.HashMap;
 
 public class NewOrderPanel extends JPanel {
     private final JButton newOrderButton = new JButton("Place new order");
@@ -17,7 +14,11 @@ public class NewOrderPanel extends JPanel {
      * This method does not have any return type.
      */
     public NewOrderPanel(){
+
         JPanel orderPanel = new JPanel();
+        JComponent newContentPane = new NewOrderGUI();
+        newContentPane.setOpaque(true); //content panes must be opaque
+
         orderPanel.setBackground(Color.DARK_GRAY);
         orderPanel.setBounds(800, 600, 800, 600);
         OrderField.setBounds(130, 20, 160, 20);
