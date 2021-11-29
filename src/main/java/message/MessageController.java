@@ -69,7 +69,7 @@ public class MessageController {
      */
 
     public static void send_mail(String user_input, String senderAccount,
-                                 String receiverAccount) throws Exception {
+                                 String receiverAccount)  {
         if (Objects.equals(senderAccount, "bugproducer207@gmail.com")) {
             SendMailUseCase_Admin.send_mail(user_input, senderAccount, receiverAccount);
         } else {

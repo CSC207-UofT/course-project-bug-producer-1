@@ -29,15 +29,19 @@ public class SendMailUseCase_Customer {
      * @return message_R an email with needed information.
      */
 
-    public static MimeMessage createMail(Session session_R, String senderMail, String receiverMail, String user_input) throws Exception {
-        MimeMessage message_R = new MimeMessage(session_R);
+    public static MimeMessage createMail(Session session_R, String senderMail, String receiverMail, String user_input) {
+        try{MimeMessage message_R = new MimeMessage(session_R);
         message_R.setFrom(new InternetAddress(senderMail, "Customer", "UTF-8"));
         message_R.setRecipient(MimeMessage.RecipientType.TO, new InternetAddress(receiverMail, "Bugproducer", "UTF-8"));
         message_R.setSubject("Message from Customer", "UTF-8");
         message_R.setContent(user_input, "text/html;charset=UTF-8");
         message_R.setSentDate(new Date());
         message_R.saveChanges();
-        return message_R;
+        return message_R;}
+        catch(Exception ignored){
+            return new MimeMessage(session_R);
+        }
+
     }
 
 
@@ -48,8 +52,8 @@ public class SendMailUseCase_Customer {
      * @param receiverAccount The email address of the receiver.
      */
 
-    public static void send_mail(String user_input, String senderAccount, String receiverAccount) throws Exception {
-
+    public static void send_mail(String user_input, String senderAccount, String receiverAccount){
+        try{
         Properties props = new Properties();
         props.setProperty("mail.transport.protocol", "smtp");
         props.setProperty("mail.smtp.host", SMTPHost);
@@ -70,6 +74,7 @@ public class SendMailUseCase_Customer {
         Transport transport = session.getTransport();
         transport.connect(senderAccount, "Bugproducer123");
         transport.sendMessage(message, message.getAllRecipients());
-        transport.close();
+        transport.close();}
+        catch(Exception ignored){}
     }
 }
