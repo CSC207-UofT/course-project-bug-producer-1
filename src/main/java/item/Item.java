@@ -1,6 +1,4 @@
 package main.java.item;
-import main.java.order.Order;
-import main.java.inventory.Inventory;
 
 import java.util.HashMap;
 /**
@@ -10,16 +8,14 @@ import java.util.HashMap;
  */
 public class Item {
     private String name;
-    private int ID;
     private int capacity;
     private int quantity;
     /**
      * This method is the initiator of class Item.
      * It requires the name, ID, capacity and quantity of each item.
      */
-    public Item(String name, int ID, int capacity, int quantity){
+    public Item(String name, int capacity, int quantity){
         this.name = name;
-        this.ID = ID;
         this.capacity = capacity;
         this.quantity = quantity;
     }
