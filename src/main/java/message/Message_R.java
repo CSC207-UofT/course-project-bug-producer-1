@@ -1,6 +1,7 @@
 package main.java.message;
 
 import main.java.item.Item;
+import main.java.order.Order;
 
 import java.util.Date;
 import java.util.HashMap;
@@ -11,8 +12,11 @@ import java.util.HashMap;
  */
 
 public class Message_R {
-    protected Date message_date = new Date();
-    protected String content;
+    protected final HashMap<Item, Integer> item_list;
+    protected final Date order_date;
+    protected final String id;
+    protected final String status;
+    protected Date message_date;
 
     /**
      * This method is the initiator of the Message_R, which set the content of the message to null.
@@ -25,17 +29,33 @@ public class Message_R {
      * @param order_status The status of the order.
      */
 
-    public Message_R(HashMap<Item, Integer> item_list, Date order_date, String order_id, String order_status){
-        this.content = null;
+    public Message_R(Order order){
+        this.item_list = order.get_item_list();
+        this.order_date = order.get_date();
+        this.id = order.get_id();
+        this.status = order.get_status();
+        this.message_date = new Date();
+
+
     }
 
+    public HashMap<Item, Integer> get_item_list(){
+        return this.item_list;
+    }
 
-    /**
-     * It is a method that is needed by the subclasses, which provide the content of the message generated for users.
-     * @return it returns the content of the message.
-     */
+    public Date get_order_date(){
+        return this.order_date;
+    }
 
-    public String get_content(){
-        return this.content;
+    public String get_order_id(){
+        return this.id;
+    }
+
+    public String get_status(){
+        return this.status;
+    }
+
+    public Date get_message_date(){
+        return this.message_date;
     }
 }
