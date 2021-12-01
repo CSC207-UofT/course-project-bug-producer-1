@@ -8,20 +8,18 @@ import java.util.Properties;
 
 /**
  * This class is a UseCase class, which is used for sending email via the application.
- * The content of the email is the content typed by the User in the Chat panel.
+ * The content of the email is the content typed by the User in the sending email panel.
  * @author GEN LI (Reagan)
  */
 
 public class SendMailUseCase {
 
-//    public static String senderAccount = "bugproducer.customer@gmail.com";
-//    public static String senderPassword = "Bugproducer123";
-
     public static String SMTPHost = "smtp.gmail.com";
 
 
     /**
-     * This method is used for creating an email with sender and receiver.
+     * This method is used for creating an email with sender and receiver. Specifically the sender account for admin is
+     * "bugproducer.customer@gmail.com" and its password is "Bugproducer123". The receiver account is typed by the user.
      * @param session_R Session object for this email, which represents a mail session.
      * @param senderMail The email address of the sender.
      * @param receiverMail The email address of the receiver.
@@ -79,11 +77,9 @@ public class SendMailUseCase {
     }
 
 
-    //    public static String senderAccount = "bugproducer207@gmail.com";
-    //    public static String senderPassword = "Bugproducer123";
-
     /**
-     * This method is used for creating an email with sender and receiver.
+     * This method is used for creating an email with sender and receiver. Specifically the sender account for admin is
+     * "bugproducer207@gmail.com" and its password is "Bugproducer123". The receiver account is typed by the user.
      * @param session_R Session object for this email, which represents a mail session.
      * @param senderMail The email address of the sender.
      * @param receiverMail The email address of the receiver.
