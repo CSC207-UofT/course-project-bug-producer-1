@@ -1,7 +1,7 @@
 package main.java.message;
 
 
-import main.java.message.UseCase.ReceiveMailUseCase;
+
 import main.java.message.UseCase.SendMailUseCase_Admin;
 import main.java.message.UseCase.SendMailUseCase_Customer;
 import main.java.order.Order;
@@ -69,7 +69,7 @@ public class MessageController {
      */
 
     public static void send_mail(String user_input, String senderAccount,
-                                 String receiverAccount) throws Exception {
+                                 String receiverAccount)  {
         if (Objects.equals(senderAccount, "bugproducer207@gmail.com")) {
             SendMailUseCase_Admin.send_mail(user_input, senderAccount, receiverAccount);
         } else {
@@ -77,11 +77,4 @@ public class MessageController {
         }
     }
 
-    /**
-     * This is a method that pull all the emails from mail inbox.
-     * @param current_Account this is the acoount that the programmer is trying to pull emails from.
-     */
-    public static void receive_mail(String current_Account) throws Exception {
-        ReceiveMailUseCase.receive_email(current_Account, "Bugproducer123");
-    }
 }

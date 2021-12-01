@@ -3,6 +3,7 @@ import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import java.io.UnsupportedEncodingException;
 import java.util.Date;
 import java.util.Properties;
 
@@ -29,14 +30,16 @@ public class SendMailUseCase_Admin {
      * @return message_R an email with needed information.
      */
 
-    public static MimeMessage createMail(Session session_R, String senderMail, String receiverMail, String user_input) throws Exception {
+    public static MimeMessage createMail(Session session_R, String senderMail, String receiverMail, String user_input) {
         MimeMessage message_R = new MimeMessage(session_R);
+        try{
         message_R.setFrom(new InternetAddress(senderMail, "Bugproducer", "UTF-8"));
         message_R.setRecipient(MimeMessage.RecipientType.TO, new InternetAddress(receiverMail, "Customer", "UTF-8"));
         message_R.setSubject("Message from Admin", "UTF-8");
         message_R.setContent(user_input, "text/html;charset=UTF-8");
         message_R.setSentDate(new Date());
-        message_R.saveChanges();
+        message_R.saveChanges();}
+        catch(Exception ignored){}
         return message_R;
     }
 
@@ -48,8 +51,8 @@ public class SendMailUseCase_Admin {
      * @param receiverAccount The email address of the receiver.
      */
 
-    public static void send_mail(String user_input, String senderAccount, String receiverAccount) throws Exception {
-        Properties props = new Properties();
+    public static void send_mail(String user_input, String senderAccount, String receiverAccount)  {
+        try{Properties props = new Properties();
         props.setProperty("mail.transport.protocol", "smtp");
         props.setProperty("mail.smtp.host", SMTPHost);
         props.setProperty("mail.smtp.auth", "true");
@@ -69,6 +72,7 @@ public class SendMailUseCase_Admin {
         Transport transport = session.getTransport();
         transport.connect(senderAccount, "Bugproducer123");
         transport.sendMessage(message, message.getAllRecipients());
-        transport.close();
+        transport.close();}
+        catch(Exception ignored){}
     }
 }
