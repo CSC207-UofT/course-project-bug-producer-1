@@ -15,9 +15,8 @@ public class NewOrderPanel extends JPanel {
      */
     public NewOrderPanel(){
 
-        JPanel orderPanel = new JPanel();
-        JComponent newContentPane = new NewOrderGUI();
-        newContentPane.setOpaque(true); //content panes must be opaque
+        JPanel orderPanel = new NewOrderGUI();
+        orderPanel.setOpaque(true); //content panes must be opaque
 
         orderPanel.setBackground(Color.DARK_GRAY);
         orderPanel.setBounds(800, 600, 800, 600);
