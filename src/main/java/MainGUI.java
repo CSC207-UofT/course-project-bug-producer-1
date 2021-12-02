@@ -2,6 +2,7 @@ package main.java;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.Date;
 
 /**
  * This class is the main class for GUI which handles
@@ -16,11 +17,12 @@ public class MainGUI extends JFrame{
     private final JButton wlButton = new JButton("Wish list");
     private final JButton msgButton = new JButton("Messages");
     private final JButton exitButton = new JButton("Log out");
+    private final JPanel submitOrderPanel = new JPanel();
+    private final JButton submitOrderButton = new JButton("Submit Order");
     private final JPanel bkgPanel = new JPanel();
     private final JPanel wlPanel = new WishlistPanel();
-    private final JPanel orderPanel = new NewOrderPanel();
-
-    // --Commented out by Inspection (2021-11-04, 10:06 p.m.):private final JPanel hisPanel = new JPanel();
+    private final NewOrderGUI orderPanel = new NewOrderGUI();
+    private final JPanel hisPanel = new OrderHistoryGUI();
     /**
      * Class constructor
      * Creates a new main program GUI window.
@@ -51,16 +53,15 @@ public class MainGUI extends JFrame{
         buttonPanel.add(msgButton);
         buttonPanel.add(exitButton);
         container.add(buttonPanel, "North");
+        submitOrderPanel.add(submitOrderButton);
 
         // bkgPanel
         JLabel label = new JLabel();
-        bkgPanel.setLayout(new FlowLayout());
+        bkgPanel.setLayout(new GridLayout(0, 1));
         ImageIcon img = new ImageIcon("src/main/resources/bug.png");
         label.setIcon(img);
         bkgPanel.add(label);
         container.add(bkgPanel, "Center");
-
-
 
 
         listener();
@@ -95,8 +96,32 @@ public class MainGUI extends JFrame{
                 e -> {
                     bkgPanel.removeAll();
                     bkgPanel.add(orderPanel);
+                    bkgPanel.add(submitOrderPanel);
                     bkgPanel.repaint();
                     bkgPanel.revalidate();
+                }
+        );
+        hisButton.addActionListener(
+                e -> {
+                    bkgPanel.removeAll();
+                    bkgPanel.add(hisPanel);
+                    bkgPanel.repaint();
+                    bkgPanel.revalidate();
+                }
+        );
+        submitOrderButton.addActionListener(
+                e -> {
+                    String order = orderPanel.getOrder();
+                    System.out.println(order);
+                    Date date = new Date();
+                    System.out.println(date);
+                    String customer_id = LoginGUI.getUsername();
+//                    OrderController.generate_order_customer(date, name, customer_id);
+                    JOptionPane.showMessageDialog(null, "New Order Created! [WiP]");
+                    String message_to_show = "Order Time: " + date + '\n' + "Customer ID: " + customer_id + '\n' +
+                            "Item_name: " + order + '\n' + "Order ID: " + "000";
+                    JOptionPane.showMessageDialog(null, message_to_show);
+
                 }
         );
     }
