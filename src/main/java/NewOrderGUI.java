@@ -113,7 +113,7 @@ public class NewOrderGUI extends JPanel
 
             int size = listModel.getSize();
 
-            if (size == 0) { //Nobody's left, disable firing.
+            if (size == 0) { //Nobody's left, disable remove.
                 removeButton.setEnabled(false);
 
             } else { //Select an index.
@@ -238,8 +238,8 @@ public class NewOrderGUI extends JPanel
         if(!e.getValueIsAdjusting()) itemlist.setCellRenderer(new Renderer());
         if (!e.getValueIsAdjusting()) {
 
-            //No selection, disable fire button.
-            //Selection, enable the fire button.
+            //No selection, disable remove button.
+            //Selection, enable the remove button.
             removeButton.setEnabled(itemlist.getSelectedIndex() != -1);
         }
     }

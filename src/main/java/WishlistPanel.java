@@ -34,7 +34,6 @@ public class WishlistPanel extends JPanel {
                 e -> {
                     System.out.println(ItemField.getText());
                     JOptionPane.showMessageDialog(null, "New item added to the wish list! [WiP]");
-
                 }
         );
 

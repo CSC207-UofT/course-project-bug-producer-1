@@ -13,5 +13,6 @@ public class OrderDetailGUI extends JFrame {
         container.setLayout(new BorderLayout());
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setVisible(true);
+
     }
 }
