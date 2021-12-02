@@ -27,7 +27,7 @@ public class NewOrderGUI extends JPanel
         this.order = "";
 
         listModel = new DefaultListModel<>();
-        listModel.addElement("Customer Promo | 1");
+
 
         //Create the itemlist and put it in a scroll pane.
         itemlist = new JList<>(listModel);
@@ -112,6 +112,7 @@ public class NewOrderGUI extends JPanel
             listModel.remove(index);
 
             int size = listModel.getSize();
+            order = listModel.toString();
 
             if (size == 0) { //Nobody's left, disable remove.
                 removeButton.setEnabled(false);
