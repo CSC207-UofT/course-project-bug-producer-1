@@ -35,8 +35,6 @@ public class MainGUI extends JFrame{
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         init();
         setVisible(true);
-
-
     }
     /**
      * Initialize the program

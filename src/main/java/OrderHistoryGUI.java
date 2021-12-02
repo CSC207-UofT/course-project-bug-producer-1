@@ -24,7 +24,7 @@ public class OrderHistoryGUI extends JPanel
         super(new BorderLayout());
 
         listModel = new DefaultListModel<>();
-        listModel.addElement("<html>Order ID: 001<br/>Order time: 2021/01/03<br/>Order items: 17</html>");
+
 
         //Create the itemlist and put it in a scroll pane.
         itemlist = new JList<>(listModel);
@@ -32,7 +32,7 @@ public class OrderHistoryGUI extends JPanel
         itemlist.setSelectedIndex(0);
         itemlist.addListSelectionListener(this);
         itemlist.setVisibleRowCount(10);
-        itemlist.setCellRenderer(new Renderer());
+
         JScrollPane listScrollPane = new JScrollPane(itemlist);
         listScrollPane.setPreferredSize(new Dimension(40, 400));
 
@@ -41,9 +41,12 @@ public class OrderHistoryGUI extends JPanel
         removeButton = new JButton(removeString);
         removeButton.setActionCommand(removeString);
         removeButton.addActionListener(new RemoveListener());
+        removeButton.setEnabled(false);
 
         selectButton = new JButton(selectString);
         selectButton.setActionCommand(selectString);
+        selectButton.setEnabled(false);
+
         listener();
 
         //Create a panel that uses BoxLayout.
@@ -63,6 +66,11 @@ public class OrderHistoryGUI extends JPanel
         add(lblPane, BorderLayout.PAGE_START);
         add(listScrollPane, BorderLayout.CENTER);
         add(buttonPane, BorderLayout.PAGE_END);
+        listModel.addElement("<html>Order ID: 001<br/>Order time: 2021/01/03<br/>Order items: 17</html>");
+        listModel.addElement("<html>Order ID: 001<br/>Order time: 2021/01/03<br/>Order items: 17</html>");
+
+        itemlist.setCellRenderer(new Renderer());
+
 
 
     }
@@ -71,6 +79,13 @@ public class OrderHistoryGUI extends JPanel
     private void listener(){
         selectButton.addActionListener(
                 e -> {
+                    int size = listModel.getSize();
+                    if (size == 0) { //Nobody's left, disable remove.
+                        selectButton.setEnabled(false);
+
+                    }else{
+                        selectButton.setEnabled(true);
+                    }
                     int index = itemlist.getSelectedIndex();
                     String order = listModel.get(index).substring(16, 18);
                     int order_id = Integer.parseInt(order);
@@ -89,7 +104,7 @@ public class OrderHistoryGUI extends JPanel
 
             int size = listModel.getSize();
 
-            if (size == 0) { //Nobody's left, disable firing.
+            if (size == 0) { //Nobody's left, disable remove.
                 removeButton.setEnabled(false);
 
             } else { //Select an index.
@@ -105,18 +120,13 @@ public class OrderHistoryGUI extends JPanel
     }
 
 
-    private String getOrderDetail(String html){
-        String txt = html.replaceAll("<br/>", ", ").replaceAll("<.*?>", "");
-        System.out.println(txt);
-        return txt;
-    }
-
     //This method is required by ListSelectionListener.
     public void valueChanged(ListSelectionEvent e) {
         if(!e.getValueIsAdjusting()) itemlist.setCellRenderer(new Renderer());
         if (!e.getValueIsAdjusting()) {
-            //Selection, enable the fire button.
+            //Selection, enable the remove button.
             removeButton.setEnabled(itemlist.getSelectedIndex() != -1);
+            selectButton.setEnabled(itemlist.getSelectedIndex() != -1);
         }
     }
 
