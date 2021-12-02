@@ -9,37 +9,33 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-//import static main.java.GUI.listModel;
-//
-//import static main.java.GUI.itemlist;
-
-
 
 public class NewOrderGUI extends JPanel
         implements ListSelectionListener {
 
-    public static DefaultListModel listModel;
-    public static JList itemlist;
+    public static DefaultListModel<String> listModel;
+    public static JList<String> itemlist;
     private static final String addString = "Add";
     private static final String removeString = "Remove";
-    private JButton removeButton;
-    private JTextField itemName;
-    private JTextField itemAmount;
+    private final JButton removeButton;
+    private final JTextField itemName;
+    private final JTextField itemAmount;
+    private String order;
 
     public NewOrderGUI() {
         super(new BorderLayout());
+        this.order = "";
 
-        listModel = new DefaultListModel();
-        itemlist = new JList(listModel);
-        listModel.addElement("Item | Item count");
-
+        listModel = new DefaultListModel<>();
+        listModel.addElement("Customer Promo | 1");
 
         //Create the itemlist and put it in a scroll pane.
-        itemlist = new JList(listModel);
+        itemlist = new JList<>(listModel);
         itemlist.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         itemlist.setSelectedIndex(0);
         itemlist.addListSelectionListener(this);
-        itemlist.setVisibleRowCount(5);
+        itemlist.setVisibleRowCount(10);
+        itemlist.setCellRenderer(new Renderer());
         JScrollPane listScrollPane = new JScrollPane(itemlist);
         
 
@@ -51,6 +47,7 @@ public class NewOrderGUI extends JPanel
 
         removeButton = new JButton(removeString);
         removeButton.setActionCommand(removeString);
+        removeButton.setEnabled(false);
         removeButton.addActionListener(new RemoveListener());
 
         itemName = new JTextField(10);
@@ -58,28 +55,52 @@ public class NewOrderGUI extends JPanel
         itemName.getDocument().addDocumentListener(AddListener);
 
         itemAmount = new JTextField(3);
-        String name = listModel.getElementAt(
-                itemlist.getSelectedIndex()).toString();
 
         //Create a panel that uses BoxLayout.
         JPanel buttonPane = new JPanel();
+
         buttonPane.setLayout(new BoxLayout(buttonPane,
                 BoxLayout.LINE_AXIS));
         buttonPane.add(removeButton);
         buttonPane.add(Box.createHorizontalStrut(5));
         buttonPane.add(new JSeparator(SwingConstants.VERTICAL));
         buttonPane.add(Box.createHorizontalStrut(5));
-        buttonPane.add(itemName);
+        buttonPane.add(new JLabel("Amount: "));
         buttonPane.add(itemAmount);
+
         itemName.setText("Item Name");
-        itemAmount.setText("1");
-        buttonPane.add(addButton);
+
         buttonPane.setBorder(BorderFactory.createEmptyBorder(5,5,5,5));
+
+
+        JPanel buttonPane1 = new JPanel();
+        buttonPane1.setLayout(new BoxLayout(buttonPane1,
+                BoxLayout.LINE_AXIS));
+        buttonPane1.add(addButton);
+        buttonPane1.add(Box.createHorizontalStrut(5));
+        buttonPane1.add(new JSeparator(SwingConstants.VERTICAL));
+        buttonPane1.add(Box.createHorizontalStrut(5));
+        buttonPane1.add(new JLabel("Item: "));
+        buttonPane1.add(itemName);
+
+        itemAmount.setText("1");
+        buttonPane1.setBorder(BorderFactory.createEmptyBorder(5,5,5,5));
+
         add(listScrollPane, BorderLayout.CENTER);
-        add(buttonPane, BorderLayout.PAGE_END);
+
+        JPanel ControlButtonPane = new JPanel();
+        ControlButtonPane.setLayout(new GridLayout(2, 1));
+
+        ControlButtonPane.add(buttonPane, BorderLayout.PAGE_END);
+        ControlButtonPane.add(buttonPane1, BorderLayout.PAGE_END);
+        add(ControlButtonPane, BorderLayout.PAGE_END);
 
 
 
+    }
+
+    public String getOrder() {
+        return this.order;
     }
 
     class RemoveListener implements ActionListener {
@@ -110,7 +131,7 @@ public class NewOrderGUI extends JPanel
     //This listener is shared by the text field and the Add button.
     class AddListener implements ActionListener, DocumentListener {
         private boolean alreadyEnabled = false;
-        private JButton button;
+        private final JButton button;
 
         public AddListener(JButton button) {
             this.button = button;
@@ -121,7 +142,7 @@ public class NewOrderGUI extends JPanel
             String name = itemName.getText();
             String num = itemAmount.getText();
             num = num.replaceFirst("^0+(?!$)", "");
-            //remove leading 0 inthe string
+            //remove leading 0 in the string
 
             //User didn't type in a unique name...
             if (name.equals("") || alreadyInList(name + " | " + num)) {
@@ -137,7 +158,6 @@ public class NewOrderGUI extends JPanel
                     return;
                 }
                 int number = Integer.parseInt(num);
-                System.out.println(number);
             }
             catch (NumberFormatException ex){
 
@@ -160,8 +180,8 @@ public class NewOrderGUI extends JPanel
             //If we just wanted to add to the end, we'd do this:
 
             listModel.addElement(name + " | " + num);
-            String str = listModel.toString();
-            System.out.println(str);
+
+            order = listModel.toString();
 
             //Reset the text field.
             itemName.requestFocusInWindow();
@@ -215,46 +235,38 @@ public class NewOrderGUI extends JPanel
 
     //This method is required by ListSelectionListener.
     public void valueChanged(ListSelectionEvent e) {
-        if (e.getValueIsAdjusting() == false) {
+        if(!e.getValueIsAdjusting()) itemlist.setCellRenderer(new Renderer());
+        if (!e.getValueIsAdjusting()) {
 
-            if (itemlist.getSelectedIndex() == -1) {
-                //No selection, disable fire button.
-                removeButton.setEnabled(false);
-
-            } else {
-                //Selection, enable the fire button.
-                removeButton.setEnabled(true);
-            }
+            //No selection, disable fire button.
+            //Selection, enable the fire button.
+            removeButton.setEnabled(itemlist.getSelectedIndex() != -1);
         }
     }
 
-    /**
-     * Create the GUI and show it.  For thread safety,
-     * this method should be invoked from the
-     * event-dispatching thread.
-     */
-    private static void createAndShowGUI() {
-        //Create and set up the window.
-        JFrame frame = new JFrame("NewOrderGUI");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//    /**
+//     * Create the GUI and show it.  For thread safety,
+//     * this method should be invoked from the
+//     * event-dispatching thread.
+//     */
+//    private static void createAndShowGUI() {
+//        //Create and set up the window.
+//        JFrame frame = new JFrame("NewOrderGUI");
+//        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//
+//        //Create and set up the content pane.
+//        JComponent newContentPane = new NewOrderGUI();
+//        newContentPane.setOpaque(true); //content panes must be opaque
+//        frame.setContentPane(newContentPane);
+//
+//        //Display the window.
+//        frame.pack();
+//        frame.setVisible(true);
+//    }
 
-        //Create and set up the content pane.
-        JComponent newContentPane = new NewOrderGUI();
-        newContentPane.setOpaque(true); //content panes must be opaque
-        frame.setContentPane(newContentPane);
-
-        //Display the window.
-        frame.pack();
-        frame.setVisible(true);
-    }
-
-    public static void main(String[] args) {
-        //Schedule a job for the event-dispatching thread:
-        //creating and showing this application's GUI.
-        javax.swing.SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                createAndShowGUI();
-            }
-        });
-    }
+//    public static void main(String[] args) {
+//        //Schedule a job for the event-dispatching thread:
+//        //creating and showing this application's GUI.
+//        javax.swing.SwingUtilities.invokeLater(NewOrderGUI::createAndShowGUI);
+//    }
 }
