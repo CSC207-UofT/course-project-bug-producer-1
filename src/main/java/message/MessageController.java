@@ -1,11 +1,12 @@
 package main.java.message;
 
-
+import main.java.message.UseCase.list_model_add_elementUseCase;
 
 import main.java.message.UseCase.SendMailUseCase;
 import main.java.order.Order;
 import main.java.message.UseCase.SendMessageUseCase;
 
+import javax.swing.*;
 import java.util.Objects;
 
 /**
@@ -16,6 +17,7 @@ import java.util.Objects;
  * This class accept the input of the users and control the action of the program, such as creating new entities.
  * @author GEN LI (Reagan)
  */
+
 
 
 public class MessageController {
@@ -32,6 +34,16 @@ public class MessageController {
     public Message_R create_message_R(Order order) {
         return SendMessageUseCase.create_message_R(order);
     }
+
+    /**
+     * This is a method that is used to create a new variable of DefaultListModel.
+     * @return this method returns a new variable of DefaultListModel.
+     */
+
+    public DefaultListModel<String> create_new_list_model(){
+        return new DefaultListModel<>();
+    }
+
 
     /**
      * This method sends the message typed by User via email to the receiver. The receiver is decided by the User.
