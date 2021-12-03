@@ -10,7 +10,7 @@ public class Database {
         String username = "user";
         String password = "password";
 
-        String csvFilePath = "Reviews-simple.csv";
+        String csvFilePath = "Itemname.csv";
 
         int batchSize = 20;
 
