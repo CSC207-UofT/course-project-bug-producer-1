@@ -48,7 +48,6 @@ public class Database {
 
             lineReader.close();
 
-            // execute the remaining queries
             statement.executeBatch();
 
             connection.commit();
