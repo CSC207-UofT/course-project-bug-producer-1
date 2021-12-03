@@ -21,12 +21,11 @@ public class Order {
      * This method is the constructor of the order, which instantiates a new Order object.
      * It is used to create an order of supplement.
      * @param item_list The list of items bought by the customer.
-     * @param date The date when the order placed.
      * @param status The status of the order.
      */
 
-    public Order(Date date,HashMap<Item, Integer> item_list,String status){
-        this.date = date;
+    public Order(HashMap<Item, Integer> item_list,String status){
+        this.date = new Date();
         this.item_list = item_list;
         this.OrderID = generate_order_number();
         this.status = status;
@@ -37,10 +36,9 @@ public class Order {
      * version of thr original constructor used to creat an order for output.
      *
      * @param item_list The list of items bought by the customer.
-     * @param date The date when the order placed.
      */
-    public Order(Date date,HashMap<Item, Integer> item_list){
-        this.date = date;
+    public Order(HashMap<Item, Integer> item_list){
+        this.date = new Date();
         this.item_list = item_list;
         this.OrderID = generate_order_number();
         this.status = "Order_out";
@@ -49,6 +47,10 @@ public class Order {
     /**
      * This method is used to get the date of order.
      */
+    public String getOrderDate(){
+        return this.date.toString();
+    }
+
     public Date get_date(){
         return this.date;
     }
@@ -72,6 +74,18 @@ public class Order {
      */
     public String get_status(){
         return this.status;
+    }
+
+    /**
+     *
+     * this method is used to return the total number of the order.
+     */
+    public String get_total_item() {
+        int i = 0;
+        for (int temp : item_list.values()) {
+            i += temp;
+        }
+        return String.valueOf(i);
     }
 
     /**
