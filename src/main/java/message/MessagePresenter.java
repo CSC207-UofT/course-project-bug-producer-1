@@ -46,27 +46,37 @@ public class MessagePresenter {
     /**
      * Return the data prepared for JList, which is used for scrolling the menu for customers to look browse.
      * @param listmodel a new DefaultListModel that will be processed (add element) in this method.
+     * @param order_history a parameter that represents the order history which will be shown in the UI.
      * @return return a DefaultListModel type variable that can be used by the UI to achieve the function of browsing.
      */
+
     public DefaultListModel<String> return_list_model(DefaultListModel<String> listmodel, ArrayList<String> order_history){
         for (String order : order_history){
             list_model_add_elementUseCase.add_element_to_list_model(listmodel, order);
         }
-
         return listmodel;
     }
 
+    /**
+     * Return the data prepared for JList, which is used for scrolling the menu for customers to look browse in order detail.
+     * @param listmodel a new DefaultListModel that will be processed (add element) in this method.
+     * @param order a parameter that represents the order that the method is working on.
+     * @return return a DefaultListModel type variable that can be used by the UI to achieve the function of browsing.
+     */
 
 
-    public DefaultListModel<String> return_list_model_orderdetail(DefaultListModel<String> listmodel, Order order){
+    public DefaultListModel<String> return_list_model_order_detail(DefaultListModel<String> listmodel, Order order){
         for (Map.Entry<Item, Integer> couple : order.get_item_list().entrySet()){
             list_model_add_elementUseCase.add_element_to_order_detail_list_model(listmodel, couple.getKey().getName(), couple.getValue());
         }
         return listmodel;
     }
+
+
     /**
      * This is a method that is used for showing the popup notification when the email sent by users successfully.
      */
+
     public void print_success_notification_email(){
         System.out.println("The email has been sent successfully! Thank you!");
     }

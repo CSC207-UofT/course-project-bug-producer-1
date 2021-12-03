@@ -1,7 +1,5 @@
 package main.java.message;
 
-import main.java.message.UseCase.list_model_add_elementUseCase;
-
 import main.java.message.UseCase.SendMailUseCase;
 import main.java.order.Order;
 import main.java.message.UseCase.SendMessageUseCase;
@@ -28,6 +26,7 @@ public class MessageController {
      * This method creates the message entity that will be used in the presenter of the message part.Which present the
      * messages shown in a popup way for Customer when he/she place an order. This method is responsible for creating
      * message_R entity.
+     * @param order this is the parameter that passed by the caller of this method, which represents an order placed by users.
      * @return Message_R type variable that contains the information needed by the message part from the order.
      */
 
