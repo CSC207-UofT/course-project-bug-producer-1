@@ -30,7 +30,7 @@ public class MessageController {
      * @return Message_R type variable that contains the information needed by the message part from the order.
      */
 
-    public Message_R create_message_R(Order order) {
+    public static Message_R create_message_R(Order order) {
         return SendMessageUseCase.create_message_R(order);
     }
 
