@@ -39,7 +39,7 @@ public class MessageController {
      * @return this method returns a new variable of DefaultListModel.
      */
 
-    public DefaultListModel<String> create_new_list_model(){
+    public static DefaultListModel<String> create_new_list_model(){
         return new DefaultListModel<>();
     }
 
