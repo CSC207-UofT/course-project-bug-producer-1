@@ -50,7 +50,7 @@ public class MessagePresenter {
      * @return return a DefaultListModel type variable that can be used by the UI to achieve the function of browsing.
      */
 
-    public DefaultListModel<String> return_list_model(DefaultListModel<String> listmodel, ArrayList<String> order_history){
+    public static DefaultListModel<String> return_list_model(DefaultListModel<String> listmodel, ArrayList<String> order_history){
         for (String order : order_history){
             list_model_add_elementUseCase.add_element_to_list_model(listmodel, order);
         }
@@ -65,7 +65,7 @@ public class MessagePresenter {
      */
 
 
-    public DefaultListModel<String> return_list_model_order_detail(DefaultListModel<String> listmodel, Order order){
+    public static DefaultListModel<String> return_list_model_order_detail(DefaultListModel<String> listmodel, Order order){
         for (Map.Entry<Item, Integer> couple : order.get_item_list().entrySet()){
             list_model_add_elementUseCase.add_element_to_order_detail_list_model(listmodel, couple.getKey().getName(), couple.getValue());
         }
@@ -78,7 +78,7 @@ public class MessagePresenter {
      * @return return a String whose content is "The email has been sent successfully! Thank you!"
      */
 
-    public String print_success_notification_email(){
+    public static String print_success_notification_email(){
         return "The email has been sent successfully! Thank you!";
     }
 }
