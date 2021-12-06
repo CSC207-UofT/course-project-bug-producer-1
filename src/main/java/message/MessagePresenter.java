@@ -1,8 +1,8 @@
-package main.java.message;
+package message;
 
-import main.java.item.Item;
-import main.java.message.UseCase.list_model_add_elementUseCase;
-import main.java.order.Order;
+import item.Item;
+import message.UseCase.list_model_add_elementUseCase;
+import order.Order;
 
 import javax.swing.*;
 import java.util.ArrayList;

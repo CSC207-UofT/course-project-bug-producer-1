@@ -1,6 +1,6 @@
-package main.java;
+package gui;
 
-import main.java.message.MessageController;
+import message.MessageController;
 
 import javax.swing.*;
 import java.awt.*;

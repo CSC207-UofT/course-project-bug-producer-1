@@ -1,4 +1,4 @@
-package main.java;
+package gui;
 
 public class Constant {
     public static String currentUsername = "";

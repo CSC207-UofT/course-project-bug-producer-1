@@ -1,6 +1,6 @@
-package main.java;
+package gui;
 
-import main.java.order.OrderGenerateUseCase;
+import order.OrderGenerateUseCase;
 
 import javax.swing.*;
 import java.awt.*;

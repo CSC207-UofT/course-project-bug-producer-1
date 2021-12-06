@@ -1,7 +1,7 @@
-package main.java;
 
+import gui.LoginGUI;
 
-public class GUI {
+public class App {
 
 
     /**

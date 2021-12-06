@@ -1,4 +1,4 @@
-package main.java;
+package gui;
 
 import javax.swing.*;
 import java.awt.*;
@@ -71,7 +71,7 @@ public class MailGUI extends JFrame {
                     String txt = textField.getText();
                     String send = senderField.getText();
                     String rec = receiveField.getText();
-                    main.java.message.MessageController.send_mail(txt, send, rec);
+                    message.MessageController.send_mail(txt, send, rec);
                     JOptionPane.showMessageDialog(null, "Email Sent!");
                     dispose();
                 }

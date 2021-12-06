@@ -1,4 +1,4 @@
-package main.java.user.UseCase;
+package user.UseCase;
 
 import java.io.*;
 import java.util.ArrayList;

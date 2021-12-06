@@ -1,6 +1,6 @@
-package test.java.item;
+package item;
 
-import main.java.item.Item;
+import item.Item;
 import org.junit.*;
 
 import static org.junit.Assert.*;

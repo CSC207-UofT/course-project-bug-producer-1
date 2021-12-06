@@ -1,5 +1,5 @@
-package main.java.inventory;
-import main.java.item.Item;
+package inventory;
+import item.Item;
 
 import java.util.HashMap;
 
@@ -38,7 +38,7 @@ public class InventoryController {
      * @return return a new hashmap of the inventory item after stock in
      */
     public HashMap<Item, Integer> generate_stock_in(HashMap<Item, Integer> item_list, int num_in, Item key_item){
-        return main.java.inventory.UseCase.InventoryStockinUseCase.stock_in(this.item_list, this.num_in, this.key_item);
+        return inventory.UseCase.InventoryStockinUseCase.stock_in(this.item_list, this.num_in, this.key_item);
     }
 
     /**
@@ -49,7 +49,7 @@ public class InventoryController {
      * @return return a new hashmap of the inventory item after stock out
      */
     public HashMap<Item, Integer> generate_stock_out(HashMap<Item, Integer> item_list, int num_out, Item key_item){
-        return main.java.inventory.UseCase.InventoryStockoutUseCase.stock_out(this.item_list, this.num_out, this.key_item);
+        return inventory.UseCase.InventoryStockoutUseCase.stock_out(this.item_list, this.num_out, this.key_item);
     }
 
     /**

@@ -1,4 +1,4 @@
-package main.java.order;
+package order;
 
 import java.io.*;
 import java.util.ArrayList;
