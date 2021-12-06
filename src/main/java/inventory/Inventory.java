@@ -6,7 +6,6 @@ import java.util.HashMap;
  * this class is a class of the inventory.
  * @author kurisu
  */
-
 public class Inventory {
     private HashMap<String, Integer> item_list;
 
