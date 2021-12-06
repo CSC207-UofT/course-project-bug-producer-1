@@ -6,6 +6,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
 
+import static gui.Constant.getImage;
+
 /**
  * This class is the main class for GUI which handles
  * and represents other panels and connects to other GUIs
@@ -33,6 +35,7 @@ public class MainGUI extends JFrame{
      * This method does not have any return type.
      */
     public MainGUI() throws IOException {
+        setIconImage(Constant.getImage("icon.png"));
         setTitle("Bug-Producer Inventory System");
         setBounds(600, 200, 1024, 768);
         container.setLayout(new BorderLayout());
@@ -61,7 +64,7 @@ public class MainGUI extends JFrame{
         // bkgPanel
         JLabel label = new JLabel();
         bkgPanel.setLayout(new GridLayout(0, 1));
-        ImageIcon img = new ImageIcon("src/main/resources/bug.png");
+        ImageIcon img = new ImageIcon(getImage("bug.png"));
         label.setIcon(img);
         bkgPanel.add(label);
         container.add(bkgPanel, "Center");

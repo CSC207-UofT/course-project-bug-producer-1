@@ -65,7 +65,7 @@ public class OrderGenerateUseCase {
         return order.get_total_item();
     }
 
-    public static Order find_order(String orderID) throws IOException {
+    public static Order find_order(String orderID){
         String tempo = file_writer.get_order_specific(orderID);
         String[] tempo_ary = tempo.split(" \\.");
         HashMap<Item, Integer> order_component = new HashMap<>();

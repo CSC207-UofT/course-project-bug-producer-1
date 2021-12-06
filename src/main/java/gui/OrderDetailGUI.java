@@ -14,7 +14,8 @@ public class OrderDetailGUI extends JFrame {
     public static DefaultListModel<String> listModel;
     public static JList<String> itemlist;
 
-    public OrderDetailGUI(String order_id) throws IOException {
+    public OrderDetailGUI(String order_id){
+        setIconImage(Constant.getImage("icon.png"));
         setTitle("Order Detail");
         setBounds(150, 200, 150, 150);
         Container container = getContentPane();

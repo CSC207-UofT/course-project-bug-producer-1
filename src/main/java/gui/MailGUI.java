@@ -26,6 +26,7 @@ public class MailGUI extends JFrame {
      */
 
     public MailGUI(){
+        setIconImage(Constant.getImage("icon.png"));
         setTitle("Send Email");
         setBounds(800, 600, 800, 600);
         container.setLayout(new BorderLayout());

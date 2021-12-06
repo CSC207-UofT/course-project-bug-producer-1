@@ -20,8 +20,13 @@ public class file_writer{
     public static void write_Order_history(Order order, String userID,String item) throws IOException {
         try {
             File csv = new File("order_database.csv");
+            if (!csv.exists()) {
+                boolean newFile = csv.createNewFile();
+            }
             BufferedWriter bw = new BufferedWriter(new FileWriter(csv, true));
+
             String values = userID+ "," +order.get_id()+ "," +order.getOrderDate()+ "," +order.get_total_item()+","+item;
+
             bw.write(values);
             bw.newLine();
             bw.close();
@@ -38,6 +43,9 @@ public class file_writer{
      */
     public static ArrayList<String[]> readOrder() throws IOException {
         File csv = new File("order_database.csv");
+        if (!csv.exists()) {
+            boolean newFile = csv.createNewFile();
+        }
         ArrayList<String[]> result = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader(csv))) {
             String s;
@@ -58,10 +66,20 @@ public class file_writer{
      * @return A list of lists with each list of 4 element inside outer list is order has username,order number
      * order_date and number of total item.
      */
-    public static ArrayList<String[]> readOrder(String userID) throws IOException {
+    public static ArrayList<String[]> readOrder(String userID){
         File csv = new File("order_database.csv");
         ArrayList<String[]> result = new ArrayList<>();
+        if (!csv.exists()) {
+            try {
+                boolean newFile = csv.createNewFile();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
         try (BufferedReader br = new BufferedReader(new FileReader(csv))) {
+            if (!csv.exists()) {
+                boolean newFile = csv.createNewFile();
+            }
             String s;
             // Reads it line by line
             while ((s = br.readLine()) != null) {
@@ -70,8 +88,7 @@ public class file_writer{
                     result.add(values);
                 }
             }
-        }
-        catch (FileNotFoundException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
         return result;
@@ -81,7 +98,7 @@ public class file_writer{
      * @return A list of lists with each list of 4 element inside outer list is order has username,order number
      * order_date and number of total item.
      */
-    public static String get_order_specific(String orderID) throws IOException {
+    public static String get_order_specific(String orderID){
         File csv = new File("order_database.csv");
         StringBuilder result = new StringBuilder();
         try (BufferedReader br = new BufferedReader(new FileReader(csv))) {
@@ -93,8 +110,7 @@ public class file_writer{
                     result.append(values[4]);
                 }
             }
-        }
-        catch (FileNotFoundException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
         return result.toString();
