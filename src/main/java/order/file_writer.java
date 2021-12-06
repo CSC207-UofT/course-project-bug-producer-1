@@ -41,7 +41,7 @@ public class file_writer{
      * order_date and number of total item.
      */
     public static ArrayList<String[]> readOrder() throws IOException {
-        File csv = new File("order_database.csv ");
+        File csv = new File("order_database.csv");
         ArrayList<String[]> result = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader(csv))) {
             String s;
@@ -63,7 +63,7 @@ public class file_writer{
      * order_date and number of total item.
      */
     public static ArrayList<String[]> readOrder(String userID) throws IOException {
-        File csv = new File("order_database.csv ");
+        File csv = new File("order_database.csv");
         ArrayList<String[]> result = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader(csv))) {
             String s;
@@ -82,7 +82,7 @@ public class file_writer{
     }
 
     public static void delete(String orderID) throws IOException, CsvException {
-        File csv = new File("order_database.csv ");
+        File csv = new File("order_database.csv");
         CSVReader reader2 = new CSVReader(new FileReader(csv));
         List<String[]> allElements = reader2.readAll();
         int j = 0;
@@ -93,7 +93,7 @@ public class file_writer{
             }
         }
         allElements.remove(j);
-        FileWriter sw = new FileWriter("order_database.csv ");
+        FileWriter sw = new FileWriter("order_database.csv");
         CSVWriter writer = new CSVWriter(sw);
         writer.writeAll(allElements);
         writer.close();
