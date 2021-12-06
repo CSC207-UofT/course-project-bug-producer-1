@@ -120,6 +120,8 @@ public class RegisterGUI extends JFrame {
                 e -> {
                     usernameField.setText("");
                     passwordField.setText("");
+                    emailField.setText("");
+                    code.setText("");
                 }
         );
     }
