@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 
 
-public abstract class UserReadWriter implements ReadWriter {
+public class UserReadWriter {
     /**
      * Writes the users to file at filePath.
      * @param name A string representing username
@@ -21,8 +21,8 @@ public abstract class UserReadWriter implements ReadWriter {
 
             String values = name + "," + user_email + "," + pwd + "," + type;
 
-            bw.write(values);
             bw.newLine();
+            bw.write(values);
 
             bw.close();
         }
@@ -33,12 +33,10 @@ public abstract class UserReadWriter implements ReadWriter {
 
     /**
      * Store the users to file at filePath.
-     * @return User
+     * @return A list of user
      */
-
     public static ArrayList<String[]> readUsers() throws IOException {
-
-        File csv = new File("userdatabase.csv");
+        File csv = new File("/Users/elvashen/IdeaProjects/course-project-bug-producer-1/userdatabase.csv ");
         ArrayList<String[]> result = new ArrayList<String[]>();
         try (BufferedReader br = new BufferedReader(new FileReader(csv))) {
             String s;

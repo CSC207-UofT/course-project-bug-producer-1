@@ -1,7 +1,5 @@
 package main.java.user;
 
-import main.java.item.Item;
-
 
 public class Customer extends User {
 

@@ -1,8 +1,11 @@
 package main.java;
 
+import main.java.order.Order;
+import main.java.order.OrderGenerateUseCase;
+
 import javax.swing.*;
 import java.awt.*;
-import java.util.Date;
+import java.io.IOException;
 
 /**
  * This class is the main class for GUI which handles
@@ -10,6 +13,7 @@ import java.util.Date;
  *
  * @author Yuehao Huang
  */
+@SuppressWarnings("CanBeFinal")
 public class MainGUI extends JFrame{
     private final Container container = getContentPane();
     private final JButton orderButton = new JButton("New order");
@@ -23,12 +27,15 @@ public class MainGUI extends JFrame{
     private final JPanel wlPanel = new WishlistPanel();
     private final NewOrderGUI orderPanel = new NewOrderGUI();
     private final JPanel hisPanel = new OrderHistoryGUI();
+    private static Order order = null;
+    private static String user = Constant.getCurrUsername();
+
     /**
      * Class constructor
      * Creates a new main program GUI window.
      * This method does not have any return type.
      */
-    public MainGUI(){
+    public MainGUI() throws IOException {
         setTitle("Bug-Producer Inventory System");
         setBounds(600, 200, 1024, 768);
         container.setLayout(new BorderLayout());
@@ -42,6 +49,7 @@ public class MainGUI extends JFrame{
      *
      */
     private void init(){
+
         // ButtonPanel
         JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(new FlowLayout());
@@ -65,6 +73,9 @@ public class MainGUI extends JFrame{
         listener();
 
 
+    }
+    public static Order getOrder(){
+        return order;
     }
 
     private void listener(){
@@ -109,21 +120,20 @@ public class MainGUI extends JFrame{
         );
         submitOrderButton.addActionListener(
                 e -> {
-                    String order = orderPanel.getOrder();
-                    System.out.println(order);
-                    Date date = new Date();
-                    System.out.println(date);
-                    String customer_id = LoginGUI.getUsername();
-//                    OrderController.generate_order_customer(date, name, customer_id);
-                    JOptionPane.showMessageDialog(null, "New Order Created! [WiP]");
-                    String message_to_show = "Order Time: " + date + '\n' + "Customer ID: " + customer_id + '\n' +
-                            "Item_name: " + order + '\n' + "Order ID: " + "000";
-                    JOptionPane.showMessageDialog(null, message_to_show);
+                    String ordername = orderPanel.getOrder();
+                    System.out.println(ordername);
+                    try {
+                        order = OrderGenerateUseCase.Generate_order_in_GUI(ordername, user);
+                    } catch (IOException ex) {
+                        ex.printStackTrace();
+                    }
+                    JOptionPane.showMessageDialog(null, "Order submitted!");
+
 
                 }
         );
     }
-    public static void main(String[] args){
+    public static void main(String[] args) throws IOException {
         new MainGUI();
     }
 

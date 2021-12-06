@@ -1,6 +1,5 @@
 package main.java.item;
 
-import java.util.HashMap;
 /**
  * This class is an entity class for items in inverntory . It is a parent class and subclasses are
  * Apple, Banana, Beef and so on.
