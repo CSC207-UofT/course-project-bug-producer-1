@@ -3,7 +3,6 @@ package gui;
 import message.MessagePresenter;
 
 import javax.swing.*;
-import javax.swing.Renderer;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import java.awt.*;

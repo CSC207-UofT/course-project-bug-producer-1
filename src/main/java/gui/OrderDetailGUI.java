@@ -8,7 +8,6 @@ import static order.order_history_controller.find_order;
 
 import javax.swing.*;
 import java.awt.*;
-import java.io.IOException;
 
 public class OrderDetailGUI extends JFrame {
     public static DefaultListModel<String> listModel;

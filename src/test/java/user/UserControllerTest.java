@@ -5,9 +5,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
-import static user.UseCase.GetCurrentUser.getCurrentUser;
 import static user.UseCase.RegisterUseCase.register;
 import static user.UserController.log_in;
 
