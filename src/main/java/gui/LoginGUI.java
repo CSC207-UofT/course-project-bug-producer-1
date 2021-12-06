@@ -1,11 +1,11 @@
-package main.java;
+package gui;
 
-import main.java.user.UserController;
+import user.UserController;
 
 import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
-import main.java.Constant;
+
 
 
 /**

@@ -1,5 +1,5 @@
-package main.java.order;
-import main.java.item.Item;
+package order;
+import item.Item;
 
 import java.util.Date;
 import java.util.HashMap;

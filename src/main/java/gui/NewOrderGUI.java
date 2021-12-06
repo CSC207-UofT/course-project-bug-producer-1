@@ -1,4 +1,4 @@
-package main.java;
+package gui;
 
 import javax.swing.*;
 import javax.swing.event.DocumentEvent;
@@ -35,7 +35,7 @@ public class NewOrderGUI extends JPanel
         itemlist.setSelectedIndex(0);
         itemlist.addListSelectionListener(this);
         itemlist.setVisibleRowCount(10);
-        itemlist.setCellRenderer(new Renderer());
+        itemlist.setCellRenderer(new myRenderer());
         JScrollPane listScrollPane = new JScrollPane(itemlist);
         
 
@@ -241,7 +241,7 @@ public class NewOrderGUI extends JPanel
 
     //This method is required by ListSelectionListener.
     public void valueChanged(ListSelectionEvent e) {
-        if(!e.getValueIsAdjusting()) itemlist.setCellRenderer(new Renderer());
+        if(!e.getValueIsAdjusting()) itemlist.setCellRenderer(new myRenderer());
         if (!e.getValueIsAdjusting()) {
 
             //No selection, disable remove button.

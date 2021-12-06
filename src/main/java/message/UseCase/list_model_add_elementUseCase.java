@@ -1,4 +1,4 @@
-package main.java.message.UseCase;
+package message.UseCase;
 
 
 

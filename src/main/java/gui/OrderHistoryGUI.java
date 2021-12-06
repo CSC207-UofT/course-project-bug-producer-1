@@ -1,15 +1,16 @@
-package main.java;
+package gui;
 
-import main.java.message.MessagePresenter;
+import message.MessagePresenter;
 
 import javax.swing.*;
+import javax.swing.Renderer;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import java.awt.*;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import static main.java.order.order_history_controller.get_order_history_for_user;
+import static order.order_history_controller.get_order_history_for_user;
 
 
 public class OrderHistoryGUI extends JPanel
@@ -75,7 +76,7 @@ public class OrderHistoryGUI extends JPanel
 
 
 
-        itemlist.setCellRenderer(new Renderer());
+        itemlist.setCellRenderer(new myRenderer());
 
 
 
@@ -114,7 +115,7 @@ public class OrderHistoryGUI extends JPanel
 
     //This method is required by ListSelectionListener.
     public void valueChanged(ListSelectionEvent e) {
-        if(!e.getValueIsAdjusting()) itemlist.setCellRenderer(new Renderer());
+        if(!e.getValueIsAdjusting()) itemlist.setCellRenderer(new myRenderer());
 
     }
 

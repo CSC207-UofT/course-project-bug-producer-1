@@ -1,4 +1,4 @@
-package main.java.order;
+package order;
 
 import java.io.IOException;
 import java.util.ArrayList;

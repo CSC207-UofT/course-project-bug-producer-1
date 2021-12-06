@@ -1,7 +1,7 @@
-package main.java.message;
+package message;
 
-import main.java.item.Item;
-import main.java.order.Order;
+import item.Item;
+import order.Order;
 
 import java.util.Date;
 import java.util.HashMap;

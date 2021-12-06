@@ -1,6 +1,6 @@
-package main.java.order;
+package order;
 
-import main.java.item.*;
+import item.*;
 
 import java.io.IOException;
 import java.util.*;

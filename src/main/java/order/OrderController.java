@@ -1,10 +1,10 @@
-package main.java.order;
+package order;
 
-import main.java.item.Item;
+import item.Item;
 
 import java.io.IOException;
 import java.util.HashMap;
-import main.java.order.OrderGenerateUseCase;
+import order.OrderGenerateUseCase;
 
 /**
  * This class is a controller class to create order and sent orders to inventory to handle.

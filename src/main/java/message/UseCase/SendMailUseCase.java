@@ -1,4 +1,4 @@
-package main.java.message.UseCase;
+package message.UseCase;
 import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;

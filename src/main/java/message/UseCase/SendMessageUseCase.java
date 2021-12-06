@@ -1,8 +1,8 @@
-package main.java.message.UseCase;
+package message.UseCase;
 
 
-import main.java.message.Message_R;
-import main.java.order.Order;
+import message.Message_R;
+import order.Order;
 
 
 

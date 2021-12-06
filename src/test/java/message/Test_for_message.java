@@ -1,17 +1,17 @@
-package java.message;
+package message;
 
-import main.java.item.Item;
-import main.java.message.Message_R;
-import main.java.order.Order;
+import item.Item;
+import message.Message_R;
+import order.Order;
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.Date;
 import java.util.HashMap;
 
-import static main.java.message.MessagePresenter.print_out_message_for_Admin;
-import static main.java.message.MessagePresenter.print_out_message_for_customer;
-import static main.java.message.MessageController.create_message_R;
+import static message.MessagePresenter.print_out_message_for_Admin;
+import static message.MessagePresenter.print_out_message_for_customer;
+import static message.MessageController.create_message_R;
 
 public class Test_for_message {
 //    @Test

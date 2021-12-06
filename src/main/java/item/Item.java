@@ -1,4 +1,4 @@
-package main.java.item;
+package item;
 
 /**
  * This class is an entity class for items in inverntory . It is a parent class and subclasses are

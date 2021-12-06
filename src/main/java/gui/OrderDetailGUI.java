@@ -1,10 +1,10 @@
-package main.java;
+package gui;
 
-import main.java.message.MessageController;
-import main.java.message.MessagePresenter;
-import main.java.order.Order;
+import message.MessageController;
+import message.MessagePresenter;
+import order.Order;
 
-import static main.java.order.order_history_controller.find_order;
+import static order.order_history_controller.find_order;
 
 import javax.swing.*;
 import java.awt.*;
