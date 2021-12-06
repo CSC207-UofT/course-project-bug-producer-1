@@ -1,69 +1,52 @@
-package net.codejava;
+package main.java.Database.Databasegateway;
 
 import java.io.*;
-import java.sql.*;
+import java.util.ArrayList;
 
-public class Database {
 
-    public static void main(String[] args) {
-        String jdbcURL = "jdbc:mysql://localhost:3306/sales";
-        String username = "user";
-        String password = "password";
 
-        String csvFilePath = "Itemname.csv";
+public class ItemReadWriter {
+    /**
+     * Writes the items to file at filePath.
+     * @param name A string representing the item name
+     * @param capacity An integer representing the item capacity
+     */
 
-        int batchSize = 20;
-
-        Connection connection = null;
-
+    public static void writeItems(String name, int capacity) throws IOException {
         try {
+            File csv = new File("itemname.csv");
+            BufferedWriter bw = new BufferedWriter(new FileWriter(csv, true));
 
-            connection = DriverManager.getConnection(jdbcURL, username, password);
-            connection.setAutoCommit(false);
+            String values = name + "," + capacity;
 
-            String sql = "INSERT INTO review (Itemname, capacity) VALUES (?, ?)";
-            PreparedStatement statement = connection.prepareStatement(sql);
+            bw.newLine();
+            bw.write(values);
 
-            BufferedReader lineReader = new BufferedReader(new FileReader(csvFilePath));
-            String lineText = null;
+            bw.close();
+        }
+        catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
 
-            int count = 0;
-
-            lineReader.readLine(); // skip header line
-
-            while ((lineText = lineReader.readLine()) != null) {
-                String[] data = lineText.split(",");
-                String itemname = data[0];
-                String capacity = data[1];
-
-                statement.setString(1, itemname);
-                statement.setString(2, capacity);
-
-                statement.addBatch();
-
-                if (count % batchSize == 0) {
-                    statement.executeBatch();
-                }
-            }
-
-            lineReader.close();
-
-            statement.executeBatch();
-
-            connection.commit();
-            connection.close();
-
-        } catch (IOException ex) {
-            System.err.println(ex);
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-
-            try {
-                connection.rollback();
-            } catch (SQLException e) {
-                e.printStackTrace();
+    /**
+     * Store the items to file at filePath.
+     * @return A list of items
+     */
+    public static ArrayList<String[]> readItems() throws IOException {
+        File csv = new File("itemname.csv ");
+        ArrayList<String[]> result = new ArrayList<String[]>();
+        try (BufferedReader br = new BufferedReader(new FileReader(csv))) {
+            String s;
+            // Reads it line by line
+            while ((s = br.readLine()) != null) {
+                String[] values = s.split(",");
+                result.add(values);
             }
         }
-
+        catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        return result;
     }
 }
