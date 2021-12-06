@@ -50,8 +50,8 @@ public class MessagePresenter {
      * @return return a DefaultListModel type variable that can be used by the UI to achieve the function of browsing.
      */
 
-    public static DefaultListModel<String> return_list_model(DefaultListModel<String> listmodel, ArrayList<String> order_history){
-        for (String order : order_history){
+    public static DefaultListModel<String> return_list_model(DefaultListModel<String> listmodel, ArrayList<String[]> order_history){
+        for (String[] order : order_history){
             list_model_add_elementUseCase.add_element_to_list_model(listmodel, order);
         }
         return listmodel;
