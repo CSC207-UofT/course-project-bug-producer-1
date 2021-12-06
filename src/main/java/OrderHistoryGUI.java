@@ -103,7 +103,9 @@ public class OrderHistoryGUI extends JPanel
         refreshButton.addActionListener(
                 e -> {
                     try {
-                        new OrderHistoryGUI();
+                        listModel.removeAllElements();
+                        ArrayList<String[]> orderHis = get_order_history_for_user(Constant.getCurrUsername());
+                        MessagePresenter.return_list_model(listModel, orderHis);
                     } catch (IOException ex) {
                         ex.printStackTrace();
                     }
