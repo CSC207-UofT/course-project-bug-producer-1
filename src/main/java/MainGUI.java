@@ -34,7 +34,7 @@ public class MainGUI extends JFrame{
      * Creates a new main program GUI window.
      * This method does not have any return type.
      */
-    public MainGUI(){
+    public MainGUI() throws IOException {
         setTitle("Bug-Producer Inventory System");
         setBounds(600, 200, 1024, 768);
         container.setLayout(new BorderLayout());
@@ -132,7 +132,7 @@ public class MainGUI extends JFrame{
                 }
         );
     }
-    public static void main(String[] args){
+    public static void main(String[] args) throws IOException {
         new MainGUI();
     }
 
