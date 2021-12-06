@@ -2,6 +2,7 @@ package main.java.Database.Databasegateway;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 
 
@@ -33,15 +34,17 @@ public class ItemReadWriter {
      * Store the items to file at filePath.
      * @return A list of items
      */
-    public static ArrayList<String[]> readItems() throws IOException {
+    public static HashMap<Item, Integer> readItems() throws IOException {
         File csv = new File("itemname.csv ");
-        ArrayList<String[]> result = new ArrayList<String[]>();
+        Hashmap<Item, Integer> result = new HashMap<>();
         try (BufferedReader br = new BufferedReader(new FileReader(csv))) {
             String s;
             // Reads it line by line
             while ((s = br.readLine()) != null) {
                 String[] values = s.split(",");
-                result.add(values);
+                for(String str: values) {
+                    result.put(str[0], str[1])
+                }
             }
         }
         catch (FileNotFoundException e) {
