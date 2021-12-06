@@ -1,10 +1,10 @@
-package main.java.inventory;
+package inventory;
+import inventory.UseCase.InventoryStockinUseCase;
+import inventory.UseCase.InventoryStockoutUseCase;
 import main.java.item.Item;
 import main.java.order.Order;
-
 import java.io.IOException;
 import java.util.HashMap;
-
 /**
  *this class is a controller class of the inventory used in the project
  *it controls the inventory stock in, stock out and generate report
@@ -13,6 +13,7 @@ import java.util.HashMap;
  */
 public class InventoryController {
     public Order order;
+
     /**
      * this method generates a hashmap of item when some item stock in
      *
@@ -21,9 +22,8 @@ public class InventoryController {
      * @return return a new hashmap of the inventory item after stock in
      */
     public HashMap<String, Integer> generate_stock_in(Order order, Inventory inventory) throws IOException {
-        return main.java.inventory.UseCase.InventoryStockinUseCase.stock_in(order, inventory);
+        return InventoryStockinUseCase.stock_in(order, inventory);
     }
-
     /**
      * this method generates a hashmap of item when some item stock out
      * @param order get the order list and the number of the item need stock out
@@ -31,6 +31,6 @@ public class InventoryController {
      * @return return a new hashmap of the inventory item after stock out
      */
     public HashMap<String, Integer> generate_stock_out(Order order, Inventory inventory) throws IOException {
-        return main.java.inventory.UseCase.InventoryStockoutUseCase.stock_out(order, inventory);
+        return InventoryStockoutUseCase.stock_out(order, inventory);
     }
 }
