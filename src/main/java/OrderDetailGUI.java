@@ -1,6 +1,7 @@
 package main.java;
 
 import main.java.message.MessageController;
+import main.java.message.MessagePresenter;
 
 import javax.swing.*;
 import java.awt.*;
@@ -16,7 +17,7 @@ public class OrderDetailGUI extends JFrame {
         container.setLayout(new BorderLayout());
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setVisible(true);
-
+//        MessagePresenter.return_list_model_order_detail(listModel, )
         JPanel labelPane = new JPanel();
         labelPane.setLayout(new FlowLayout());
         JLabel orderDetailLabel = new JLabel("Selected order detail");
