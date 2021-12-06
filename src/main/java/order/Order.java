@@ -17,7 +17,6 @@ public class Order {
     private final String OrderID;
     private final String status;
     private String userID;
-
     /**
      * This method is the constructor of the order, which instantiates a new Order object.
      * It is used to create an order of supplement.
@@ -47,12 +46,15 @@ public class Order {
     }
 
     /**
-     * This method is used to get the date of order.
+     * This method is used to get the date of string version of order.
      */
     public String getOrderDate(){
         return this.date.toString();
     }
 
+    /**
+     * This method is used to get the date of order.
+     */
     public Date get_date(){
         return this.date;
     }
@@ -77,9 +79,17 @@ public class Order {
     public String get_status(){
         return this.status;
     }
-
+    /**
+     * This method is used to get customer name for this order.
+     */
     public void update_customer(String input){
         this.userID = input;
+    }
+    /**
+     * This method is used to get customer name for this order.
+     */
+    public String get_username(){
+        return this.userID;
     }
     /**
      *
