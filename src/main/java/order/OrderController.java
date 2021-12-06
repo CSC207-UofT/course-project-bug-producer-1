@@ -30,13 +30,25 @@ public class OrderController {
     /**
      * this method is used to create an order for customer.
      */
-    public static Order generate_order_customer(Date date, HashMap<Item, Integer> item_list){
-        return OrderGenerateUseCase.Generate_order_customer(date, item_list);
+    public static Order generate_order_customer(HashMap<Item, Integer> item_list){
+        return OrderGenerateUseCase.Generate_order_customer(item_list);
     }
     /**
      * this method is used to create an order for customer.
      */
-    public static Order generate_order_stock(Date date, HashMap<Item, Integer> item_list){
-        return  OrderGenerateUseCase.Generate_order_in_stock(date, item_list);
+    public static Order generate_order_stock(HashMap<Item, Integer> item_list){
+        return  OrderGenerateUseCase.Generate_order_in_stock(item_list);
+    }
+
+    public static String getOrderID_con(Order order){
+        return OrderGenerateUseCase.getOrderID(order);
+    }
+
+    public static String getOrderDate_con(Order order){
+        return OrderGenerateUseCase.getOrderDate(order);
+    }
+
+    public static String get_total_item_con(Order order){
+        return OrderGenerateUseCase.get_total_item(order);
     }
 }
