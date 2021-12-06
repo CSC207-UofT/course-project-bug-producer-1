@@ -1,46 +1,32 @@
 package main.java.user.UseCase;
 
-import main.java.user.Database;
-import main.java.user.User;
+import java.io.IOException;
 
-import java.util.ArrayList;
-
-/**
- * A class used fot the register of users.
- */
 
 public class RegisterUseCase {
 
     /**
-     * Themethod is used to store the information of the user to register the user.
-     * @param username The name of the user
-     * @param user_input_secret_code The code entered by the user.
-     * @param database The database used to store the information.
-     * @param password Password of the user
-     * @param email email of the user
-     * @return return a boolean type result, if the user register successfully, return true, else, return false.
+     * Checks if given username is taken by any other user or not and adds a User object to the database,
+     *      * given the name, username and usertype
+     * @param name A string represents the username
+     * @param user_email A string represents the user's email
+     * @param pwd A string represents the user's password
+     * @param type A string represents the user's type
+     * @return boolean
      */
-    public static boolean register(String username, String user_input_secret_code, Database database, String password, String email) {
-        String secret_code = "bug";
-        if(secret_code.equals(user_input_secret_code)) {
-            ArrayList<String> info = new ArrayList<>();
-            info.add(email);
-            info.add(password);
-//            info.add(User.getId());
-            info.add("Admin");
-            database.database.put(username, info);
-            return true;
-        }
+    public static boolean register(String name, String user_email, String pwd, String type) throws IOException {
+        for (String[] registerUser : UserReadWriter.readUsers()) {
+            String username = registerUser[0];
 
-        else{
-            ArrayList<String> info = new ArrayList<>();
-            info.add(email);
-            info.add(password);
-//            info.add(User.getId());
-            info.add("Customer");
-            database.database.put(username, info);
-            return true;
-
+            if (name.equals(username)) {
+                return false;
+            }
+            else {
+                UserReadWriter.writeUsers(name, user_email, pwd, type);
+                return true;
+            }
         }
+        return false;
     }
 }
+
