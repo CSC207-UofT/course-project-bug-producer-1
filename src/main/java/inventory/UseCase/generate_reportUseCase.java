@@ -1,10 +1,10 @@
 package inventory.UseCase;
 
 import inventory.Inventory;
-import main.java.item.Item;
+
 
 import java.io.IOException;
-import java.util.HashMap;
+
 
 /**
  *this class is an usecase class of the inventory, it is used to give report of the item in the inventory
