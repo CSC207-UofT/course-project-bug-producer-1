@@ -1,11 +1,7 @@
 package main.java.order;
-import com.opencsv.CSVReader;
-import com.opencsv.CSVWriter;
-import com.opencsv.exceptions.CsvException;
 
 import java.io.*;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
 /**
@@ -80,22 +76,27 @@ public class file_writer{
         }
         return result;
     }
-
-    public static void delete(String orderID) throws IOException, CsvException {
+    /**
+     * this method produces order information for all orders having been created.
+     * @return A list of lists with each list of 4 element inside of outer list is order has username,order number
+     * order_date and number of total item.
+     */
+    public static String get_order_specific(String orderID) throws IOException {
         File csv = new File("order_database.csv");
-        CSVReader reader2 = new CSVReader(new FileReader(csv));
-        List<String[]> allElements = reader2.readAll();
-        int j = 0;
-        for(int i = 0; i < allElements.size(); i++){
-            if(Objects.equals(allElements.get(i)[1], orderID)){
-                j = i;
-                break;
+        StringBuilder result = new StringBuilder();
+        try (BufferedReader br = new BufferedReader(new FileReader(csv))) {
+            String s;
+            // Reads it line by line
+            while ((s = br.readLine()) != null) {
+                String[] values = s.split(",");
+                if (Objects.equals(values[1], orderID)) {
+                    result.append(values[4]);
+                }
             }
         }
-        allElements.remove(j);
-        FileWriter sw = new FileWriter("order_database.csv");
-        CSVWriter writer = new CSVWriter(sw);
-        writer.writeAll(allElements);
-        writer.close();
+        catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        return result.toString();
     }
 }

@@ -25,11 +25,11 @@ public class order_history_controller{
      * @return A list of lists with each list of 4 element inside of outer list is order has username,order number
      * order_date and number of total item.
      */
-    public ArrayList<String[]> get_order_history_all() throws IOException {
+    public static ArrayList<String[]> get_order_history_all() throws IOException {
         return file_writer.readOrder();
     }
 
-    public void Delete(String orderID) throws IOException, CsvException{
-        file_writer.delete(orderID);
+    public static Order find_order(String input) throws IOException {
+        return OrderGenerateUseCase.find_order(input);
     }
 }
