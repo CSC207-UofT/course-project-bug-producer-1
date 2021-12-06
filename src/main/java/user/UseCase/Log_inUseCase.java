@@ -19,6 +19,7 @@ public class Log_inUseCase {
             if (name.equals(username)) {
                 return password.equals(existPwd);
                 }
+            return false;
             }
         return false;
         }

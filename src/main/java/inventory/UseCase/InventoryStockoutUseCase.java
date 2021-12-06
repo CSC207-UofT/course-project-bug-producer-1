@@ -1,8 +1,12 @@
 package inventory.UseCase;
 
-import item.Item;
+import Database.ItemReadWriter;
+import inventory.Inventory;
+import order.Order;
 
+import java.io.IOException;
 import java.util.HashMap;
+import java.util.Objects;
 
 /**this class is an usecase class of the inventory
  * this class is uesed for stock out the item into the inventory
@@ -10,16 +14,25 @@ import java.util.HashMap;
  */
 public class InventoryStockoutUseCase {
     /**
-     * this method show how to stock in the item into the inventory
-     * @param item_list a hash map that contains the item and the number of each item
-     * @param num_out an int that show how much the item stock out
-     * @param key_item an item param that show the key in the item hashmap
+     * this method show how to stock out the item into the inventory
+     * @param order get the order list and the number of the item need stock out
+     * @param inventory get the item in the inventory
      * @return return a new hashmap of the inventory item after stock out
      */
-    public static HashMap<Item, Integer> stock_out(HashMap<Item, Integer> item_list, int num_out, Item key_item) {
-        int key_item_value = item_list.get(key_item);
-        int item_in_num = key_item_value - num_out;
-        item_list.putIfAbsent(key_item, item_in_num);
-        return item_list;
+    public static HashMap<String, Integer> stock_out(Order order, Inventory inventory) throws IOException {
+        HashMap<String,Integer> inventory_list = inventory.get_item();
+        HashMap<String,Integer> order_list = order.get_order_list();
+        for (String key_inventory: inventory_list.keySet()){
+            for (String key_order: order_list.keySet()){
+                if(Objects.equals(key_inventory, key_order)){
+                    if (inventory_list.get(key_inventory) > order_list.get(key_order)){
+                        inventory_list.computeIfPresent(key_inventory,(key, value) -> value-order_list.get(key_order));
+                    }
+                }
+                ItemReadWriter.writeItems(key_inventory,inventory_list.get(key_inventory));
+            }
+        }
+        return inventory_list;
     }
 }
+

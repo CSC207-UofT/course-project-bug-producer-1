@@ -14,7 +14,7 @@ import java.util.Properties;
 
 public class SendMailUseCase {
 
-    public static final String SMTPHost = "smtp.gmail.com";
+    public static String SMTPHost = "smtp.gmail.com";
 
 
     /**

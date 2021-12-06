@@ -15,7 +15,7 @@ public class Message_R {
     protected final Date order_date;
     protected final String id;
     protected final String status;
-    protected final Date message_date;
+    protected Date message_date;
 
     /**
      * This method is the initiator of the Message_R, which set the content of the message to null.

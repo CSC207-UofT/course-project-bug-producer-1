@@ -95,7 +95,7 @@ public class file_writer{
     }
     /**
      * this method produces order information for all orders having been created.
-     * @return A list of lists with each list of 4 element inside outer list is order has username,order number
+     * @return A list of lists with each list of 4 element inside of outer list is order has username,order number
      * order_date and number of total item.
      */
     public static String get_order_specific(String orderID){

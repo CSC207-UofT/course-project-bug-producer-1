@@ -1,5 +1,7 @@
 package inventory.UseCase;
 
+import inventory.Inventory;
+
 import item.Item;
 
 import java.util.HashMap;
