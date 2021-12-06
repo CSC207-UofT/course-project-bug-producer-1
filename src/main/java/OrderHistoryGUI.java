@@ -1,5 +1,8 @@
 package main.java;
 
+import main.java.message.MessagePresenter;
+import main.java.order.Order;
+
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
@@ -67,7 +70,8 @@ public class OrderHistoryGUI extends JPanel
         add(listScrollPane, BorderLayout.CENTER);
         add(buttonPane, BorderLayout.PAGE_END);
         listModel.addElement("<html>Order ID: 001<br/>Order time: 2021/01/03<br/>Order items: 17</html>");
-        listModel.addElement("<html>Order ID: 001<br/>Order time: 2021/01/03<br/>Order items: 17</html>");
+//        Order order = MainGUI.getOrder();
+//        String tp = MessagePresenter.return_list_model_order_detail(listModel, order);
 
         itemlist.setCellRenderer(new Renderer());
 
@@ -87,8 +91,7 @@ public class OrderHistoryGUI extends JPanel
                         selectButton.setEnabled(true);
                     }
                     int index = itemlist.getSelectedIndex();
-                    String order = listModel.get(index).substring(16, 18);
-                    int order_id = Integer.parseInt(order);
+                    String order_id = listModel.get(index).substring(16, 19);
                     new OrderDetailGUI(order_id);
                 }
         );
