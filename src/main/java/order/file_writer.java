@@ -3,6 +3,11 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Objects;
 
+/**
+ * This class is a gateway class of order for storing order information and extracting information.
+ * @author Hao li
+ */
+
 
 public class file_writer{
     /**
@@ -26,8 +31,9 @@ public class file_writer{
     }
 
     /**
-     * Store the users to file at filePath.
-     * @return A list of user
+     * this method produces order information for certain user.
+     * @return A list of lists with each list of 4 element inside of outer list is order has username,order number
+     * order_date and number of total item.
      */
     public static ArrayList<String[]> readOrder() throws IOException {
         File csv = new File("order_database.csv ");
@@ -46,6 +52,11 @@ public class file_writer{
         return result;
     }
 
+    /**
+     * this method produces order information for all orders having been created.
+     * @return A list of lists with each list of 4 element inside of outer list is order has username,order number
+     * order_date and number of total item.
+     */
     public static ArrayList<String[]> readOrder(String userID) throws IOException {
         File csv = new File("order_database.csv ");
         ArrayList<String[]> result = new ArrayList<>();

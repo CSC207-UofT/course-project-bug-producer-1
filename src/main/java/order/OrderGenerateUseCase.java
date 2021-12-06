@@ -44,15 +44,23 @@ public class OrderGenerateUseCase {
         file_writer.write_Order_history(rel,username);
         return rel;
     }
-
+    /**
+     * this method is used to get the id of an order.
+     */
     public static String getOrderID(Order order){
         return order.get_id();
     }
 
+    /**
+     * this method is used to get the date of an order.
+     */
     public static String getOrderDate(Order order){
         return order.getOrderDate();
     }
 
+    /**
+     * this method is used to get the total number of item(s) of an order.
+     */
     public static String get_total_item(Order order){
         return order.get_total_item();
     }
