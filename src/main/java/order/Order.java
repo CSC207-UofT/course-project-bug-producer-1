@@ -95,7 +95,7 @@ public class Order {
         StringBuilder str = new StringBuilder();
         Random random = new Random();
         for(int i = 0; i < 2; i++) {
-            str.append(random.nextInt(10));
+            str.append(random.nextInt(10000));
         }
         return str.toString();
     }

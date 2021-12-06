@@ -3,6 +3,8 @@ package main.java;
 
 import main.java.Database.Database;
 
+import java.io.File;
+
 public class GUI {
     /**
      * Class constructor

@@ -14,15 +14,19 @@ public class UserReadWriter {
      * @param type A string representing user's type
      */
 
+
+
     public static void writeUsers(String name, String user_email, String pwd, String type) throws IOException {
+
         try {
             File csv = new File("userdatabase.csv");
             BufferedWriter bw = new BufferedWriter(new FileWriter(csv, true));
 
             String values = name + "," + user_email + "," + pwd + "," + type;
 
-            bw.newLine();
+
             bw.write(values);
+            bw.newLine();
 
             bw.close();
         }

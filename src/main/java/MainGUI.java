@@ -27,6 +27,7 @@ public class MainGUI extends JFrame{
     private final JPanel wlPanel = new WishlistPanel();
     private final NewOrderGUI orderPanel = new NewOrderGUI();
     private final JPanel hisPanel = new OrderHistoryGUI();
+    private static Order order = null;
 
     /**
      * Class constructor
@@ -71,6 +72,9 @@ public class MainGUI extends JFrame{
 
 
     }
+    public static Order getOrder(){
+        return order;
+    }
 
     private void listener(){
         exitButton.addActionListener(
@@ -114,10 +118,10 @@ public class MainGUI extends JFrame{
         );
         submitOrderButton.addActionListener(
                 e -> {
-                    String order = orderPanel.getOrder();
-                    System.out.println(order);
+                    String ordername = orderPanel.getOrder();
+                    System.out.println(ordername);
                     String customer_id = LoginGUI.getUsername();
-                    Order currentOrder = OrderGenerateUseCase.Generate_order_in_GUI(order);
+                    order = OrderGenerateUseCase.Generate_order_in_GUI(ordername);
                     JOptionPane.showMessageDialog(null, 111);
 
                 }

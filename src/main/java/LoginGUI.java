@@ -107,13 +107,17 @@ public class LoginGUI extends JFrame {
                     }
                     else {
 
-                            if (true){
+                        try {
+                            if (UserController.log_in(user, pass)){
                                 JOptionPane.showMessageDialog(null, "Login Success!");
                                 new MainGUI();
                                 dispose();
                             }else{
                                 JOptionPane.showMessageDialog(null, "Incorrect Credentials!");
                             }
+                        } catch (IOException ex) {
+                            ex.printStackTrace();
+                        }
 
                     }
                 }
