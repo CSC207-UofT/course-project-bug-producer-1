@@ -1,6 +1,7 @@
 package main.java.order;
 import main.java.item.Item;
 
+import java.lang.reflect.Array;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Random;
@@ -46,12 +47,15 @@ public class Order {
     }
 
     /**
-     * This method is used to get the date of order.
+     * This method is used to get the date of string version of order.
      */
     public String getOrderDate(){
         return this.date.toString();
     }
 
+    /**
+     * This method is used to get the date of order.
+     */
     public Date get_date(){
         return this.date;
     }
@@ -62,7 +66,6 @@ public class Order {
     public HashMap<Item, Integer> get_item_list(){
         return this.item_list;
     }
-
     /**
      * This method is used to get the id of the order.
      */
@@ -76,9 +79,17 @@ public class Order {
     public String get_status(){
         return this.status;
     }
-
+    /**
+     * This method is used to get customer name for this order.
+     */
     public void update_customer(String input){
         this.userID = input;
+    }
+    /**
+     * This method is used to get customer name for this order.
+     */
+    public String get_username(){
+        return this.userID;
     }
     /**
      *

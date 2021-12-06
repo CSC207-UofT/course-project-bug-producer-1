@@ -3,12 +3,9 @@ package main.java.user;
 import main.java.user.UseCase.GetCurrentUser;
 import main.java.user.UseCase.Log_inUseCase;
 import main.java.user.UseCase.RegisterUseCase;
-import main.java.user.UseCase.UserReadWriter;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
-
 
 
 public class UserController {
@@ -36,6 +33,7 @@ public class UserController {
     public ArrayList<String> getCurrentUser (String name, String password, String secretCode) throws IOException{
         return GetCurrentUser.getCurrentUser(name,password,secretCode);
     }
+
 
 
 }

@@ -1,7 +1,5 @@
 package main.java.user;
 
-import java.util.Objects;
-
 /**
  * Represents a User
  * @author Meilun Shen

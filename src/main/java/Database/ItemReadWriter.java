@@ -37,6 +37,7 @@ public class ItemReadWriter {
     public static HashMap<Item, Integer> readItems() throws IOException {
         File csv = new File("itemname.csv ");
         Hashmap<Item, Integer> result = new HashMap<>();
+
         try (BufferedReader br = new BufferedReader(new FileReader(csv))) {
             String s;
             // Reads it line by line

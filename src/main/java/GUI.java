@@ -1,10 +1,6 @@
 package main.java;
 
 
-import main.java.Database.Database;
-
-import java.io.File;
-
 public class GUI {
     /**
      * Class constructor
@@ -12,7 +8,10 @@ public class GUI {
      */
 
     public GUI(){
+
     }
+
+
     /**
      * Class constructor
      * This method creates a new  loginGUI window which starts the program.

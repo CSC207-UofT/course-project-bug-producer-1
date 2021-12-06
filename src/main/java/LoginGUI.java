@@ -5,6 +5,7 @@ import main.java.user.UserController;
 import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
+import main.java.Constant;
 
 
 /**
@@ -23,7 +24,7 @@ public class LoginGUI extends JFrame {
     private final JPasswordField codeField = new JPasswordField();
     private final JButton loginButton = new JButton("Login");
     private final JButton clearButton = new JButton("Clear");
-    private static String username = "";
+    private static String user;
     private final JButton regButton = new JButton("Register");
     private final JPanel bkgPanel = new JPanel();
 
@@ -39,6 +40,7 @@ public class LoginGUI extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         init();
         setVisible(true);
+        user = "";
     }
 
     /**
@@ -95,7 +97,7 @@ public class LoginGUI extends JFrame {
     private void listener(){
         loginButton.addActionListener(
                 e -> {
-                    String user = usernameField.getText();
+                    user = usernameField.getText();
                     String pass = String.valueOf(passwordField.getPassword());
                     String code = String.valueOf(codeField.getPassword());
                     if (null == user
@@ -106,6 +108,7 @@ public class LoginGUI extends JFrame {
                         try {
                             if (UserController.log_in(user, pass)){
                                 JOptionPane.showMessageDialog(null, "Login Success!");
+                                Constant.setCurrUsername(user);
                                 new MainGUI();
                                 dispose();
                             }else{

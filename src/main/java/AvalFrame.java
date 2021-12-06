@@ -1,18 +1,24 @@
 package main.java;
 
 import main.java.message.MessageController;
-import main.java.message.MessagePresenter;
 
 import javax.swing.*;
 import java.awt.*;
 
-public class OrderDetailGUI extends JFrame {
+
+public class AvalFrame extends JFrame {
     public static DefaultListModel<String> listModel;
     public static JList<String> itemlist;
 
-    public OrderDetailGUI(String order_id){
+    /**
+     * Class constructor
+     * Creates a new availability list panel inside the main program GUI window.
+     * This method does not have any return type.
+     */
+
+    public AvalFrame(){
         setTitle("Order Detail");
-        setBounds(150, 200, 150, 150);
+        setBounds(150, 300, 150, 300);
         Container container = getContentPane();
         container.setLayout(new BorderLayout());
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -20,7 +26,7 @@ public class OrderDetailGUI extends JFrame {
 //        MessagePresenter.return_list_model_order_detail(listModel, )
         JPanel labelPane = new JPanel();
         labelPane.setLayout(new FlowLayout());
-        JLabel orderDetailLabel = new JLabel("Selected order detail");
+        JLabel orderDetailLabel = new JLabel("Here is the latest available products");
         labelPane.add(orderDetailLabel);
 
         listModel = MessageController.create_new_list_model();
@@ -48,6 +54,7 @@ public class OrderDetailGUI extends JFrame {
 
         container.add(labelPane, BorderLayout.PAGE_START);
         container.add(listScrollPane, BorderLayout.CENTER);
-
     }
+
+
 }

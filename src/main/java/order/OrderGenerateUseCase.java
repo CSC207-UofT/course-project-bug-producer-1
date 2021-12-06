@@ -2,6 +2,7 @@ package main.java.order;
 
 import main.java.item.*;
 
+import java.io.IOException;
 import java.util.*;
 
 
@@ -30,29 +31,36 @@ public class OrderGenerateUseCase {
      * @param item string of input that requires certain items.
      * @return create an order for customer
      */
-
-    public static Order Generate_order_in_GUI(String item, String userID){
-        item = item.substring(0, item.length() -1);
-
+    public static Order Generate_order_in_GUI(String item, String username) throws IOException {
+        item = item.substring(1, item.length() -1);
         HashMap<Item, Integer> order_component = new HashMap<>();
-        String[] str_ary = item.split(", ");
+        String[] str_ary = item.split(",");
         for(String str: str_ary){
             String[] temp = str.split(" \\| ");
             order_component.put(new Item(temp[0],Integer.parseInt(temp[1])),Integer.parseInt(temp[1]));
         }
         Order rel = Generate_order_customer(order_component);
-        rel.update_customer(userID);
+        rel.update_customer(username);
+        file_writer.write_Order_history(rel,username,item);
         return rel;
     }
-
+    /**
+     * this method is used to get the id of an order.
+     */
     public static String getOrderID(Order order){
         return order.get_id();
     }
 
+    /**
+     * this method is used to get the date of an order.
+     */
     public static String getOrderDate(Order order){
         return order.getOrderDate();
     }
 
+    /**
+     * this method is used to get the total number of item(s) of an order.
+     */
     public static String get_total_item(Order order){
         return order.get_total_item();
     }
