@@ -17,11 +17,10 @@ public class list_model_add_elementUseCase {
      * @param order a parameter that refers to an order entity.
      */
 
-    public static void add_element_to_list_model(DefaultListModel<String> listmodel, String order){
+    public static void add_element_to_list_model(DefaultListModel<String> listmodel, String[] order){
 
-        String[] helper = order.split(",");
-        listmodel.addElement("<html>Order ID: " + helper[0] + "<br/>Order time: " + helper[1] +
-                "<br/>Order items: " + helper[2] +"</html>");
+        listmodel.addElement("<html>Order ID: " + order[1] + "<br/>Order time: " + order[2] +
+                "<br/>Order items: " + order[3] +"</html>");
     }
 
     /**

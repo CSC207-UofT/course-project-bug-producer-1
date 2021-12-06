@@ -24,7 +24,7 @@ public class LoginGUI extends JFrame {
     private final JPasswordField codeField = new JPasswordField();
     private final JButton loginButton = new JButton("Login");
     private final JButton clearButton = new JButton("Clear");
-    private static String user = "";
+    private static String user;
     private final JButton regButton = new JButton("Register");
     private final JPanel bkgPanel = new JPanel();
 
@@ -40,6 +40,7 @@ public class LoginGUI extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         init();
         setVisible(true);
+        user = "";
     }
 
     /**
@@ -107,7 +108,7 @@ public class LoginGUI extends JFrame {
                         try {
                             if (UserController.log_in(user, pass)){
                                 JOptionPane.showMessageDialog(null, "Login Success!");
-                                Constant.setCurrUser(user);
+                                Constant.setCurrUsername(user);
                                 new MainGUI();
                                 dispose();
                             }else{

@@ -1,14 +1,18 @@
 package main.java;
 
+import com.opencsv.exceptions.CsvException;
 import main.java.message.MessagePresenter;
-import main.java.order.Order;
-
+import static main.java.order.order_history_controller.delete;
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.util.ArrayList;
+
+import static main.java.order.order_history_controller.get_order_history_for_user;
 
 
 public class OrderHistoryGUI extends JPanel
@@ -18,17 +22,21 @@ public class OrderHistoryGUI extends JPanel
     public static JList<String> itemlist;
     private static final String removeString = "Remove";
     private static final String selectString = "Select";
+    private static final String refreshString = "Refresh";
     private final JButton removeButton;
     private final JButton selectButton;
+    private final JButton refreshButton;
 
 
 
-    public OrderHistoryGUI() {
+    public OrderHistoryGUI() throws IOException {
         super(new BorderLayout());
 
+
+
         listModel = new DefaultListModel<>();
-
-
+        ArrayList<String[]> orderHis = get_order_history_for_user(Constant.getCurrUsername());
+        MessagePresenter.return_list_model(listModel, orderHis);
         //Create the itemlist and put it in a scroll pane.
         itemlist = new JList<>(listModel);
         itemlist.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
@@ -39,12 +47,16 @@ public class OrderHistoryGUI extends JPanel
         JScrollPane listScrollPane = new JScrollPane(itemlist);
         listScrollPane.setPreferredSize(new Dimension(40, 400));
 
-
+        refreshButton = new JButton(refreshString);
+        refreshButton.setActionCommand(refreshString);
+        refreshButton.setEnabled(true);
 
         removeButton = new JButton(removeString);
         removeButton.setActionCommand(removeString);
         removeButton.addActionListener(new RemoveListener());
         removeButton.setEnabled(false);
+
+
 
         selectButton = new JButton(selectString);
         selectButton.setActionCommand(selectString);
@@ -58,6 +70,7 @@ public class OrderHistoryGUI extends JPanel
                 BoxLayout.LINE_AXIS));
         buttonPane.add(selectButton);
         buttonPane.add(removeButton);
+        buttonPane.add(refreshButton);
         buttonPane.setBorder(BorderFactory.createEmptyBorder(5,5,5,5));
 
         JPanel lblPane = new JPanel();
@@ -69,9 +82,8 @@ public class OrderHistoryGUI extends JPanel
         add(lblPane, BorderLayout.PAGE_START);
         add(listScrollPane, BorderLayout.CENTER);
         add(buttonPane, BorderLayout.PAGE_END);
-        listModel.addElement("<html>Order ID: 001<br/>Order time: 2021/01/03<br/>Order items: 17</html>");
-//        Order order = MainGUI.getOrder();
-//        String tp = MessagePresenter.return_list_model_order_detail(listModel, order);
+
+
 
         itemlist.setCellRenderer(new Renderer());
 
@@ -84,15 +96,21 @@ public class OrderHistoryGUI extends JPanel
         selectButton.addActionListener(
                 e -> {
                     int size = listModel.getSize();
-                    if (size == 0) { //Nobody's left, disable remove.
-                        selectButton.setEnabled(false);
-
-                    }else{
-                        selectButton.setEnabled(true);
-                    }
+                    //Nobody's left, disable remove.
+                    selectButton.setEnabled(size != 0);
                     int index = itemlist.getSelectedIndex();
                     String order_id = listModel.get(index).substring(16, 19);
                     new OrderDetailGUI(order_id);
+                }
+        );
+        refreshButton.addActionListener(
+                e -> {
+                    try {
+                        new OrderHistoryGUI();
+                    } catch (IOException ex) {
+                        ex.printStackTrace();
+                    }
+
                 }
         );
     }
@@ -103,6 +121,14 @@ public class OrderHistoryGUI extends JPanel
             //there's a valid selection
             //so go ahead and remove whatever's selected.
             int index = itemlist.getSelectedIndex();
+
+            String order = listModel.getElementAt(index).substring(16, 19);
+            try {
+                delete(order);
+            } catch (IOException | CsvException ex) {
+                ex.printStackTrace();
+            }
+
             listModel.remove(index);
 
             int size = listModel.getSize();
@@ -138,7 +164,7 @@ public class OrderHistoryGUI extends JPanel
      * this method should be invoked from the
      * event-dispatching thread.
      */
-    private static void createAndShowGUI() {
+    private static void createAndShowGUI() throws IOException {
         //Create and set up the window.
         JFrame frame = new JFrame("NewOrderGUI");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -156,6 +182,12 @@ public class OrderHistoryGUI extends JPanel
     public static void main(String[] args) {
         //Schedule a job for the event-dispatching thread:
         //creating and showing this application's GUI.
-        SwingUtilities.invokeLater(OrderHistoryGUI::createAndShowGUI);
+        SwingUtilities.invokeLater(() -> {
+            try {
+                createAndShowGUI();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
     }
 }

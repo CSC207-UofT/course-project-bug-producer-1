@@ -13,28 +13,28 @@ import java.io.IOException;
  *
  * @author Yuehao Huang
  */
+@SuppressWarnings("CanBeFinal")
 public class MainGUI extends JFrame{
     private final Container container = getContentPane();
     private final JButton orderButton = new JButton("New order");
-    private final JButton hisButton = new JButton("Order history [WiP]");
-    private final JButton wlButton = new JButton("Wish list");
+    private final JButton hisButton = new JButton("Order history");
+    private final JButton wlButton = new JButton("Availability list");
     private final JButton msgButton = new JButton("Messages");
     private final JButton exitButton = new JButton("Log out");
     private final JPanel submitOrderPanel = new JPanel();
     private final JButton submitOrderButton = new JButton("Submit Order");
     private final JPanel bkgPanel = new JPanel();
-    private final JPanel wlPanel = new WishlistPanel();
     private final NewOrderGUI orderPanel = new NewOrderGUI();
     private final JPanel hisPanel = new OrderHistoryGUI();
     private static Order order = null;
-    private static String user = Constant.getCurrUser();
+    private static String user = Constant.getCurrUsername();
 
     /**
      * Class constructor
      * Creates a new main program GUI window.
      * This method does not have any return type.
      */
-    public MainGUI(){
+    public MainGUI() throws IOException {
         setTitle("Bug-Producer Inventory System");
         setBounds(600, 200, 1024, 768);
         container.setLayout(new BorderLayout());
@@ -93,10 +93,7 @@ public class MainGUI extends JFrame{
 
         wlButton.addActionListener(
                 e -> {
-                    bkgPanel.removeAll();
-                    bkgPanel.add(wlPanel);
-                    bkgPanel.repaint();
-                    bkgPanel.revalidate();
+                    new AvalFrame();
                 }
         );
 
@@ -119,20 +116,23 @@ public class MainGUI extends JFrame{
         );
         submitOrderButton.addActionListener(
                 e -> {
-                    String ordername = orderPanel.getOrder();
-                    System.out.println(ordername);
-                    try {
-                        order = OrderGenerateUseCase.Generate_order_in_GUI(ordername, user);
-                    } catch (IOException ex) {
-                        ex.printStackTrace();
+                    if (NewOrderGUI.isEmpty()){
+                        JOptionPane.showMessageDialog(null, "Order cannot be empty!");
+                    }else{
+                        String ordername = orderPanel.getOrder();
+                        System.out.println(ordername);
+                        try {
+                            order = OrderGenerateUseCase.Generate_order_in_GUI(ordername, user);
+                        } catch (IOException ex) {
+                            ex.printStackTrace();
+                        }
+                        JOptionPane.showMessageDialog(null, "Order submitted!");
                     }
-                    JOptionPane.showMessageDialog(null, "Order submitted!");
-
 
                 }
         );
     }
-    public static void main(String[] args){
+    public static void main(String[] args) throws IOException {
         new MainGUI();
     }
 

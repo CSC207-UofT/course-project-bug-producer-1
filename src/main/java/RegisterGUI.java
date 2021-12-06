@@ -1,6 +1,5 @@
 package main.java;
 
-import main.java.user.UseCase.RegisterUseCase;
 import main.java.user.UserController;
 
 import javax.swing.*;
@@ -121,6 +120,8 @@ public class RegisterGUI extends JFrame {
                 e -> {
                     usernameField.setText("");
                     passwordField.setText("");
+                    emailField.setText("");
+                    code.setText("");
                 }
         );
     }
