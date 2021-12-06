@@ -13,7 +13,6 @@ import java.util.HashMap;
  */
 public class InventoryController {
     public Order order;
-
     /**
      * this method generates a hashmap of item when some item stock in
      *
