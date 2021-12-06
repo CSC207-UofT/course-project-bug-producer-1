@@ -45,7 +45,6 @@ public class Order {
         this.status = "Order_out";
         this.userID = "";
     }
-
     /**
      * This method is used to get the date of string version of order.
      */
@@ -72,7 +71,6 @@ public class Order {
     public String get_id(){
         return this.OrderID;
     }
-
     /**
      * This method is used to get the status of the order to distinguish whether order is for supplement or output.
      */
@@ -102,7 +100,6 @@ public class Order {
         }
         return String.valueOf(i);
     }
-
     /**
      * This method is used to generate a unique id of the order to track order.
      */
