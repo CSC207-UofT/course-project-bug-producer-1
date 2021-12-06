@@ -20,10 +20,8 @@ public class OrderHistoryGUI extends JPanel
 
     public static DefaultListModel<String> listModel;
     public static JList<String> itemlist;
-    private static final String removeString = "Remove";
     private static final String selectString = "Select";
     private static final String refreshString = "Refresh";
-    private final JButton removeButton;
     private final JButton selectButton;
     private final JButton refreshButton;
 
@@ -51,10 +49,6 @@ public class OrderHistoryGUI extends JPanel
         refreshButton.setActionCommand(refreshString);
         refreshButton.setEnabled(true);
 
-        removeButton = new JButton(removeString);
-        removeButton.setActionCommand(removeString);
-        removeButton.addActionListener(new RemoveListener());
-        removeButton.setEnabled(false);
 
 
 
@@ -69,7 +63,6 @@ public class OrderHistoryGUI extends JPanel
         buttonPane.setLayout(new BoxLayout(buttonPane,
                 BoxLayout.LINE_AXIS));
         buttonPane.add(selectButton);
-        buttonPane.add(removeButton);
         buttonPane.add(refreshButton);
         buttonPane.setBorder(BorderFactory.createEmptyBorder(5,5,5,5));
 
@@ -119,41 +112,11 @@ public class OrderHistoryGUI extends JPanel
         );
     }
 
-    class RemoveListener implements ActionListener {
-        public void actionPerformed(ActionEvent e) {
-            //This method can be called only if
-            //there's a valid selection
-            //so go ahead and remove whatever's selected.
-            int index = itemlist.getSelectedIndex();
-
-            listModel.remove(index);
-
-            int size = listModel.getSize();
-
-            if (size == 0) { //Nobody's left, disable remove.
-                removeButton.setEnabled(false);
-
-            } else { //Select an index.
-                if (index == listModel.getSize()) {
-                    //removed item in last position
-                    index--;
-                }
-
-                itemlist.setSelectedIndex(index);
-                itemlist.ensureIndexIsVisible(index);
-            }
-        }
-    }
-
 
     //This method is required by ListSelectionListener.
     public void valueChanged(ListSelectionEvent e) {
         if(!e.getValueIsAdjusting()) itemlist.setCellRenderer(new Renderer());
-        if (!e.getValueIsAdjusting()) {
-            //Selection, enable the remove button.
-            removeButton.setEnabled(itemlist.getSelectedIndex() != -1);
-            selectButton.setEnabled(itemlist.getSelectedIndex() != -1);
-        }
+
     }
 
     /**
