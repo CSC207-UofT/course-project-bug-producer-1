@@ -1,5 +1,6 @@
 package main.java.user;
 
+import main.java.user.UseCase.GetCurrentUser;
 import main.java.user.UseCase.Log_inUseCase;
 import main.java.user.UseCase.UserReadWriter;
 
@@ -15,8 +16,8 @@ public class UserController {
      * A login controller for the use case defined by the Log_inUseCase
      */
 
-    public static HashMap<Boolean, ArrayList<String>> log_in(String user_name, String user_pwd, String user_input_secret_code) throws IOException {
-        return Log_inUseCase.login(user_name,user_pwd, user_input_secret_code);
+    public static boolean log_in(String user_name, String user_pwd) throws IOException {
+        return Log_inUseCase.login(user_name,user_pwd);
     }
 
     /**
@@ -30,6 +31,10 @@ public class UserController {
             UserReadWriter.writeUsers(username,email,password, "customer");
         }
         return true;
+    }
+
+    public ArrayList<String> getCurrentUser (String name, String password, String secretCode) throws IOException{
+        return GetCurrentUser.getCurrentUser(name,password,secretCode);
     }
 }
 
