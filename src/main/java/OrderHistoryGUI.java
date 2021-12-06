@@ -1,14 +1,11 @@
 package main.java;
 
-import com.opencsv.exceptions.CsvException;
 import main.java.message.MessagePresenter;
 
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -103,7 +100,9 @@ public class OrderHistoryGUI extends JPanel
         refreshButton.addActionListener(
                 e -> {
                     try {
-                        new OrderHistoryGUI();
+                        listModel.removeAllElements();
+                        ArrayList<String[]> orderHis = get_order_history_for_user(Constant.getCurrUsername());
+                        MessagePresenter.return_list_model(listModel, orderHis);
                     } catch (IOException ex) {
                         ex.printStackTrace();
                     }

@@ -10,10 +10,10 @@ import java.util.HashMap;
  * @author kurisu
  */
 public class InventoryController {
-    public HashMap<Item, Integer> item_list;
-    public int num_in;
-    public int num_out;
-    public Item key_item;
+    public final HashMap<Item, Integer> item_list;
+    public final int num_in;
+    public final int num_out;
+    public final Item key_item;
 
     /**
      * this method is an initiator of the class.
@@ -38,7 +38,7 @@ public class InventoryController {
      * @return return a new hashmap of the inventory item after stock in
      */
     public HashMap<Item, Integer> generate_stock_in(HashMap<Item, Integer> item_list, int num_in, Item key_item){
-        return main.java.inventory.InventoryStockinUseCase.stock_in(this.item_list, this.num_in, this.key_item);
+        return main.java.inventory.UseCase.InventoryStockinUseCase.stock_in(this.item_list, this.num_in, this.key_item);
     }
 
     /**
@@ -49,7 +49,7 @@ public class InventoryController {
      * @return return a new hashmap of the inventory item after stock out
      */
     public HashMap<Item, Integer> generate_stock_out(HashMap<Item, Integer> item_list, int num_out, Item key_item){
-        return main.java.inventory.InventoryStockoutUseCase.stock_out(this.item_list, this.num_out, this.key_item);
+        return main.java.inventory.UseCase.InventoryStockoutUseCase.stock_out(this.item_list, this.num_out, this.key_item);
     }
 
     /**

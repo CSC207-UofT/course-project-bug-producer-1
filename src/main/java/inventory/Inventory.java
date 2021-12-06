@@ -12,7 +12,7 @@ import java.util.HashMap;
 public class Inventory {
     private final int capacity;
     public static final HashMap<Item, Integer> item_list = new HashMap<>();
-    private HashMap<Item, Integer> order_list = new HashMap<>();
+    private final HashMap<Item, Integer> order_list;
     /**
     * this method is the initiator of the Inventory
     * Used to view the item_list and order_list in the inventory, and the capacity of the inventory
