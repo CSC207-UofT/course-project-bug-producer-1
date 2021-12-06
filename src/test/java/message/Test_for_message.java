@@ -16,7 +16,6 @@ import static message.MessageController.create_message_R;
 public class Test_for_message {
     @Test
     public void test_SendMessageUseCase_and_MessagePresenter_controller_customer(){
-        Date order_date = new Date();
         Item apple = new Item("apple", 1);
         HashMap<Item, Integer> item_list = new HashMap<>();
         item_list.put(apple, apple.getQuantity());
@@ -36,7 +35,6 @@ public class Test_for_message {
 
     @Test
     public void test_SendMessageUseCase_and_MessagePresenter_controller_admin(){
-        Date order_date = new Date();
         Item apple = new Item("apple", 1);
         HashMap<Item, Integer> item_list = new HashMap<>();
         item_list.put(apple, apple.getQuantity());
