@@ -20,8 +20,6 @@ public class LoginGUI extends JFrame {
     private final JTextField usernameField = new JTextField();
     private final JLabel pwdLabel = new JLabel("Password: ");
     private final JPasswordField passwordField = new JPasswordField();
-    private final JLabel codeLabel = new JLabel("Secret Code: ");
-    private final JPasswordField codeField = new JPasswordField();
     private final JButton loginButton = new JButton("Login");
     private final JButton clearButton = new JButton("Clear");
     private static String user;
@@ -60,10 +58,8 @@ public class LoginGUI extends JFrame {
         fieldPanel.setLayout(null);
         userLabel.setBounds(180, 20, 80, 20);
         pwdLabel.setBounds(180, 60, 80, 20);
-        codeLabel.setBounds(180, 100, 80, 20);
         usernameField.setBounds(260, 20, 160, 20);
         passwordField.setBounds(260, 60, 160, 20);
-        codeField.setBounds(260, 100, 160, 20);
         fieldPanel.add(userLabel);
         fieldPanel.add(pwdLabel);
         fieldPanel.add(usernameField);
@@ -99,7 +95,6 @@ public class LoginGUI extends JFrame {
                 e -> {
                     user = usernameField.getText();
                     String pass = String.valueOf(passwordField.getPassword());
-                    String code = String.valueOf(codeField.getPassword());
                     if (null == user
                             || user.trim().length() == 0
                             || pass.trim().length() == 0){
