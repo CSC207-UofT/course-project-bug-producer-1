@@ -33,7 +33,7 @@ public class ItemReadWriter {
      * Store the items to file at filePath.
      * @return A list of items
      */
-    public static HashMap<String, Integer> readItems() throws IOException {
+    public static HashMap<String, Integer> readItems() {
 //        File csv = new File("itemname.csv ");
 //        Hashmap<> result = new HashMap<Object, Object>();
 //

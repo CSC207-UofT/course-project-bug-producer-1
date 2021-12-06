@@ -120,7 +120,7 @@ public class OrderHistoryGUI extends JPanel
      * this method should be invoked from the
      * event-dispatching thread.
      */
-    private static void createAndShowGUI() throws IOException {
+    private static void createAndShowGUI() {
         //Create and set up the window.
         JFrame frame = new JFrame("NewOrderGUI");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -139,11 +139,7 @@ public class OrderHistoryGUI extends JPanel
         //Schedule a job for the event-dispatching thread:
         //creating and showing this application's GUI.
         SwingUtilities.invokeLater(() -> {
-            try {
-                createAndShowGUI();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            createAndShowGUI();
         });
     }
 }
