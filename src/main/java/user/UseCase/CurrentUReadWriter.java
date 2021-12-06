@@ -3,11 +3,9 @@ package main.java.user.UseCase;
 import java.io.*;
 import java.util.ArrayList;
 
-
-
-public abstract class UserReadWriter implements ReadWriter {
+public abstract class CurrentUReadWriter implements ReadWriter{
     /**
-     * Writes the users to file at filePath.
+     * Writes the Current users to file at filePath.
      * @param name A string representing username
      * @param user_email A string representing user's email
      * @param pwd A string representing user's password
@@ -16,7 +14,7 @@ public abstract class UserReadWriter implements ReadWriter {
 
     public static void writeUsers(String name, String user_email, String pwd, String type) throws IOException {
         try {
-            File csv = new File("/Users/elvashen/IdeaProjects/course-project-bug-producer-1/userdatabase.csv");
+            File csv = new File("Currentuserdatabase.csv");
             BufferedWriter bw = new BufferedWriter(new FileWriter(csv, true));
 
             String values = name + "," + user_email + "," + pwd + "," + type;
@@ -32,13 +30,13 @@ public abstract class UserReadWriter implements ReadWriter {
     }
 
     /**
-     * Store the users to file at filePath.
-     * @return User
+     * Store the current users to file at filePath.
+     * @return current user
      */
 
     public static ArrayList<String[]> readUsers() throws IOException {
 
-        File csv = new File("userdatabase.csv");
+        File csv = new File("Currentuserdatabase.csv");
         ArrayList<String[]> result = new ArrayList<String[]>();
         try (BufferedReader br = new BufferedReader(new FileReader(csv))) {
             String s;
@@ -54,3 +52,4 @@ public abstract class UserReadWriter implements ReadWriter {
         return result;
     }
 }
+
