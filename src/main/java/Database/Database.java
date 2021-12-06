@@ -1,4 +1,4 @@
-package net.codejava;
+package main.java.Database;
 
 import java.io.*;
 import java.sql.*;

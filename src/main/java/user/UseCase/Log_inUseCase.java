@@ -21,7 +21,7 @@ public class Log_inUseCase {
     public static boolean login (String name, String password) throws IOException {
         for (String[] registerUser : UserReadWriter.readUsers()) {
             String username = registerUser[0];
-            String existPwd = registerUser[2];
+            String existPwd = registerUser[1];
             if (name.equals(username)) {
                 return password.equals(existPwd);
                 }

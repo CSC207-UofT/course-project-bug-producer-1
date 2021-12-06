@@ -87,8 +87,7 @@ public class OrderHistoryGUI extends JPanel
                         selectButton.setEnabled(true);
                     }
                     int index = itemlist.getSelectedIndex();
-                    String order = listModel.get(index).substring(16, 18);
-                    int order_id = Integer.parseInt(order);
+                    String order_id = listModel.get(index).substring(16, 19);
                     new OrderDetailGUI(order_id);
                 }
         );
