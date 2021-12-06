@@ -1,12 +1,10 @@
 package main.java;
 
 import main.java.order.Order;
-import main.java.order.OrderController;
 import main.java.order.OrderGenerateUseCase;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.Date;
 
 /**
  * This class is the main class for GUI which handles
@@ -28,6 +26,7 @@ public class MainGUI extends JFrame{
     private final NewOrderGUI orderPanel = new NewOrderGUI();
     private final JPanel hisPanel = new OrderHistoryGUI();
     private static Order order = null;
+    private static String user = Constant.getCurrUser();
 
     /**
      * Class constructor
@@ -48,6 +47,7 @@ public class MainGUI extends JFrame{
      *
      */
     private void init(){
+
         // ButtonPanel
         JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(new FlowLayout());
@@ -120,7 +120,7 @@ public class MainGUI extends JFrame{
                 e -> {
                     String ordername = orderPanel.getOrder();
                     System.out.println(ordername);
-                    order = OrderGenerateUseCase.Generate_order_in_GUI(ordername);
+                    order = OrderGenerateUseCase.Generate_order_in_GUI(ordername, user);
                     JOptionPane.showMessageDialog(null, "Order submitted!");
 
 

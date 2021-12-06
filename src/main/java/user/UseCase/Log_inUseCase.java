@@ -1,12 +1,6 @@
 package main.java.user.UseCase;
 
-import main.java.user.Admin;
-import main.java.user.Customer;
-import main.java.user.User;
-
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
 
 
 public class Log_inUseCase {
