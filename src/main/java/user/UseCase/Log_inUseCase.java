@@ -15,44 +15,21 @@ public class Log_inUseCase {
      * Verifies whether the password entered by the User matches the saved password of the User.
      * @param name A string represents the entered username.
      * @param password A string represents the entered password.
-     * @param user_input_secret_code A string contain secret code for differentiating user's type.
-     * @return A hashmap contains information of the current logged-in user.
+     * @return true for logging in successfully
      */
 
-    public static HashMap<Boolean, ArrayList<String>> login (String name, String password, String user_input_secret_code) throws IOException {
-        HashMap<Boolean, ArrayList<String>> result = new HashMap<>();
+    public static boolean login (String name, String password) throws IOException {
         for (String[] registerUser : UserReadWriter.readUsers()) {
             String username = registerUser[0];
             String existPwd = registerUser[2];
             if (name.equals(username)) {
-                if (password.equals(existPwd)){
-                    User currentU;
-                    if(user_input_secret_code.equals("asd")) {
-                        currentU = new Admin(name, password, "");
-                        ArrayList<String> helper = new ArrayList<>();
-                        helper.add(currentU.getName());
-                        helper.add(currentU.getType());
-                        helper.add(currentU.getUser_email());
-                        helper.add(currentU.getPassword());
-                        result.put(true, helper);
-                    }
-                    else {
-                        currentU = new Customer(name, password, "");
-                        ArrayList<String> helper = new ArrayList<>();
-                        helper.add(currentU.getName());
-                        helper.add(currentU.getType());
-                        helper.add(currentU.getUser_email());
-                        helper.add(currentU.getPassword());
-                        result.put(false, helper);
-                    }
+                return password.equals(existPwd);
                 }
-                result.put(false, new ArrayList<>());
-                return result;
+            return false;
             }
+        return false;
         }
-        result.put(false, new ArrayList<>());
-        return result;
     }
-}
+
 
 
