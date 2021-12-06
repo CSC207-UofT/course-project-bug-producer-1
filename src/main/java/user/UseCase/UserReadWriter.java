@@ -41,7 +41,7 @@ public class UserReadWriter {
      * @return A list of user
      */
     public static ArrayList<String[]> readUsers() throws IOException {
-        File csv = new File("userdatabase.csv ");
+        File csv = new File("userdatabase.csv");
         ArrayList<String[]> result = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader(csv))) {
             String s;

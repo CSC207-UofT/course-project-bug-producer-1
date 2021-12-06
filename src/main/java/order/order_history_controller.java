@@ -29,7 +29,7 @@ public class order_history_controller{
         return file_writer.readOrder();
     }
 
-    public void Delete(String orderID) throws IOException, CsvException{
+    public static void delete(String orderID) throws IOException, CsvException{
         file_writer.delete(orderID);
     }
 }

@@ -20,11 +20,11 @@ public class NewOrderGUI extends JPanel
     private final JButton removeButton;
     private final JTextField itemName;
     private final JTextField itemAmount;
-    private String order;
+    private String oderItem;
 
     public NewOrderGUI() {
         super(new BorderLayout());
-        this.order = "";
+        this.oderItem = "";
 
         listModel = new DefaultListModel<>();
 
@@ -98,9 +98,14 @@ public class NewOrderGUI extends JPanel
 
 
     }
+    
+    public static boolean isEmpty(){
+        int size = listModel.getSize();
+        return size == 0;
+    }
 
     public String getOrder() {
-        return this.order;
+        return this.oderItem;
     }
 
     class RemoveListener implements ActionListener {
@@ -112,7 +117,7 @@ public class NewOrderGUI extends JPanel
             listModel.remove(index);
 
             int size = listModel.getSize();
-            order = listModel.toString();
+            oderItem = listModel.toString();
 
             if (size == 0) { //Nobody's left, disable remove.
                 removeButton.setEnabled(false);
@@ -182,7 +187,7 @@ public class NewOrderGUI extends JPanel
 
             listModel.addElement(name + " | " + num);
 
-            order = listModel.toString();
+            oderItem = listModel.toString().replaceAll(", ", " .");
 
             //Reset the text field.
             itemName.requestFocusInWindow();
