@@ -36,6 +36,8 @@ public class UserController {
     public ArrayList<String> getCurrentUser (String name, String password, String secretCode) throws IOException{
         return GetCurrentUser.getCurrentUser(name,password,secretCode);
     }
+
+
 }
 
 

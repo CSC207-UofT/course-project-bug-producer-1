@@ -120,9 +120,9 @@ public class MainGUI extends JFrame{
                 e -> {
                     String ordername = orderPanel.getOrder();
                     System.out.println(ordername);
-                    String customer_id = LoginGUI.getUsername();
                     order = OrderGenerateUseCase.Generate_order_in_GUI(ordername);
-                    JOptionPane.showMessageDialog(null, 111);
+                    JOptionPane.showMessageDialog(null, "Order submitted!");
+
 
                 }
         );

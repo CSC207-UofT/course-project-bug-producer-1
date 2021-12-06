@@ -12,7 +12,6 @@ public class GUI {
      */
 
     public GUI(){
-
     }
     /**
      * Class constructor

@@ -45,9 +45,7 @@ public class LoginGUI extends JFrame {
      * Returns the username of the user who is currently using this software.
      * @return the username of the User
      */
-    public static String getUsername(){
-        return username;
-    }
+
 
     /**
      * Initialize the program
