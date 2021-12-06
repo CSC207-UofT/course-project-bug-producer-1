@@ -31,7 +31,7 @@ public class RegisterUseCase {
         return false;
     }
         else {
-            UserReadWriter.writeUsers(name, user_email, pwd, type)
+            UserReadWriter.writeUsers(name, user_email, pwd, type);
             return true;
         }
     }
