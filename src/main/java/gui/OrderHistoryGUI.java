@@ -1,18 +1,16 @@
-package main.java;
+package gui;
 
-import com.opencsv.exceptions.CsvException;
-import main.java.message.MessagePresenter;
-import static main.java.order.order_history_controller.delete;
+import message.MessagePresenter;
+
 import javax.swing.*;
+import javax.swing.Renderer;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import static main.java.order.order_history_controller.get_order_history_for_user;
+import static order.order_history_controller.get_order_history_for_user;
 
 
 public class OrderHistoryGUI extends JPanel
@@ -20,16 +18,14 @@ public class OrderHistoryGUI extends JPanel
 
     public static DefaultListModel<String> listModel;
     public static JList<String> itemlist;
-    private static final String removeString = "Remove";
     private static final String selectString = "Select";
     private static final String refreshString = "Refresh";
-    private final JButton removeButton;
     private final JButton selectButton;
     private final JButton refreshButton;
 
 
 
-    public OrderHistoryGUI() throws IOException {
+    public OrderHistoryGUI(){
         super(new BorderLayout());
 
 
@@ -51,10 +47,6 @@ public class OrderHistoryGUI extends JPanel
         refreshButton.setActionCommand(refreshString);
         refreshButton.setEnabled(true);
 
-        removeButton = new JButton(removeString);
-        removeButton.setActionCommand(removeString);
-        removeButton.addActionListener(new RemoveListener());
-        removeButton.setEnabled(false);
 
 
 
@@ -69,7 +61,6 @@ public class OrderHistoryGUI extends JPanel
         buttonPane.setLayout(new BoxLayout(buttonPane,
                 BoxLayout.LINE_AXIS));
         buttonPane.add(selectButton);
-        buttonPane.add(removeButton);
         buttonPane.add(refreshButton);
         buttonPane.setBorder(BorderFactory.createEmptyBorder(5,5,5,5));
 
@@ -85,7 +76,7 @@ public class OrderHistoryGUI extends JPanel
 
 
 
-        itemlist.setCellRenderer(new Renderer());
+        itemlist.setCellRenderer(new myRenderer());
 
 
 
@@ -99,62 +90,28 @@ public class OrderHistoryGUI extends JPanel
                     //Nobody's left, disable remove.
                     selectButton.setEnabled(size != 0);
                     int index = itemlist.getSelectedIndex();
-                    String order_id = listModel.get(index).substring(16, 19);
+                    String order_id = listModel.get(index).substring(16, 24);
                     new OrderDetailGUI(order_id);
                 }
         );
         refreshButton.addActionListener(
                 e -> {
-                    try {
-                        new OrderHistoryGUI();
-                    } catch (IOException ex) {
-                        ex.printStackTrace();
-                    }
+                    listModel.removeAllElements();
+                    ArrayList<String[]> orderHis = get_order_history_for_user(Constant.getCurrUsername());
+                    MessagePresenter.return_list_model(listModel, orderHis);
 
                 }
         );
     }
 
-    class RemoveListener implements ActionListener {
-        public void actionPerformed(ActionEvent e) {
-            //This method can be called only if
-            //there's a valid selection
-            //so go ahead and remove whatever's selected.
-            int index = itemlist.getSelectedIndex();
-
-            String order = listModel.getElementAt(index).substring(16, 19);
-            try {
-                delete(order);
-            } catch (IOException | CsvException ex) {
-                ex.printStackTrace();
-            }
-
-            listModel.remove(index);
-
-            int size = listModel.getSize();
-
-            if (size == 0) { //Nobody's left, disable remove.
-                removeButton.setEnabled(false);
-
-            } else { //Select an index.
-                if (index == listModel.getSize()) {
-                    //removed item in last position
-                    index--;
-                }
-
-                itemlist.setSelectedIndex(index);
-                itemlist.ensureIndexIsVisible(index);
-            }
-        }
-    }
-
 
     //This method is required by ListSelectionListener.
     public void valueChanged(ListSelectionEvent e) {
-        if(!e.getValueIsAdjusting()) itemlist.setCellRenderer(new Renderer());
+        if(!e.getValueIsAdjusting()) itemlist.setCellRenderer(new myRenderer());
         if (!e.getValueIsAdjusting()) {
-            //Selection, enable the remove button.
-            removeButton.setEnabled(itemlist.getSelectedIndex() != -1);
+
+            //No selection, disable select button.
+            //Selection, enable the select button.
             selectButton.setEnabled(itemlist.getSelectedIndex() != -1);
         }
     }

@@ -1,8 +1,8 @@
-package main.java.user;
+package user;
 
-import main.java.user.UseCase.GetCurrentUser;
-import main.java.user.UseCase.Log_inUseCase;
-import main.java.user.UseCase.RegisterUseCase;
+import user.UseCase.GetCurrentUser;
+import user.UseCase.Log_inUseCase;
+import user.UseCase.RegisterUseCase;
 
 import java.io.IOException;
 import java.util.ArrayList;

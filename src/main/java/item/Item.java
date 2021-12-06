@@ -1,4 +1,4 @@
-package main.java.item;
+package item;
 
 /**
  * This class is an entity class for items in inverntory . It is a parent class and subclasses are
@@ -45,14 +45,13 @@ public class Item {
         return name;
     }
 
-//    /**
-//     * This method return the capacity of the item.
-//     * This method does not require parameter.
-//     */
+    /**
+     *  This method return the capacity of the item.
+     * This method does not require parameter.
+    */
 //    public int getCapacity() {
-//        return capacity;
+//      return capacity;
 //    }
-//
 
     /**
      * This method return the quantity of the item.

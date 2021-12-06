@@ -1,6 +1,6 @@
-package main.java.inventory;
+package inventory.UseCase;
 
-import main.java.item.Item;
+import item.Item;
 
 import java.util.HashMap;
 

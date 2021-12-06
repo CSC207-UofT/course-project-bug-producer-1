@@ -1,11 +1,11 @@
-package main.java;
+package gui;
 
-import main.java.user.UserController;
+import user.UserController;
 
 import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
-import main.java.Constant;
+
 
 
 /**
@@ -34,6 +34,7 @@ public class LoginGUI extends JFrame {
      * This method does not have any return type.
      */
     public LoginGUI(){
+        setIconImage(Constant.getImage("icon.png"));
         setTitle("Bug-Producer Login Window");
         setBounds(600, 200, 600, 300);
         container.setLayout(new BorderLayout());
@@ -82,7 +83,7 @@ public class LoginGUI extends JFrame {
         // bkgPanel
         JLabel label = new JLabel();
         bkgPanel.setLayout(new FlowLayout());
-        ImageIcon img = new ImageIcon("src/main/resources/banner.png");
+        ImageIcon img = new ImageIcon(Constant.getImage("banner.png"));
         label.setIcon(img);
         bkgPanel.add(label);
         container.add(bkgPanel, "North");

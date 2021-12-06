@@ -1,4 +1,4 @@
-package main.java;
+package gui;
 
 import javax.swing.*;
 import java.awt.*;
@@ -26,6 +26,7 @@ public class MailGUI extends JFrame {
      */
 
     public MailGUI(){
+        setIconImage(Constant.getImage("icon.png"));
         setTitle("Send Email");
         setBounds(800, 600, 800, 600);
         container.setLayout(new BorderLayout());
@@ -57,6 +58,8 @@ public class MailGUI extends JFrame {
         fieldPanel.add(sendButton);
         sendButton.setBounds(650, 30, 80, 50);
         container.add(fieldPanel, "Center");
+        receiveField.setText("bugproducer207@gmail.com");
+        
         listener();
 
     }
@@ -71,7 +74,7 @@ public class MailGUI extends JFrame {
                     String txt = textField.getText();
                     String send = senderField.getText();
                     String rec = receiveField.getText();
-                    main.java.message.MessageController.send_mail(txt, send, rec);
+                    message.MessageController.send_mail(txt, send, rec);
                     JOptionPane.showMessageDialog(null, "Email Sent!");
                     dispose();
                 }

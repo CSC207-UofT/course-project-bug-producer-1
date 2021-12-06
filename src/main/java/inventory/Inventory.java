@@ -1,8 +1,6 @@
-package main.java.inventory;
+package inventory;
 
-import main.java.Database.ItemReadWriter;
-import main.java.item.Item;
-import main.java.order.Order;
+import item.Item;
 
 import java.io.IOException;
 import java.util.HashMap;

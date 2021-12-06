@@ -1,11 +1,12 @@
-package main.java;
+package gui;
 
-import main.java.order.Order;
-import main.java.order.OrderGenerateUseCase;
+import order.OrderGenerateUseCase;
 
 import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
+
+import static gui.Constant.getImage;
 
 /**
  * This class is the main class for GUI which handles
@@ -13,7 +14,7 @@ import java.io.IOException;
  *
  * @author Yuehao Huang
  */
-@SuppressWarnings("CanBeFinal")
+
 public class MainGUI extends JFrame{
     private final Container container = getContentPane();
     private final JButton orderButton = new JButton("New order");
@@ -26,8 +27,7 @@ public class MainGUI extends JFrame{
     private final JPanel bkgPanel = new JPanel();
     private final NewOrderGUI orderPanel = new NewOrderGUI();
     private final JPanel hisPanel = new OrderHistoryGUI();
-    private static Order order = null;
-    private static String user = Constant.getCurrUsername();
+    private static final String user = Constant.getCurrUsername();
 
     /**
      * Class constructor
@@ -35,6 +35,7 @@ public class MainGUI extends JFrame{
      * This method does not have any return type.
      */
     public MainGUI() throws IOException {
+        setIconImage(Constant.getImage("icon.png"));
         setTitle("Bug-Producer Inventory System");
         setBounds(600, 200, 1024, 768);
         container.setLayout(new BorderLayout());
@@ -63,7 +64,7 @@ public class MainGUI extends JFrame{
         // bkgPanel
         JLabel label = new JLabel();
         bkgPanel.setLayout(new GridLayout(0, 1));
-        ImageIcon img = new ImageIcon("src/main/resources/bug.png");
+        ImageIcon img = new ImageIcon(getImage("bug.png"));
         label.setIcon(img);
         bkgPanel.add(label);
         container.add(bkgPanel, "Center");
@@ -72,9 +73,6 @@ public class MainGUI extends JFrame{
         listener();
 
 
-    }
-    public static Order getOrder(){
-        return order;
     }
 
     private void listener(){
@@ -92,9 +90,7 @@ public class MainGUI extends JFrame{
         );
 
         wlButton.addActionListener(
-                e -> {
-                    new AvalFrame();
-                }
+                e -> new AvalFrame()
         );
 
         orderButton.addActionListener(
@@ -122,7 +118,7 @@ public class MainGUI extends JFrame{
                         String ordername = orderPanel.getOrder();
                         System.out.println(ordername);
                         try {
-                            order = OrderGenerateUseCase.Generate_order_in_GUI(ordername, user);
+                            OrderGenerateUseCase.Generate_order_in_GUI(ordername, user);
                         } catch (IOException ex) {
                             ex.printStackTrace();
                         }

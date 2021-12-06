@@ -1,8 +1,8 @@
-package main.java.user.UseCase;
+package user.UseCase;
 
-import main.java.user.Admin;
-import main.java.user.Customer;
-import main.java.user.User;
+import user.Admin;
+import user.Customer;
+import user.User;
 
 import java.io.IOException;
 import java.util.ArrayList;

@@ -1,15 +1,7 @@
-package main.java;
 
+import gui.LoginGUI;
 
-public class GUI {
-    /**
-     * Class constructor
-     * This method does not have any return type.
-     */
-
-    public GUI(){
-
-    }
+public class App {
 
 
     /**

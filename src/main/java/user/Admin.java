@@ -1,4 +1,4 @@
-package main.java.user;
+package user;
 
 /**
  * This is a class that represents the entity Admin, which is a subclass of User.

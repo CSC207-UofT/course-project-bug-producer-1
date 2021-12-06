@@ -1,7 +1,7 @@
-package test.java.order;
+package order;
 
-import main.java.item.Item;
-import main.java.order.Order;
+import item.Item;
+import order.Order;
 import org.junit.Test;
 
 import java.util.HashMap;
@@ -34,11 +34,11 @@ public class OrderControllerTest {
 //        n = OrderGenerateUseCase.Generate_order_customer(z,k);
 //    }
 
-    @Test(timeout = 50)
-    public void Test_Order_customer() {
-        assertEquals(m.get_item_list(),f);
-        assertEquals(n.get_item_list(),k);
-        assertEquals(m.get_status(),"Order_out");
-        assertEquals(n.get_status(),"Order_in");
-    }
+//    @Test(timeout = 50)
+//    public void Test_Order_customer() {
+//        assertEquals(m.get_item_list(),f);
+//        assertEquals(n.get_item_list(),k);
+//        assertEquals(m.get_status(),"Order_out");
+//        assertEquals(n.get_status(),"Order_in");
+//    }
 }

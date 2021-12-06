@@ -1,4 +1,4 @@
-package main.java.order;
+package order;
 
 import com.opencsv.exceptions.CsvException;
 
@@ -17,7 +17,7 @@ public class order_history_controller{
      * @return A list of lists with each list of 4 element inside of outer list is order has username,order number
      * order_date and number of total item.
      */
-    public static ArrayList<String[]> get_order_history_for_user(String username) throws IOException {
+    public static ArrayList<String[]> get_order_history_for_user(String username){
         return file_writer.readOrder(username);
     }
     /**
@@ -29,7 +29,7 @@ public class order_history_controller{
         return file_writer.readOrder();
     }
 
-    public static Order find_order(String input) throws IOException {
+    public static Order find_order(String input){
         return OrderGenerateUseCase.find_order(input);
 
     }

@@ -1,8 +1,9 @@
-package main.java.inventory.UseCase;
+package inventory.UseCase;
 
-import main.java.Database.ItemReadWriter;
-import main.java.inventory.Inventory;
-import main.java.order.Order;
+import item.Item;
+import Database.ItemReadWriter;
+import inventory.Inventory;
+import order.Order;
 
 import java.io.IOException;
 import java.util.HashMap;
