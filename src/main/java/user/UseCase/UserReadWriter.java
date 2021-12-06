@@ -21,8 +21,8 @@ public class UserReadWriter {
 
             String values = name + "," + user_email + "," + pwd + "," + type;
 
-            bw.newLine();
             bw.write(values);
+            bw.newLine();
 
             bw.close();
         }
@@ -40,6 +40,7 @@ public class UserReadWriter {
         ArrayList<String[]> result = new ArrayList<String[]>();
         try (BufferedReader br = new BufferedReader(new FileReader(csv))) {
             String s;
+            br.readLine();
             // Reads it line by line
             while ((s = br.readLine()) != null) {
                 String[] values = s.split(",");
