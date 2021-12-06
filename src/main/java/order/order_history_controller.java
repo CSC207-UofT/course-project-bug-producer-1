@@ -1,5 +1,7 @@
 package main.java.order;
 
+import com.opencsv.exceptions.CsvException;
+
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -25,5 +27,9 @@ public class order_history_controller{
      */
     public ArrayList<String[]> get_order_history_all() throws IOException {
         return file_writer.readOrder();
+    }
+
+    public void Delete(String orderID) throws IOException, CsvException{
+        file_writer.delete(orderID);
     }
 }
