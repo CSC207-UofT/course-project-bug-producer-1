@@ -81,23 +81,38 @@ public class RegisterGUI extends JFrame {
     private void listener(){
         regButton.addActionListener(
                 e -> {
+                    boolean flag = false;
                     String user = usernameField.getText();
                     String pass = String.valueOf(passwordField.getPassword());
                     String secret_code = code.getText();
                     String email = emailField.getText();
-                    boolean flag = false;
-                    try {
-                        flag = UserController.register(user, secret_code, pass, email);
-                    } catch (IOException ex) {
-                        System.out.print("Error Detected, Please contact Author.");
+                    if (null == user
+                            || user.trim().length() == 0
+                            || pass.trim().length() == 0){
+                        JOptionPane.showMessageDialog(null, "Username or Password cannot be empty!");
+                    }else if(null == email
+                            || email.trim().length() <= 5
+                            || !email.contains("@")
+                            || !email.contains(".")){
+                        JOptionPane.showMessageDialog(null, "You must enter a valid Email address!");
+                    }else{
+                        try {
+                            flag = UserController.register(user, secret_code, pass, email);
+                        } catch (IOException ex) {
+                            System.out.print("Error Detected, Please contact Author.");
+                        }
+                        if (flag){
+                            JOptionPane.showMessageDialog(null, "Registration successful");
+                            dispose();
+                        }
+                        else{
+                            JOptionPane.showMessageDialog(null, "Registration failed!");
+                        }
                     }
-                    if (flag){
-                        JOptionPane.showMessageDialog(null, "Registration successful");
-                        dispose();
-                    }
-                    else{
-                        JOptionPane.showMessageDialog(null, "Registration failed!");
-                    }
+
+
+
+
 
                 }
         );

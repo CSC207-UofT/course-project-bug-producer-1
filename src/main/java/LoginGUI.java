@@ -104,9 +104,7 @@ public class LoginGUI extends JFrame {
                             || user.trim().length() == 0
                             || pass.trim().length() == 0){
                         JOptionPane.showMessageDialog(null, "Username or Password cannot be empty!");
-                    }
-                    else {
-
+                    } else {
                         try {
                             if (UserController.log_in(user, pass)){
                                 JOptionPane.showMessageDialog(null, "Login Success!");
