@@ -29,9 +29,11 @@ public class OrderHistoryGUI extends JPanel
     public OrderHistoryGUI() throws IOException {
         super(new BorderLayout());
 
+
+
         listModel = new DefaultListModel<>();
-
-
+        ArrayList<String[]> orderHis = get_order_history_for_user(Constant.getCurrUsername());
+        MessagePresenter.return_list_model(listModel, orderHis);
         //Create the itemlist and put it in a scroll pane.
         itemlist = new JList<>(listModel);
         itemlist.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
@@ -73,9 +75,6 @@ public class OrderHistoryGUI extends JPanel
         add(listScrollPane, BorderLayout.CENTER);
         add(buttonPane, BorderLayout.PAGE_END);
 
-        listModel.addElement("<html>Order ID: 001<br/>Order time: 2021/01/03<br/>Order items: 17</html>");
-        ArrayList<String[]> orderHis = get_order_history_for_user(Constant.getCurrUsername());
-        listModel = MessagePresenter.return_list_model(listModel, orderHis);
 
 
         itemlist.setCellRenderer(new Renderer());
@@ -89,12 +88,8 @@ public class OrderHistoryGUI extends JPanel
         selectButton.addActionListener(
                 e -> {
                     int size = listModel.getSize();
-                    if (size == 0) { //Nobody's left, disable remove.
-                        selectButton.setEnabled(false);
-
-                    }else{
-                        selectButton.setEnabled(true);
-                    }
+                    //Nobody's left, disable remove.
+                    selectButton.setEnabled(size != 0);
                     int index = itemlist.getSelectedIndex();
                     String order_id = listModel.get(index).substring(16, 19);
                     new OrderDetailGUI(order_id);

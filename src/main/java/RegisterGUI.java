@@ -1,6 +1,5 @@
 package main.java;
 
-import main.java.user.UseCase.RegisterUseCase;
 import main.java.user.UserController;
 
 import javax.swing.*;

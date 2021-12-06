@@ -35,7 +35,7 @@ public class ItemReadWriter {
      */
     public static ArrayList<String[]> readItems() throws IOException {
         File csv = new File("itemname.csv ");
-        ArrayList<String[]> result = new ArrayList<String[]>();
+        ArrayList<String[]> result = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader(csv))) {
             String s;
             // Reads it line by line
