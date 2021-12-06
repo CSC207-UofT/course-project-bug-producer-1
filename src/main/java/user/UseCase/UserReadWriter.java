@@ -17,13 +17,15 @@ public class UserReadWriter {
     public static void writeUsers(String name, String user_email, String pwd, String type) throws IOException {
         try {
             File csv = new File("userdatabase.csv");
+            if (!csv.exists()) {
+                boolean newFile = csv.createNewFile();
+            }
             BufferedWriter bw = new BufferedWriter(new FileWriter(csv, true));
 
             String values = name + "," + user_email + "," + pwd + "," + type;
 
             bw.newLine();
             bw.write(values);
-            
             bw.close();
         }
         catch (FileNotFoundException e) {
@@ -38,6 +40,9 @@ public class UserReadWriter {
     public static ArrayList<String[]> readUsers() throws IOException {
         File csv = new File("userdatabase.csv");
         ArrayList<String[]> result = new ArrayList<>();
+        if (!csv.exists()) {
+            boolean newFile = csv.createNewFile();
+        }
         try (BufferedReader br = new BufferedReader(new FileReader(csv))) {
             String s;
             br.readLine();

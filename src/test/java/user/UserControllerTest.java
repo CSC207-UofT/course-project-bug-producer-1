@@ -36,9 +36,9 @@ public class UserControllerTest {
 //        ArrayList<String> actual_list_2 = getCurrentUser ("Reagan", "12345", "asd");
 //        Assert.assertEquals(actual_list, s_2);
 //    }
-//
-//
-//
+
+
+
 //    @Test
 //    public void test_register() throws IOException {
 //

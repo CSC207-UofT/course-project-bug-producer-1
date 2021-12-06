@@ -25,7 +25,7 @@ public class OrderHistoryGUI extends JPanel
 
 
 
-    public OrderHistoryGUI() throws IOException {
+    public OrderHistoryGUI(){
         super(new BorderLayout());
 
 
@@ -91,22 +91,14 @@ public class OrderHistoryGUI extends JPanel
                     selectButton.setEnabled(size != 0);
                     int index = itemlist.getSelectedIndex();
                     String order_id = listModel.get(index).substring(16, 24);
-                    try {
-                        new OrderDetailGUI(order_id);
-                    } catch (IOException ex) {
-                        ex.printStackTrace();
-                    }
+                    new OrderDetailGUI(order_id);
                 }
         );
         refreshButton.addActionListener(
                 e -> {
-                    try {
-                        listModel.removeAllElements();
-                        ArrayList<String[]> orderHis = get_order_history_for_user(Constant.getCurrUsername());
-                        MessagePresenter.return_list_model(listModel, orderHis);
-                    } catch (IOException ex) {
-                        ex.printStackTrace();
-                    }
+                    listModel.removeAllElements();
+                    ArrayList<String[]> orderHis = get_order_history_for_user(Constant.getCurrUsername());
+                    MessagePresenter.return_list_model(listModel, orderHis);
 
                 }
         );
