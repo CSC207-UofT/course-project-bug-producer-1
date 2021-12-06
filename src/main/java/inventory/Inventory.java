@@ -35,16 +35,6 @@ public class Inventory {
         set_inventory();
         return item_list;
     }
-    //public HashMap<String, Integer> get_inventory_list() {
-    //    set_inventory();
-    //    HashMap<String, Integer> inventory_list = new HashMap<>();
-    //    for (Item key : item_list.keySet()) {
-    //        for (Integer value : item_list.values()) {
-    //            inventory_list.put(key.toString(), value);
-    //        }
-    //    }
-    //    return inventory_list;
-    //}
     private void set_inventory() throws IOException {
         this.item_list = ItemReadWriter.readItems();
     }

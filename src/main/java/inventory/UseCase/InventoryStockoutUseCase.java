@@ -1,11 +1,10 @@
 package main.java.inventory.UseCase;
 
+import main.java.Database.ItemReadWriter;
 import main.java.inventory.Inventory;
-import main.java.item.Item;
 import main.java.order.Order;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Objects;
 
@@ -15,9 +14,9 @@ import java.util.Objects;
  */
 public class InventoryStockoutUseCase {
     /**
-     * this method show how to stock in the item into the inventory
-     * @param key_item an item param that show the key in the item hashmap
-     * @param num_out an int that show how much the item stock out
+     * this method show how to stock out the item into the inventory
+     * @param order get the order list and the number of the item need stock out
+     * @param inventory get the item in the inventory
      * @return return a new hashmap of the inventory item after stock out
      */
     public static HashMap<String, Integer> stock_out(Order order, Inventory inventory) throws IOException {
@@ -30,9 +29,10 @@ public class InventoryStockoutUseCase {
                         inventory_list.computeIfPresent(key_inventory,(key, value) -> value-order_list.get(key_order));
                     }
                 }
+                ItemReadWriter.writeItems(key_inventory,inventory_list.get(key_inventory));
             }
         }
-    return inventory_list;
+        return inventory_list;
     }
 }
 
