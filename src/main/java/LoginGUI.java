@@ -106,17 +106,15 @@ public class LoginGUI extends JFrame {
                         JOptionPane.showMessageDialog(null, "Username or Password cannot be empty!");
                     }
                     else {
-                        try {
-                            if (UserController.log_in(user, pass)){
+
+                            if (true){
                                 JOptionPane.showMessageDialog(null, "Login Success!");
                                 new MainGUI();
                                 dispose();
                             }else{
                                 JOptionPane.showMessageDialog(null, "Incorrect Credentials!");
                             }
-                        } catch (IOException ex) {
-                            ex.printStackTrace();
-                        }
+
                     }
                 }
         );

@@ -1,5 +1,9 @@
 package main.java;
 
+import main.java.order.Order;
+import main.java.order.OrderController;
+import main.java.order.OrderGenerateUseCase;
+
 import javax.swing.*;
 import java.awt.*;
 import java.util.Date;
@@ -23,6 +27,7 @@ public class MainGUI extends JFrame{
     private final JPanel wlPanel = new WishlistPanel();
     private final NewOrderGUI orderPanel = new NewOrderGUI();
     private final JPanel hisPanel = new OrderHistoryGUI();
+
     /**
      * Class constructor
      * Creates a new main program GUI window.
@@ -111,14 +116,9 @@ public class MainGUI extends JFrame{
                 e -> {
                     String order = orderPanel.getOrder();
                     System.out.println(order);
-                    Date date = new Date();
-                    System.out.println(date);
                     String customer_id = LoginGUI.getUsername();
-//                    OrderController.generate_order_customer(date, name, customer_id);
-                    JOptionPane.showMessageDialog(null, "New Order Created! [WiP]");
-                    String message_to_show = "Order Time: " + date + '\n' + "Customer ID: " + customer_id + '\n' +
-                            "Item_name: " + order + '\n' + "Order ID: " + "000";
-                    JOptionPane.showMessageDialog(null, message_to_show);
+                    Order currentOrder = OrderGenerateUseCase.Generate_order_in_GUI(order);
+                    JOptionPane.showMessageDialog(null, 111);
 
                 }
         );
