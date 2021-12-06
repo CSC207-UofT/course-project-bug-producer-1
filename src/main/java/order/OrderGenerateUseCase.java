@@ -30,14 +30,17 @@ public class OrderGenerateUseCase {
      * @param item string of input that requires certain items.
      * @return create an order for customer
      */
-    public static Order Generate_order_in_GUI(String item){
+    public static Order Generate_order_in_GUI(String item, String userID){
+        item = item.substring(0, item.length() -1);
         HashMap<Item, Integer> order_component = new HashMap<>();
         String[] str_ary = item.split(",");
         for(String str: str_ary){
-            String[] temp = str.split("\\|");
+            String[] temp = str.split(" \\| ");
             order_component.put(new Item(temp[0],Integer.parseInt(temp[1])),Integer.parseInt(temp[1]));
         }
-        return Generate_order_customer(order_component);
+        Order rel = Generate_order_customer(order_component);
+        rel.update_customer(userID);
+        return rel;
     }
 
     public static String getOrderID(Order order){

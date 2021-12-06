@@ -16,7 +16,7 @@ public class Order {
     private final HashMap<Item, Integer> item_list;
     private final String OrderID;
     private final String status;
-
+    private String userID;
     /**
      * This method is the constructor of the order, which instantiates a new Order object.
      * It is used to create an order of supplement.
@@ -42,6 +42,7 @@ public class Order {
         this.item_list = item_list;
         this.OrderID = generate_order_number();
         this.status = "Order_out";
+        this.userID = "";
     }
 
     /**
@@ -76,6 +77,9 @@ public class Order {
         return this.status;
     }
 
+    public void update_customer(String input){
+        this.userID = input;
+    }
     /**
      *
      * this method is used to return the total number of the order.
@@ -95,7 +99,7 @@ public class Order {
         StringBuilder str = new StringBuilder();
         Random random = new Random();
         for(int i = 0; i < 2; i++) {
-            str.append(random.nextInt(10));
+            str.append(random.nextInt(10000));
         }
         return str.toString();
     }
