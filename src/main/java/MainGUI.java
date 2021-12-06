@@ -1,7 +1,13 @@
 package main.java;
 
+import main.java.order.Order;
+import main.java.order.OrderController;
+import main.java.order.OrderGenerateUseCase;
+
 import javax.swing.*;
 import java.awt.*;
+import java.util.Date;
+
 /**
  * This class is the main class for GUI which handles
  * and represents other panels and connects to other GUIs
@@ -15,10 +21,14 @@ public class MainGUI extends JFrame{
     private final JButton wlButton = new JButton("Wish list");
     private final JButton msgButton = new JButton("Messages");
     private final JButton exitButton = new JButton("Log out");
+    private final JPanel submitOrderPanel = new JPanel();
+    private final JButton submitOrderButton = new JButton("Submit Order");
     private final JPanel bkgPanel = new JPanel();
     private final JPanel wlPanel = new WishlistPanel();
-    private final JPanel orderPanel = new NewOrderPanel();
-    // --Commented out by Inspection (2021-11-04, 10:06 p.m.):private final JPanel hisPanel = new JPanel();
+    private final NewOrderGUI orderPanel = new NewOrderGUI();
+    private final JPanel hisPanel = new OrderHistoryGUI();
+    private static Order order = null;
+
     /**
      * Class constructor
      * Creates a new main program GUI window.
@@ -31,7 +41,6 @@ public class MainGUI extends JFrame{
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         init();
         setVisible(true);
-
     }
     /**
      * Initialize the program
@@ -48,21 +57,23 @@ public class MainGUI extends JFrame{
         buttonPanel.add(msgButton);
         buttonPanel.add(exitButton);
         container.add(buttonPanel, "North");
+        submitOrderPanel.add(submitOrderButton);
 
         // bkgPanel
         JLabel label = new JLabel();
-        bkgPanel.setLayout(new FlowLayout());
+        bkgPanel.setLayout(new GridLayout(0, 1));
         ImageIcon img = new ImageIcon("src/main/resources/bug.png");
         label.setIcon(img);
         bkgPanel.add(label);
         container.add(bkgPanel, "Center");
 
 
-
-
         listener();
 
 
+    }
+    public static Order getOrder(){
+        return order;
     }
 
     private void listener(){
@@ -92,8 +103,27 @@ public class MainGUI extends JFrame{
                 e -> {
                     bkgPanel.removeAll();
                     bkgPanel.add(orderPanel);
+                    bkgPanel.add(submitOrderPanel);
                     bkgPanel.repaint();
                     bkgPanel.revalidate();
+                }
+        );
+        hisButton.addActionListener(
+                e -> {
+                    bkgPanel.removeAll();
+                    bkgPanel.add(hisPanel);
+                    bkgPanel.repaint();
+                    bkgPanel.revalidate();
+                }
+        );
+        submitOrderButton.addActionListener(
+                e -> {
+                    String ordername = orderPanel.getOrder();
+                    System.out.println(ordername);
+                    order = OrderGenerateUseCase.Generate_order_in_GUI(ordername);
+                    JOptionPane.showMessageDialog(null, "Order submitted!");
+
+
                 }
         );
     }

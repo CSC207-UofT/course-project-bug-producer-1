@@ -1,4 +1,4 @@
-package main.java.Database.Databasegateway;
+package main.java.Database;
 
 import java.io.*;
 import java.util.ArrayList;

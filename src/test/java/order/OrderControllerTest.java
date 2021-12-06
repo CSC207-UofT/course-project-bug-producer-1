@@ -1,11 +1,12 @@
 package test.java.order;
-import main.java.item.*;
+
+import main.java.item.Item;
 import main.java.order.Order;
-import org.junit.*;
-import static org.junit.Assert.*;
+import org.junit.Test;
+
 import java.util.HashMap;
-import main.java.order.OrderGenerateUseCase;
-import java.util.Date;
+
+import static org.junit.Assert.assertEquals;
 
 
 public class OrderControllerTest {
@@ -14,24 +15,24 @@ public class OrderControllerTest {
     Order m;
     Order n;
 
-    @Before
-    public void setUp(){
-        Item a = new Apple("apple",123, 1, 3);
-        Item b = new Banana("banana",344,1,2);
-        Item c = new Beef("Beef",987,2,4);
-        Item d = new Carrot("carrot",555,1,7);
-        Date z = new Date();
-        f = new HashMap<>();
-        k = new HashMap<>();
-        f.put(a,a.getQuantity());
-        f.put(b, b.getQuantity());
-        k.put(a,a.getQuantity());
-        k.put(b, b.getQuantity());
-        k.put(c, c.getQuantity());
-        k.put(d, d.getQuantity());
-        m = OrderGenerateUseCase.Generate_order_customer(z,f);
-        n = OrderGenerateUseCase.Generate_order_customer(z,k);
-    }
+//    @Before
+//    public void setUp(){
+//        Item a = new Apple("apple",123, 1, 3);
+//        Item b = new Banana("banana",344,1,2);
+//        Item c = new Beef("Beef",987,2,4);
+//        Item d = new Carrot("carrot",555,1,7);
+//        Date z = new Date();
+//        f = new HashMap<>();
+//        k = new HashMap<>();
+//        f.put(a,a.getQuantity());
+//        f.put(b, b.getQuantity());
+//        k.put(a,a.getQuantity());
+//        k.put(b, b.getQuantity());
+//        k.put(c, c.getQuantity());
+//        k.put(d, d.getQuantity());
+//        m = OrderGenerateUseCase.Generate_order_customer(z,f);
+//        n = OrderGenerateUseCase.Generate_order_customer(z,k);
+//    }
 
     @Test(timeout = 50)
     public void Test_Order_customer() {

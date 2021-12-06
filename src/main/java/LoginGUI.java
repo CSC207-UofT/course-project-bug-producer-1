@@ -4,8 +4,8 @@ import main.java.user.UserController;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
 
-import static main.java.GUI.dat;
 
 /**
  * This class is the login class for GUI which handles
@@ -19,6 +19,8 @@ public class LoginGUI extends JFrame {
     private final JTextField usernameField = new JTextField();
     private final JLabel pwdLabel = new JLabel("Password: ");
     private final JPasswordField passwordField = new JPasswordField();
+    private final JLabel codeLabel = new JLabel("Secret Code: ");
+    private final JPasswordField codeField = new JPasswordField();
     private final JButton loginButton = new JButton("Login");
     private final JButton clearButton = new JButton("Clear");
     private static String username = "";
@@ -43,9 +45,7 @@ public class LoginGUI extends JFrame {
      * Returns the username of the user who is currently using this software.
      * @return the username of the User
      */
-    public static String getUsername(){
-        return username;
-    }
+
 
     /**
      * Initialize the program
@@ -58,8 +58,10 @@ public class LoginGUI extends JFrame {
         fieldPanel.setLayout(null);
         userLabel.setBounds(180, 20, 80, 20);
         pwdLabel.setBounds(180, 60, 80, 20);
+        codeLabel.setBounds(180, 100, 80, 20);
         usernameField.setBounds(260, 20, 160, 20);
         passwordField.setBounds(260, 60, 160, 20);
+        codeField.setBounds(260, 100, 160, 20);
         fieldPanel.add(userLabel);
         fieldPanel.add(pwdLabel);
         fieldPanel.add(usernameField);
@@ -95,17 +97,24 @@ public class LoginGUI extends JFrame {
                 e -> {
                     String user = usernameField.getText();
                     String pass = String.valueOf(passwordField.getPassword());
+                    String code = String.valueOf(codeField.getPassword());
                     if (null == user
                             || user.trim().length() == 0
                             || pass.trim().length() == 0){
                         JOptionPane.showMessageDialog(null, "Username or Password cannot be empty!");
-                    }
-                    else if (UserController.log_in(user, pass, dat)){
-                        JOptionPane.showMessageDialog(null, "Login Success!");
-                        new MainGUI();
-                        dispose();
-                    }else{
-                        JOptionPane.showMessageDialog(null, "Incorrect Credentials!");
+                    } else {
+                        try {
+                            if (UserController.log_in(user, pass)){
+                                JOptionPane.showMessageDialog(null, "Login Success!");
+                                new MainGUI();
+                                dispose();
+                            }else{
+                                JOptionPane.showMessageDialog(null, "Incorrect Credentials!");
+                            }
+                        } catch (IOException ex) {
+                            ex.printStackTrace();
+                        }
+
                     }
                 }
         );
