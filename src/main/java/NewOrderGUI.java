@@ -163,7 +163,7 @@ public class NewOrderGUI extends JPanel
                     JOptionPane.showMessageDialog(itemAmount, "Amount cannot be 0!");
                     return;
                 }
-                int number = Integer.parseInt(num);
+
             }
             catch (NumberFormatException ex){
 

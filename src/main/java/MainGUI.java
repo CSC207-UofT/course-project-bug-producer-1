@@ -1,6 +1,5 @@
 package main.java;
 
-import main.java.order.Order;
 import main.java.order.OrderGenerateUseCase;
 
 import javax.swing.*;
@@ -13,7 +12,7 @@ import java.io.IOException;
  *
  * @author Yuehao Huang
  */
-@SuppressWarnings("CanBeFinal")
+
 public class MainGUI extends JFrame{
     private final Container container = getContentPane();
     private final JButton orderButton = new JButton("New order");
@@ -26,8 +25,7 @@ public class MainGUI extends JFrame{
     private final JPanel bkgPanel = new JPanel();
     private final NewOrderGUI orderPanel = new NewOrderGUI();
     private final JPanel hisPanel = new OrderHistoryGUI();
-    private static Order order = null;
-    private static String user = Constant.getCurrUsername();
+    private static final String user = Constant.getCurrUsername();
 
     /**
      * Class constructor
@@ -73,9 +71,6 @@ public class MainGUI extends JFrame{
 
 
     }
-    public static Order getOrder(){
-        return order;
-    }
 
     private void listener(){
         exitButton.addActionListener(
@@ -92,9 +87,7 @@ public class MainGUI extends JFrame{
         );
 
         wlButton.addActionListener(
-                e -> {
-                    new AvalFrame();
-                }
+                e -> new AvalFrame()
         );
 
         orderButton.addActionListener(
@@ -122,7 +115,7 @@ public class MainGUI extends JFrame{
                         String ordername = orderPanel.getOrder();
                         System.out.println(ordername);
                         try {
-                            order = OrderGenerateUseCase.Generate_order_in_GUI(ordername, user);
+                            OrderGenerateUseCase.Generate_order_in_GUI(ordername, user);
                         } catch (IOException ex) {
                             ex.printStackTrace();
                         }
