@@ -36,7 +36,7 @@ public class file_writer{
      * order_date and number of total item.
      */
     public static ArrayList<String[]> readOrder() throws IOException {
-        File csv = new File("order_database.csv ");
+        File csv = new File("order_database.csv");
         ArrayList<String[]> result = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader(csv))) {
             String s;
@@ -58,7 +58,7 @@ public class file_writer{
      * order_date and number of total item.
      */
     public static ArrayList<String[]> readOrder(String userID) throws IOException {
-        File csv = new File("order_database.csv ");
+        File csv = new File("order_database.csv");
         ArrayList<String[]> result = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader(csv))) {
             String s;
