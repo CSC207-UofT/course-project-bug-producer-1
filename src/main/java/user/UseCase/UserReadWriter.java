@@ -1,20 +1,18 @@
 package main.java.user.UseCase;
 
-import com.opencsv.*;
 import java.io.*;
 import java.util.ArrayList;
-
 
 
 public class UserReadWriter {
     /**
      * Writes the users to file at filePath.
-     * @param name A string representing username
+     *
+     * @param name       A string representing username
      * @param user_email A string representing user's email
-     * @param pwd A string representing user's password
-     * @param type A string representing user's type
+     * @param pwd        A string representing user's password
+     * @param type       A string representing user's type
      */
-
 
 
     public static void writeUsers(String name, String user_email, String pwd, String type) throws IOException {
@@ -25,35 +23,37 @@ public class UserReadWriter {
 
             String values = name + "," + user_email + "," + pwd + "," + type;
 
-
-            bw.write(values);
             bw.newLine();
+            bw.write(values);
+
 
             bw.close();
-        }
-        catch (FileNotFoundException e) {
+        } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
     }
 
     /**
      * Store the users to file at filePath.
+     *
      * @return A list of user
      */
     public static ArrayList<String[]> readUsers() throws IOException {
-        File csv = new File("userdatabase.csv ");
+        File csv = new File("userdatabase.csv");
         ArrayList<String[]> result = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader(csv))) {
-            String s;
+            String s ;
             // Reads it line by line
+            br.readLine();
             while ((s = br.readLine()) != null) {
                 String[] values = s.split(",");
                 result.add(values);
+
             }
-        }
-        catch (FileNotFoundException e) {
+        } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
         return result;
     }
+
 }
