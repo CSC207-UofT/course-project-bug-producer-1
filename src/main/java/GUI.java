@@ -8,13 +8,10 @@ public class GUI {
      */
 
     public GUI(){
-        init();
 
     }
 
-    private void init(){
 
-    }
     /**
      * Class constructor
      * This method creates a new  loginGUI window which starts the program.

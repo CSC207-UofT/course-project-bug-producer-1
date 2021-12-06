@@ -1,27 +1,25 @@
 package main.java;
 
 import main.java.message.MessageController;
-import main.java.message.MessagePresenter;
-import main.java.order.OrderController;
 
 import javax.swing.*;
 import java.awt.*;
 
 public class OrderDetailGUI extends JFrame {
-    private final Container container = getContentPane();
-    private final JLabel orderDetailLabel = new JLabel("Selected order detail");
     public static DefaultListModel<String> listModel;
     public static JList<String> itemlist;
 
     public OrderDetailGUI(String order_id){
         setTitle("Order Detail");
         setBounds(150, 200, 150, 150);
+        Container container = getContentPane();
         container.setLayout(new BorderLayout());
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setVisible(true);
-//        listModel = OrderController.getOrder(order_id);
+
         JPanel labelPane = new JPanel();
         labelPane.setLayout(new FlowLayout());
+        JLabel orderDetailLabel = new JLabel("Selected order detail");
         labelPane.add(orderDetailLabel);
 
         listModel = MessageController.create_new_list_model();

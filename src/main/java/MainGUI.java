@@ -13,6 +13,7 @@ import java.io.IOException;
  *
  * @author Yuehao Huang
  */
+@SuppressWarnings("CanBeFinal")
 public class MainGUI extends JFrame{
     private final Container container = getContentPane();
     private final JButton orderButton = new JButton("New order");
