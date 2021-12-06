@@ -16,6 +16,7 @@ public class RegisterUseCase {
      * @return boolean
      */
     public static boolean register(String name, String user_email, String pwd, String type) throws IOException {
+        if (!UserReadWriter.readUsers().equals(new ArrayList<String[]>())){
         for (String[] registerUser : UserReadWriter.readUsers()) {
             String username = registerUser[0];
 
@@ -28,6 +29,11 @@ public class RegisterUseCase {
             }
         }
         return false;
+    }
+        else {
+            UserReadWriter.writeUsers(name, user_email, pwd, type)
+            return true;
+        }
     }
 }
 
