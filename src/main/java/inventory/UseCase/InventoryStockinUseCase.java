@@ -1,4 +1,4 @@
-package main.java.inventory;
+package main.java.inventory.UseCase;
 
 import main.java.item.Item;
 

@@ -6,10 +6,10 @@ package main.java.user;
  */
 
 public class User {
-    protected String name;
-    protected String user_email;
-    protected String password;
-    protected String user_type;
+    protected final String name;
+    protected final String user_email;
+    protected final String password;
+    protected final String user_type;
 
     /**
      * Constructs an instance of User
