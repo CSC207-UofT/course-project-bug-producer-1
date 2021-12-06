@@ -21,9 +21,9 @@ public class UserReadWriter {
 
             String values = name + "," + user_email + "," + pwd + "," + type;
 
-            bw.write(values);
             bw.newLine();
-
+            bw.write(values);
+            
             bw.close();
         }
         catch (FileNotFoundException e) {
