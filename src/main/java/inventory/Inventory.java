@@ -28,7 +28,6 @@ public class Inventory {
 
     /**
      * this method is used to get the items in the inventory
-     *
      * @return return the list of the items in the inventory
      */
     public HashMap<String, Integer> get_item() throws IOException {

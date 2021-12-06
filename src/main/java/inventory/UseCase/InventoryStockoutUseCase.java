@@ -15,6 +15,7 @@ import java.util.Objects;
 public class InventoryStockoutUseCase {
     /**
      * this method show how to stock out the item into the inventory
+     *
      * @param order get the order list and the number of the item need stock out
      * @param inventory get the item in the inventory
      * @return return a new hashmap of the inventory item after stock out
