@@ -5,6 +5,7 @@ import main.java.order.OrderGenerateUseCase;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
 
 /**
  * This class is the main class for GUI which handles
@@ -120,7 +121,11 @@ public class MainGUI extends JFrame{
                 e -> {
                     String ordername = orderPanel.getOrder();
                     System.out.println(ordername);
-                    order = OrderGenerateUseCase.Generate_order_in_GUI(ordername, user);
+                    try {
+                        order = OrderGenerateUseCase.Generate_order_in_GUI(ordername, user);
+                    } catch (IOException ex) {
+                        ex.printStackTrace();
+                    }
                     JOptionPane.showMessageDialog(null, "Order submitted!");
 
 

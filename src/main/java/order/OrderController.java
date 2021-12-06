@@ -4,6 +4,7 @@ import main.java.inventory.Inventory;
 import main.java.item.Item;
 import main.java.inventory.Inventory;
 
+import java.io.IOException;
 import java.util.Date;
 import java.util.HashMap;
 import main.java.order.OrderGenerateUseCase;
@@ -14,19 +15,6 @@ import main.java.order.OrderGenerateUseCase;
  */
 public class OrderController {
 
-//    public boolean review_order(Order order, Inventory inventory){
-//        HashMap<Item, Integer> inter = order.get_item_list();
-//        HashMap<Item, Integer> invenlst = inventory.get_item_list();
-//        for(Item key: inter.keySet()){
-//            if(inter.get(key) > invenlst.get(key)){
-//                order.up_date_status("refused");
-//                return false;
-//            }
-//        }
-//        order.up_date_status("processing");
-//        return true;
-//        return true;
-//    }
     /**
      * this method is used to create an order for customer.
      */
@@ -40,15 +28,32 @@ public class OrderController {
         return  OrderGenerateUseCase.Generate_order_in_stock(item_list);
     }
 
+    /**
+     * this method is used to get the id of an order.
+     */
     public static String getOrderID_con(Order order){
         return OrderGenerateUseCase.getOrderID(order);
     }
 
+    /**
+     * this method is used to get the date of an order.
+     */
     public static String getOrderDate_con(Order order){
         return OrderGenerateUseCase.getOrderDate(order);
     }
 
+    /**
+     * this method is used to get the total number of item(s) of an order.
+     */
     public static String get_total_item_con(Order order){
         return OrderGenerateUseCase.get_total_item(order);
+    }
+    /**
+     * this method uses input from GUI to produce an order
+     * @param item string of input that requires certain items.
+     * @return create an order for customer
+     */
+    public static Order generate_order_from_GUI(String item, String userID) throws IOException {
+        return OrderGenerateUseCase.Generate_order_in_GUI(item,userID);
     }
 }
