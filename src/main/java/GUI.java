@@ -1,10 +1,6 @@
 package main.java;
 
 
-import main.java.Database.Database;
-
-import java.io.File;
-
 public class GUI {
     /**
      * Class constructor
@@ -12,6 +8,12 @@ public class GUI {
      */
 
     public GUI(){
+        init();
+
+    }
+
+    private void init(){
+
     }
     /**
      * Class constructor
