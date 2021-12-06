@@ -1,5 +1,8 @@
 package inventory;
-import item.Item;
+
+import inventory.UseCase.InventoryStockinUseCase;
+import inventory.UseCase.InventoryStockoutUseCase;
+import order.Order;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -20,7 +23,7 @@ public class InventoryController {
      * @return return a new hashmap of the inventory item after stock in
      */
     public HashMap<String, Integer> generate_stock_in(Order order, Inventory inventory) throws IOException {
-        return inventory.UseCase.InventoryStockinUseCase.stock_in(order, inventory);
+        return InventoryStockinUseCase.stock_in(order, inventory);
     }
 
     /**
@@ -30,6 +33,6 @@ public class InventoryController {
      * @return return a new hashmap of the inventory item after stock out
      */
     public HashMap<String, Integer> generate_stock_out(Order order, Inventory inventory) throws IOException {
-        return inventory.UseCase.InventoryStockoutUseCase.stock_out(order, inventory);
+        return InventoryStockoutUseCase.stock_out(order, inventory);
     }
 }
