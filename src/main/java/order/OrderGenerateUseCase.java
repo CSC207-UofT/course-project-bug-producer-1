@@ -41,7 +41,7 @@ public class OrderGenerateUseCase {
         }
         Order rel = Generate_order_customer(order_component);
         rel.update_customer(username);
-        file_writer.write_Order_history(rel,username);
+        file_writer.write_Order_history(rel,username,item);
         return rel;
     }
     /**

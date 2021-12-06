@@ -1,6 +1,11 @@
 package main.java.order;
+import com.opencsv.CSVReader;
+import com.opencsv.CSVWriter;
+import com.opencsv.exceptions.CsvException;
+
 import java.io.*;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -16,11 +21,11 @@ public class file_writer{
      * @param order an order object that represents an order to be recorded.
      */
 
-    public static void write_Order_history(Order order, String userID) throws IOException {
+    public static void write_Order_history(Order order, String userID,String item) throws IOException {
         try {
             File csv = new File("order_database.csv");
             BufferedWriter bw = new BufferedWriter(new FileWriter(csv, true));
-            String values = userID+ "," +order.get_id()+ "," +order.getOrderDate()+ "," +order.get_total_item();
+            String values = userID+ "," +order.get_id()+ "," +order.getOrderDate()+ "," +order.get_total_item()+","+item;
             bw.write(values);
             bw.newLine();
             bw.close();
@@ -76,4 +81,21 @@ public class file_writer{
         return result;
     }
 
+    public static void delete(String orderID) throws IOException, CsvException {
+        File csv = new File("order_database.csv ");
+        CSVReader reader2 = new CSVReader(new FileReader(csv));
+        List<String[]> allElements = reader2.readAll();
+        int j = 0;
+        for(int i = 0; i < allElements.size(); i++){
+            if(Objects.equals(allElements.get(i)[1], orderID)){
+                j = i;
+                break;
+            }
+        }
+        allElements.remove(j);
+        FileWriter sw = new FileWriter("order_database.csv ");
+        CSVWriter writer = new CSVWriter(sw);
+        writer.writeAll(allElements);
+        writer.close();
+    }
 }
