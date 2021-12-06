@@ -2,29 +2,34 @@ package main.java;
 
 import main.java.message.MessageController;
 import main.java.message.MessagePresenter;
+import main.java.order.Order;
+
+import static main.java.order.order_history_controller.find_order;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
 
 public class OrderDetailGUI extends JFrame {
     public static DefaultListModel<String> listModel;
     public static JList<String> itemlist;
 
-    public OrderDetailGUI(String order_id){
+    public OrderDetailGUI(String order_id) throws IOException {
         setTitle("Order Detail");
         setBounds(150, 200, 150, 150);
         Container container = getContentPane();
         container.setLayout(new BorderLayout());
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setVisible(true);
-//        MessagePresenter.return_list_model_order_detail(listModel, )
+        Order order = find_order(order_id);
+        listModel = MessageController.create_new_list_model();
+        MessagePresenter.return_list_model_order_detail(listModel, order);
         JPanel labelPane = new JPanel();
         labelPane.setLayout(new FlowLayout());
         JLabel orderDetailLabel = new JLabel("Selected order detail");
         labelPane.add(orderDetailLabel);
 
-        listModel = MessageController.create_new_list_model();
-//        listModel = MessagePresenter.return_list_model_order_detail(listModel, order);
+
         JPanel listPane = new JPanel();
         listPane.setLayout(new FlowLayout());
         //Create the itemlist and put it in a scroll pane.
@@ -34,17 +39,7 @@ public class OrderDetailGUI extends JFrame {
         itemlist.setVisibleRowCount(10);
 
         JScrollPane listScrollPane = new JScrollPane(itemlist);
-        listModel.addElement("Item A | 16");
-        listModel.addElement("Item B | 3");
-        listModel.addElement("Item C | 4");
-        listModel.addElement("Item D | 1");
-        listModel.addElement("Item D | 1");
-        listModel.addElement("Item D | 1");
-        listModel.addElement("Item D | 1");
-        listModel.addElement("Item D | 1");
-        listModel.addElement("Item D | 1");
-        listModel.addElement("Item D | 1");
-        listModel.addElement("Item D | 1");
+
 
         container.add(labelPane, BorderLayout.PAGE_START);
         container.add(listScrollPane, BorderLayout.CENTER);

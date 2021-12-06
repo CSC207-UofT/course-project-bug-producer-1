@@ -16,7 +16,7 @@ public class UserReadWriter {
 
     public static void writeUsers(String name, String user_email, String pwd, String type) throws IOException {
         try {
-            File csv = new File("/Users/elvashen/IdeaProjects/course-project-bug-producer-1/userdatabase.csv");
+            File csv = new File("userdatabase.csv");
             BufferedWriter bw = new BufferedWriter(new FileWriter(csv, true));
 
             String values = name + "," + user_email + "," + pwd + "," + type;
@@ -36,7 +36,7 @@ public class UserReadWriter {
      * @return A list of user
      */
     public static ArrayList<String[]> readUsers() throws IOException {
-        File csv = new File("/Users/elvashen/IdeaProjects/course-project-bug-producer-1/userdatabase.csv ");
+        File csv = new File("userdatabase.csv");
         ArrayList<String[]> result = new ArrayList<String[]>();
         try (BufferedReader br = new BufferedReader(new FileReader(csv))) {
             String s;

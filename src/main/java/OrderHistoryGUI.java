@@ -2,7 +2,7 @@ package main.java;
 
 import com.opencsv.exceptions.CsvException;
 import main.java.message.MessagePresenter;
-import static main.java.order.order_history_controller.delete;
+
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
@@ -99,8 +99,12 @@ public class OrderHistoryGUI extends JPanel
                     //Nobody's left, disable remove.
                     selectButton.setEnabled(size != 0);
                     int index = itemlist.getSelectedIndex();
-                    String order_id = listModel.get(index).substring(16, 19);
-                    new OrderDetailGUI(order_id);
+                    String order_id = listModel.get(index).substring(16, 24);
+                    try {
+                        new OrderDetailGUI(order_id);
+                    } catch (IOException ex) {
+                        ex.printStackTrace();
+                    }
                 }
         );
         refreshButton.addActionListener(
@@ -121,13 +125,6 @@ public class OrderHistoryGUI extends JPanel
             //there's a valid selection
             //so go ahead and remove whatever's selected.
             int index = itemlist.getSelectedIndex();
-
-            String order = listModel.getElementAt(index).substring(16, 19);
-            try {
-                delete(order);
-            } catch (IOException | CsvException ex) {
-                ex.printStackTrace();
-            }
 
             listModel.remove(index);
 
