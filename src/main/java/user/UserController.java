@@ -1,36 +1,42 @@
 package main.java.user;
 
+import main.java.user.UseCase.GetCurrentUser;
+import main.java.user.UseCase.Log_inUseCase;
 import main.java.user.UseCase.RegisterUseCase;
+import main.java.user.UseCase.UserReadWriter;
 
-/**
- * This is a class used to control the action of the User.
- */
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+
+
 
 public class UserController {
 
     /**
-     * This is a method for logging in the user account.
-     * @param user_name User's register name.
-     * @param user_pwd User's password.
-     * @param database The database store the User information.
-     * @return return a boolean type result, if login successfully, return true, else, return false.
+     * A login controller for the use case defined by the Log_inUseCase
      */
-    public static boolean log_in(String user_name, String user_pwd, Database database){
-        return main.java.user.UseCase.Log_inUseCase.log_in(user_name, user_pwd, database);
+
+    public static boolean log_in(String user_name, String user_pwd) throws IOException {
+        return Log_inUseCase.login(user_name,user_pwd);
     }
 
     /**
-     * This is a method for registering the user account.
-     * @param username User's register name.
-     * @param user_input_secret_code The code entered by the user.
-     * @param database The database used to store the information.
-     * @return return a boolean type result, if register successfully, return true, else, return false.
+     * A register controller for the use case defined by the RegisterUseCase
      */
-
-    public static boolean register(String username, String user_input_secret_code, Database database, String password, String email){
-        return RegisterUseCase.register(username, user_input_secret_code, database, password, email);
-
+    public static boolean register(String username, String user_input_secret_code, String password, String email) throws IOException {
+        if (user_input_secret_code.equals("asd")){
+            return RegisterUseCase.register(username,email,password, "admin");
+        }
+        else {
+            return RegisterUseCase.register(username,email,password, "customer");
+        }
     }
+
+    public ArrayList<String> getCurrentUser (String name, String password, String secretCode) throws IOException{
+        return GetCurrentUser.getCurrentUser(name,password,secretCode);
+    }
+
 
 }
 

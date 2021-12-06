@@ -1,27 +1,35 @@
 package main.java.user.UseCase;
 
-import main.java.user.Database;
+import main.java.user.Admin;
+import main.java.user.Customer;
+import main.java.user.User;
 
-/**
- * This class is used for the login of users.
- */
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+
 
 public class Log_inUseCase {
 
     /**
-     * This method is used for the log_in of users. It checks if the password entered by the user
-     * matches the password stored in thr database
-     * @param user_name The name of the user. A String.
-     * @param user_pwd  A string that represents the password of the user.
-     * @param database The database that store the information of user's name and passwords etc.
-     * @return return a boolean type result, if matches, return true, otherwise, return false.
+     * Verifies whether the password entered by the User matches the saved password of the User.
+     * @param name A string represents the entered username.
+     * @param password A string represents the entered password.
+     * @return true for logging in successfully
      */
 
-    public static boolean log_in(String user_name, String user_pwd, Database database){
-        try
-        {
-            return database.database.get(user_name).get(1).equals(user_pwd);
-        }catch(NullPointerException e){return false;}
-
+    public static boolean login (String name, String password) throws IOException {
+        for (String[] registerUser : UserReadWriter.readUsers()) {
+            String username = registerUser[0];
+            String existPwd = registerUser[2];
+            if (name.equals(username)) {
+                return password.equals(existPwd);
+                }
+            return false;
+            }
+        return false;
+        }
     }
-}
+
+
+
