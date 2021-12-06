@@ -1,7 +1,10 @@
 package main.java.inventory;
 
+import main.java.Database.ItemReadWriter;
 import main.java.item.Item;
+import main.java.order.Order;
 
+import java.io.IOException;
 import java.util.HashMap;
 
 /**
@@ -10,40 +13,41 @@ import java.util.HashMap;
  */
 
 public class Inventory {
-    private final int capacity;
-    public static final HashMap<Item, Integer> item_list = new HashMap<>();
-    private HashMap<Item, Integer> order_list = new HashMap<>();
+    private HashMap<String, Integer> item_list;
+
     /**
-    * this method is the initiator of the Inventory
-    * Used to view the item_list and order_list in the inventory, and the capacity of the inventory
-    * @param capacity the capacity of the inventory
-    * @param order_list show the order that the inventory need to be done
+     * this method is the initiator of the Inventory
+     * Used to view the item_list and order_list in the inventory, and the capacity of the inventory
+     *
+     *
+     *
      */
-    public Inventory(int capacity, HashMap<Item, Integer> order_list){
-        this.capacity = capacity;
-        this.order_list = order_list;
+    public Inventory(HashMap<String, Integer> item_list) {
+        this.item_list = item_list;
     }
 
     /**
-     *this method is used to get the items in the inventory
+     * this method is used to get the items in the inventory
+     *
      * @return return the list of the items in the inventory
      */
-    public static HashMap<Item, Integer> get_item_list() {
+    public HashMap<String, Integer> get_item() throws IOException {
+        set_inventory();
         return item_list;
     }
-    /**
-     *this method is used to get the order in the inventory
-     * @return return the list of the order in the inventory
-     */
-    public HashMap<Item, Integer> get_orders_list() {
-        return this.order_list;
+    //public HashMap<String, Integer> get_inventory_list() {
+    //    set_inventory();
+    //    HashMap<String, Integer> inventory_list = new HashMap<>();
+    //    for (Item key : item_list.keySet()) {
+    //        for (Integer value : item_list.values()) {
+    //            inventory_list.put(key.toString(), value);
+    //        }
+    //    }
+    //    return inventory_list;
+    //}
+    private void set_inventory() throws IOException {
+        this.item_list = ItemReadWriter.readItems();
     }
-    /**
-     *this method is used to get the capacity of the inventory
-     * @return return the value of the capacity of the inventory
-     */
-    public int get_capacity() {
-        return capacity;
-    }
+
 }
 
