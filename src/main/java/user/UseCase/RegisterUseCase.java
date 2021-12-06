@@ -12,12 +12,13 @@ public class RegisterUseCase {
      * @param user_email A string represents the user's email
      * @param pwd A string represents the user's password
      * @param type A string represents the user's type
-     * @return boolean
      */
     public static boolean register(String name, String user_email, String pwd, String type) throws IOException {
         for (String[] registerUser : UserReadWriter.readUsers()) {
             String username = registerUser[0];
-
+            if (name.replace(" ", "").equals("")){
+                return false;
+            }
             if (name.equals(username)) {
                 return false;
             }
