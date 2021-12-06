@@ -108,7 +108,12 @@ public class OrderHistoryGUI extends JPanel
     //This method is required by ListSelectionListener.
     public void valueChanged(ListSelectionEvent e) {
         if(!e.getValueIsAdjusting()) itemlist.setCellRenderer(new myRenderer());
+        if (!e.getValueIsAdjusting()) {
 
+            //No selection, disable select button.
+            //Selection, enable the select button.
+            selectButton.setEnabled(itemlist.getSelectedIndex() != -1);
+        }
     }
 
     /**
