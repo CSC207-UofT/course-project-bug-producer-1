@@ -26,7 +26,7 @@ public class MainGUI extends JFrame{
     private final NewOrderGUI orderPanel = new NewOrderGUI();
     private final JPanel hisPanel = new OrderHistoryGUI();
     private static Order order = null;
-    private static String user = Constant.getCurrUser();
+    private static String user = Constant.getCurrUsername();
 
     /**
      * Class constructor
