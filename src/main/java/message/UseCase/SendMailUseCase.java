@@ -70,7 +70,7 @@ public class SendMailUseCase {
         MimeMessage message = createMail_customer(session, senderAccount, receiverAccount, user_input);
 
         Transport transport = session.getTransport();
-        transport.connect(senderAccount, "Bugproducer123");
+        transport.connect(receiverAccount, "Bugproducer123");
         transport.sendMessage(message, message.getAllRecipients());
         transport.close();}
         catch(Exception ignored){}
