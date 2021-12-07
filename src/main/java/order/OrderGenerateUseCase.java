@@ -67,7 +67,7 @@ public class OrderGenerateUseCase {
 
     public static Order find_order(String orderID){
         String tempo = file_writer.get_order_specific(orderID);
-        String[] tempo_ary = tempo.split(" .");
+        String[] tempo_ary = tempo.split(" \\.");
         HashMap<Item, Integer> order_component = new HashMap<>();
         for(String str: tempo_ary){
             String[] temp = str.split(" \\| ");
