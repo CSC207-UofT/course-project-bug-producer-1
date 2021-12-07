@@ -34,7 +34,7 @@ public class OrderGenerateUseCase {
     public static Order Generate_order_in_GUI(String item, String username) throws IOException {
         item = item.substring(1, item.length() -1);
         HashMap<Item, Integer> order_component = new HashMap<>();
-        String[] str_ary = item.split(",");
+        String[] str_ary = item.split(" \\.");
         for(String str: str_ary){
             String[] temp = str.split(" \\| ");
             order_component.put(new Item(temp[0],Integer.parseInt(temp[1])),Integer.parseInt(temp[1]));
