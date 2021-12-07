@@ -18,12 +18,11 @@ public class Log_inUseCase {
             String existPwd = registerUser[2];
             if (name.equals(username)) {
                 return password.equals(existPwd);
-                }
-            return false;
             }
-        return false;
         }
+        return false;
     }
+}
 
 
 
