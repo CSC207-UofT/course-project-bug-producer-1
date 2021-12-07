@@ -107,13 +107,13 @@ public class Order {
     /**
      * This method is used to generate a unique id of the order to track order.
      */
-    private String generate_order_number() {
-        StringBuilder str = new StringBuilder();
+    public static String generate_order_number(){
         Random random = new Random();
-        for (int i = 0; i < 2; i++) {
-            str.append(random.nextInt(10000));
+        StringBuilder result= new StringBuilder();
+        for(int i=0;i<8;i++){
+            result.append(random.nextInt(9) + 1);
         }
-        return str.toString();
+        return result.toString();
     }
 
     public HashMap<String, Integer> get_order_list() {
