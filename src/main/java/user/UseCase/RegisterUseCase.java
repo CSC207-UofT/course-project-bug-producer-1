@@ -1,6 +1,7 @@
 package user.UseCase;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 
 public class RegisterUseCase {
@@ -15,18 +16,24 @@ public class RegisterUseCase {
      * @return boolean
      */
     public static boolean register(String name, String user_email, String pwd, String type) throws IOException {
-        for (String[] registerUser : UserReadWriter.readUsers()) {
-            String username = registerUser[0];
+        if (!UserReadWriter.readUsers().equals(new ArrayList<String[]>())){
+            for (String[] registerUser : UserReadWriter.readUsers()) {
+                String username = registerUser[0];
 
-            if (name.equals(username)) {
-                return false;
+                if (name.equals(username)) {
+                    return false;
+                }
+                else {
+                    UserReadWriter.writeUsers(name, user_email, pwd, type);
+                    return true;
+                }
             }
-            else {
-                UserReadWriter.writeUsers(name, user_email, pwd, type);
-                return true;
-            }
+            return false;
         }
-        return false;
+        else {
+            UserReadWriter.writeUsers(name, user_email, pwd, type);
+            return true;
+        }
     }
 }
 
