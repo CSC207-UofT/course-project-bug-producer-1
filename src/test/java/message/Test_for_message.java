@@ -1,21 +1,19 @@
 package message;
 
 import item.Item;
-import message.Message_R;
 import order.Order;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.util.Date;
 import java.util.HashMap;
 
+import static message.MessageController.create_message_R;
 import static message.MessagePresenter.print_out_message_for_Admin;
 import static message.MessagePresenter.print_out_message_for_customer;
-import static message.MessageController.create_message_R;
 
 public class Test_for_message {
     @Test
-    public void test_SendMessageUseCase_and_MessagePresenter_controller_customer(){
+    public void test_SendMessageUseCase_and_MessagePresenter_controller_customer() {
         Item apple = new Item("apple", 1);
         HashMap<Item, Integer> item_list = new HashMap<>();
         item_list.put(apple, apple.getQuantity());
@@ -34,7 +32,7 @@ public class Test_for_message {
     }
 
     @Test
-    public void test_SendMessageUseCase_and_MessagePresenter_controller_admin(){
+    public void test_SendMessageUseCase_and_MessagePresenter_controller_admin() {
         Item apple = new Item("apple", 1);
         HashMap<Item, Integer> item_list = new HashMap<>();
         item_list.put(apple, apple.getQuantity());

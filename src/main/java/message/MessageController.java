@@ -1,8 +1,8 @@
 package message;
 
-import message.UseCase.SendMailUseCase;
+import message.useCase.SendMailUseCase;
+import message.useCase.SendMessageUseCase;
 import order.Order;
-import message.UseCase.SendMessageUseCase;
 
 import javax.swing.*;
 import java.util.Objects;
@@ -13,9 +13,9 @@ import java.util.Objects;
  * for admin when he/she require to see the order details. Apart from that, it also controls the email sent
  * by the user via email.
  * This class accept the input of the users and control the action of the program, such as creating new entities.
+ *
  * @author GEN LI (Reagan)
  */
-
 
 
 public class MessageController {
@@ -26,6 +26,7 @@ public class MessageController {
      * This method creates the message entity that will be used in the presenter of the message part.Which present the
      * messages shown in a popup way for Customer when he/she place an order. This method is responsible for creating
      * message_R entity.
+     *
      * @param order this is the parameter that passed by the caller of this method, which represents an order placed by users.
      * @return Message_R type variable that contains the information needed by the message part from the order.
      */
@@ -36,10 +37,11 @@ public class MessageController {
 
     /**
      * This is a method that is used to create a new variable of DefaultListModel.
+     *
      * @return this method returns a new variable of DefaultListModel.
      */
 
-    public static DefaultListModel<String> create_new_list_model(){
+    public static DefaultListModel<String> create_new_list_model() {
         return new DefaultListModel<>();
     }
 
@@ -53,7 +55,7 @@ public class MessageController {
      */
 
     public static void send_mail(String user_input, String senderAccount,
-                                 String receiverAccount)  {
+                                 String receiverAccount) {
         if (Objects.equals(senderAccount, "bugproducer207@gmail.com")) {
             SendMailUseCase.send_mail_admin(user_input, senderAccount, receiverAccount);
         } else {
