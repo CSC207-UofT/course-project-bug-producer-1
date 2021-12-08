@@ -12,6 +12,7 @@ import static message.MessagePresenter.print_out_message_for_Admin;
 import static message.MessagePresenter.print_out_message_for_customer;
 
 public class Test_for_message {
+
     @Test
     public void test_SendMessageUseCase_and_MessagePresenter_controller_customer() {
         Item apple = new Item("apple", 1);

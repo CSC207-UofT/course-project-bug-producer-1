@@ -11,7 +11,7 @@ import java.util.Properties;
  * This class is a UseCase class, which is used for sending email via the application.
  * The content of the email is the content typed by the User in the sending email panel.
  *
- * @author GEN LI (Reagan)
+ * @author GEN LI (Reagan_)
  */
 
 public class SendMailUseCase {

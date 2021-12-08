@@ -9,7 +9,7 @@ import java.util.HashMap;
 /**
  * This class is an entity class of the popup message sent to customer or admin.
  *
- * @author GEN LI (Reagan)
+ * @author GEN LI (Reagan_)
  */
 
 public class Message_R {

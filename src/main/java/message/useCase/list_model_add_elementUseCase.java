@@ -7,6 +7,7 @@ import javax.swing.*;
 /**
  * This is a UseCase class that can be used to add elements into the listmodel.
  * This class is responsible for an action of adding elements.
+ * @author Gen LI (Reagan_)
  */
 public class list_model_add_elementUseCase {
     /**

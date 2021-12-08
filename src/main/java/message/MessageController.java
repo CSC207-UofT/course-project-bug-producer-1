@@ -14,7 +14,7 @@ import java.util.Objects;
  * by the user via email.
  * This class accept the input of the users and control the action of the program, such as creating new entities.
  *
- * @author GEN LI (Reagan)
+ * @author GEN LI (Reagan_)
  */
 
 

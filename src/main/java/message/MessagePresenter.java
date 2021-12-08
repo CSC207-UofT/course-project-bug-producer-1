@@ -12,6 +12,7 @@ import java.util.Map;
 /**
  * This class is in charge of generating and returning messages seen by users in the UI, which only take in
  * the response from core program and process it, then return it to the UI for users.
+ * @author Gen LI (Reagan_)
  */
 public class MessagePresenter {
 
