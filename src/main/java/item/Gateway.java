@@ -8,7 +8,7 @@ import java.util.HashMap;
 /**
  * Gateway controls the interaction between database and use cases.
  */
-public class ItemGateway {
+public class Gateway {
 
 
     public static void writeItems(String name, int capacity) throws IOException {
