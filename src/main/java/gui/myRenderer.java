@@ -10,7 +10,7 @@ class myRenderer extends DefaultListCellRenderer
     {
         JLabel lbl = (JLabel)super.getListCellRendererComponent(list,value,index,isSelected,cellHasFocus);
         if(list.getSelectedIndex() == index) lbl.setPreferredSize(new Dimension(100,75));
-        else lbl.setPreferredSize(new Dimension(100,50));
+        else lbl.setPreferredSize(new Dimension(100,40));
         return lbl;
     }
 }
