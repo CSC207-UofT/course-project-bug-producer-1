@@ -17,7 +17,7 @@ public class file_writer{
      * @param order an order object that represents an order to be recorded.
      */
 
-    public static void write_Order_history(Order order, String userID,String item) throws IOException {
+    public static void write_Order_history(Order order, String userID,String item, String status) throws IOException {
         try {
             File csv = new File("order_database.csv");
             if (!csv.exists()) {
@@ -25,7 +25,8 @@ public class file_writer{
             }
             BufferedWriter bw = new BufferedWriter(new FileWriter(csv, true));
 
-            String values = userID+ "," +order.get_id()+ "," +order.getOrderDate()+ "," +order.get_total_item()+","+item;
+            String values = userID+ "," +order.get_id()+ "," +order.getOrderDate()+ "," +order.get_total_item() +
+                    "," + item + "," + status;
 
             bw.write(values);
             bw.newLine();

@@ -1,6 +1,5 @@
 package inventory;
 
-//import Database.ItemReadWriter;
 
 import java.io.IOException;
 import java.util.HashMap;
