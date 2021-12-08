@@ -35,7 +35,7 @@ public class SendMailUseCase {
             MimeMessage message_R = new MimeMessage(session_R);
             message_R.setFrom(new InternetAddress(senderMail, "Customer", "UTF-8"));
             message_R.setRecipient(MimeMessage.RecipientType.TO, new InternetAddress(receiverMail, "Bugproducer", "UTF-8"));
-            message_R.setSubject("Message from Customer", "UTF-8");
+            message_R.setSubject("Message from Customer <bugproducer.customer@gmail.com>", "UTF-8");
             message_R.setContent(user_input, "text/html;charset=UTF-8");
             message_R.setSentDate(new Date());
             message_R.saveChanges();
@@ -86,7 +86,7 @@ public class SendMailUseCase {
         try {
             message_R.setFrom(new InternetAddress(senderMail, "Bugproducer", "UTF-8"));
             message_R.setRecipient(MimeMessage.RecipientType.TO, new InternetAddress(receiverMail, "Customer", "UTF-8"));
-            message_R.setSubject("Message from Admin", "UTF-8");
+            message_R.setSubject("Message from Admin <bugproducer207@gmail.com>", "UTF-8");
             message_R.setContent(user_input, "text/html;charset=UTF-8");
             message_R.setSentDate(new Date());
             message_R.saveChanges();
