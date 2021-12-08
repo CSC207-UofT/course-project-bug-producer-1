@@ -123,11 +123,11 @@ public class MainGUI extends JFrame{
                             String ordername = orderPanel.getOrder();
                             if (isAdmin()){
                                 Order order = OrderController.generate_order_from_GUI_admin(ordername);
-                                InventoryController.generate_stock_in(order, getInv());
+                                InventoryController.generate_stock_in(order);
                                 JOptionPane.showMessageDialog(null, "Order restocked!");
                             }else{
                                 Order order = OrderController.generate_order_from_GUI(ordername, user);
-                                InventoryController.generate_stock_out(order, getInv());
+                                InventoryController.generate_stock_out(order);
                                 JOptionPane.showMessageDialog(null, "Order submitted!");
                             }
                             System.out.println(ordername);

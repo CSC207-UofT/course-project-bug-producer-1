@@ -13,9 +13,9 @@ public class generate_reportUseCase {
     /**
      * this method is used to generate the report of the item list in the inventory
      * @param inventory get the item in the inventory
-     * @return return a long string of like a report include the item in the inventory at the time.
+     * @return return a hashmap of the item in the inventory
      */
-    public static HashMap<String,Integer> generate_report(Inventory inventory){
-        return inventory.get_item();
+    public static HashMap<String,Integer> generate_report(){
+        return Inventory.get_item();
     }
 }

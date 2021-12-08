@@ -19,8 +19,8 @@ public class InventoryStockoutUseCase {
      * @param inventory get the item in the inventory
      * @return return a new hashmap of the inventory item after stock out
      */
-    public static HashMap<String, Integer> stock_out(Order order, Inventory inventory) throws IOException {
-        HashMap<String,Integer> inventory_list = inventory.get_item();
+    public static HashMap<String, Integer> stock_out(Order order) throws IOException {
+        HashMap<String,Integer> inventory_list = Inventory.get_item();
         HashMap<String,Integer> order_list = order.get_order_list();
         for (String key_inventory: inventory_list.keySet()){
             for (String key_order: order_list.keySet()){
