@@ -1,14 +1,14 @@
 package gui;
 
-import order.OrderGenerateUseCase;
-import user.UserController;
+import inventory.InventoryController;
+import order.Order;
+import order.OrderController;
 
 import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
-import java.util.Objects;
 
-import static gui.Constant.getImage;
+import static gui.Constant.*;
 
 /**
  * This class is the main class for GUI which handles
@@ -29,7 +29,7 @@ public class MainGUI extends JFrame{
     private final JPanel bkgPanel = new JPanel();
     private final NewOrderGUI orderPanel = new NewOrderGUI();
     private final JPanel hisPanel = new OrderHistoryGUI();
-    private static final String user = Constant.getCurrUsername();
+
 
     /**
      * Class constructor
@@ -80,6 +80,7 @@ public class MainGUI extends JFrame{
     private void listener(){
         exitButton.addActionListener(
                 e -> {
+                    initialize();
                     dispose();
                     JOptionPane.showMessageDialog(null, "You have logged off!");
                     new LoginGUI();
@@ -114,16 +115,19 @@ public class MainGUI extends JFrame{
         );
         submitOrderButton.addActionListener(
                 e -> {
+                    String user = getCurrUsername();
                     if (NewOrderGUI.isEmpty()){
                         JOptionPane.showMessageDialog(null, "Order cannot be empty!");
                     }else{
                         try {
                             String ordername = orderPanel.getOrder();
-                            if (UserController.getType(user).equals("admin")){
-                                OrderGenerateUseCase.Generate_order_in_GUI(ordername, user);
+                            if (isAdmin()){
+                                Order order = OrderController.generate_order_from_GUI_admin(ordername);
+                                InventoryController.generate_stock_in(order, getInv());
                                 JOptionPane.showMessageDialog(null, "Order restocked!");
                             }else{
-                                OrderGenerateUseCase.Generate_order_in_GUI(ordername, user);
+                                Order order = OrderController.generate_order_from_GUI(ordername, user);
+                                InventoryController.generate_stock_out(order, getInv());
                                 JOptionPane.showMessageDialog(null, "Order submitted!");
                             }
                             System.out.println(ordername);
@@ -136,7 +140,7 @@ public class MainGUI extends JFrame{
                 }
         );
     }
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args){
         new MainGUI();
     }
 

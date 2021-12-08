@@ -110,6 +110,7 @@ public class LoginGUI extends JFrame {
                             if (UserController.log_in(user, pass)){
                                 JOptionPane.showMessageDialog(null, "Login Success!");
                                 Constant.setCurrUsername(user);
+                                Constant.setCurrUserType(UserController.getType(user));
                                 new MainGUI();
                                 dispose();
                             }else{

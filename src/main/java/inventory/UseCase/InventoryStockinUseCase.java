@@ -2,6 +2,7 @@ package inventory.UseCase;
 
 //import Database.ItemReadWriter;
 import inventory.Inventory;
+import item.useCase.ItemReadWriter;
 import order.Order;
 
 import java.io.IOException;
@@ -28,7 +29,7 @@ public class InventoryStockinUseCase {
                     inventory_list.computeIfPresent(key_inventory,(key, value) -> value+ order_list.get(key_order));
                     }
                 }
-//                ItemReadWriter.writeItems(key_inventory,inventory_list.get(key_inventory));
+                ItemReadWriter.writeItems(key_inventory,inventory_list.get(key_inventory));
             }
         return inventory_list;
     }

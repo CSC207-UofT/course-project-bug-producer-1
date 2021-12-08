@@ -5,9 +5,10 @@ import message.MessagePresenter;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.ArrayList;
+import java.util.HashMap;
 
-import static order.order_history_controller.get_order_history_for_user;
+import static gui.Constant.getInv;
+import static inventory.InventoryController.*;
 
 
 public class AvalFrame extends JFrame {
@@ -74,8 +75,8 @@ public class AvalFrame extends JFrame {
 
     private void loadListElements(){
         listModel.removeAllElements();
-        ArrayList<String[]> avalItem = get_order_history_for_user(Constant.getCurrUsername());
-//        MessagePresenter.return_list_model_availability_list(listModel, avalItem);
+        HashMap<String, Integer> avalItem = generate_report(getInv());
+        MessagePresenter.return_list_model_availability_list(listModel, avalItem);
     }
 
 

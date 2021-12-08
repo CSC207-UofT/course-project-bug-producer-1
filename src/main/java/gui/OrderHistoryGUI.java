@@ -6,9 +6,10 @@ import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import java.awt.*;
-import java.io.IOException;
 import java.util.ArrayList;
 
+import static gui.Constant.isAdmin;
+import static order.order_history_controller.get_order_history_all;
 import static order.order_history_controller.get_order_history_for_user;
 
 
@@ -101,8 +102,13 @@ public class OrderHistoryGUI extends JPanel
     }
 
     private void loadListElements(){
+        ArrayList<String[]> orderHis;
         listModel.removeAllElements();
-        ArrayList<String[]> orderHis = get_order_history_for_user(Constant.getCurrUsername());
+        if (isAdmin()){
+            orderHis = get_order_history_all();
+        }else{
+            orderHis = get_order_history_for_user(Constant.getCurrUsername());
+        }
         MessagePresenter.return_list_model(listModel, orderHis);
     }
 
@@ -140,8 +146,6 @@ public class OrderHistoryGUI extends JPanel
     public static void main(String[] args) {
         //Schedule a job for the event-dispatching thread:
         //creating and showing this application's GUI.
-        SwingUtilities.invokeLater(() -> {
-            createAndShowGUI();
-        });
+        SwingUtilities.invokeLater(OrderHistoryGUI::createAndShowGUI);
     }
 }

@@ -1,15 +1,14 @@
 package item;
 
-import item.usecase.ItemReadWriter;
+import item.useCase.ItemReadWriter;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
  * Gateway controls the interaction between database and use cases.
  */
-public class Gateway {
+public class ItemGateway {
 
 
     public static void writeItems(String name, int capacity) throws IOException {

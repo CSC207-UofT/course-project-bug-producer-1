@@ -1,14 +1,29 @@
 package gui;
 
-import javax.swing.*;
+import inventory.Inventory;
+import inventory.InventoryController;
+
 import java.awt.*;
 import java.net.URL;
 
 public class Constant {
-    public static String currentUsername = "";
-    public static final String version = "1.3.1";
+    private static String currentUsername;
+    private static String currrentUserType;
+    private static Inventory inv;
+
 
     public Constant(){
+        initialize();
+    }
+
+    public static void initialize(){
+        setCurrUserType("");
+        setCurrUsername("");
+        newInv();
+    }
+
+    public static void setCurrUserType(String type){
+        currrentUserType = type;
     }
 
     public static void setCurrUsername(String user){
@@ -19,13 +34,22 @@ public class Constant {
         return currentUsername;
     }
 
+    public static boolean isAdmin(){
+        return currrentUserType.equals("admin");
+    }
+
+    public static void newInv(){
+        inv = InventoryController.generate_create_inventory();
+    }
+    public static Inventory getInv(){
+        return inv;
+    }
+
+
+
     public static Image getImage(final String pathAndFileName) {
         final URL url = Thread.currentThread().getContextClassLoader().getResource(pathAndFileName);
         return Toolkit.getDefaultToolkit().getImage(url);
-    }
-
-    public static ImageIcon getIcon(final String pathAndFileName){
-        return new ImageIcon(pathAndFileName);
     }
 
 }

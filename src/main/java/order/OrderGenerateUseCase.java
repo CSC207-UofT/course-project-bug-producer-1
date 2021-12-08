@@ -1,5 +1,6 @@
 package order;
 
+import gui.Constant;
 import item.*;
 
 import java.io.IOException;
@@ -34,12 +35,16 @@ public class OrderGenerateUseCase {
     public static Order Generate_order_in_GUI(String item, String username) throws IOException {
         Order rel = Generate_order_customer(helper_method_gui(item));
         rel.update_customer(username);
-        file_writer.write_Order_history(rel,username,item);
+        file_writer.write_Order_history(rel,username,item, "out");
         return rel;
     }
 
-    public static Order Generate_order_in_GUI_admin(String item){
-        return Generate_order_in_stock(helper_method_gui(item));
+    public static Order Generate_order_in_GUI_admin(String item) throws IOException {
+        String username = Constant.getCurrUsername();
+        Order rel = Generate_order_customer(helper_method_gui(item));
+        rel.update_customer(username);
+        file_writer.write_Order_history(rel,username,item, "in");
+        return rel;
     }
     /**
      * this method is used to get the id of an order.
@@ -68,7 +73,7 @@ public class OrderGenerateUseCase {
         HashMap<Item, Integer> order_component = new HashMap<>();
         for(String str: tempo_ary){
             String[] temp = str.split(" \\| ");
-            order_component.put(new Item(temp[0],Integer.parseInt(temp[1])),Integer.parseInt(temp[1]));
+            order_component.put(new Item(temp[0],Integer.parseInt(temp[1])), Integer.parseInt(temp[1]));
         }
         return Generate_order_customer(order_component);
     }

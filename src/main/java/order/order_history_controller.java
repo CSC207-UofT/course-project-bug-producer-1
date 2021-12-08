@@ -1,7 +1,6 @@
 package order;
 
 
-import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -24,7 +23,7 @@ public class order_history_controller{
      * @return A list of lists with each list of 4 element inside of outer list is order has username,order number
      * order_date and number of total item.
      */
-    public static ArrayList<String[]> get_order_history_all() throws IOException {
+    public static ArrayList<String[]> get_order_history_all(){
         return file_writer.readOrder();
     }
 

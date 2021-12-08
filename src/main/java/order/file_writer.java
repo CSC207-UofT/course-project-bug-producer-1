@@ -17,7 +17,7 @@ public class file_writer{
      * @param order an order object that represents an order to be recorded.
      */
 
-    public static void write_Order_history(Order order, String userID,String item) throws IOException {
+    public static void write_Order_history(Order order, String userID,String item, String status) throws IOException {
         try {
             File csv = new File("order_database.csv");
             if (!csv.exists()) {
@@ -25,7 +25,8 @@ public class file_writer{
             }
             BufferedWriter bw = new BufferedWriter(new FileWriter(csv, true));
 
-            String values = userID+ "," +order.get_id()+ "," +order.getOrderDate()+ "," +order.get_total_item()+","+item;
+            String values = userID+ "," +order.get_id()+ "," +order.getOrderDate()+ "," +order.get_total_item() +
+                    "," + item.substring(1, item.length() - 1) + "," + status;
 
             bw.write(values);
             bw.newLine();
@@ -41,10 +42,14 @@ public class file_writer{
      * @return A list of lists with each list of 4 element inside outer list is order has username,order number
      * order_date and number of total item.
      */
-    public static ArrayList<String[]> readOrder() throws IOException {
+    public static ArrayList<String[]> readOrder(){
         File csv = new File("order_database.csv");
         if (!csv.exists()) {
-            boolean newFile = csv.createNewFile();
+            try {
+                boolean newFile = csv.createNewFile();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
         ArrayList<String[]> result = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader(csv))) {
@@ -55,7 +60,7 @@ public class file_writer{
                 result.add(values);
             }
         }
-        catch (FileNotFoundException e) {
+        catch (IOException e) {
             e.printStackTrace();
         }
         return result;

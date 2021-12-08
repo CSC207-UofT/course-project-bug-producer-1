@@ -1,10 +1,7 @@
 package user;
 
 
-import user.useCase.GetCurrentUser;
-import user.useCase.GetType;
-import user.useCase.Log_inUseCase;
-import user.useCase.UserReadWriter;
+import user.useCase.*;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -24,12 +21,13 @@ public class UserController {
      * A controller for the method called register defined by the RegisterUseCase class
      */
     public static boolean register(String username, String user_input_secret_code, String password, String email) throws IOException {
+        boolean result;
         if (user_input_secret_code.equals("asd")) {
-            UserReadWriter.writeUsers(username, email, password, "admin");
+            result = RegisterUseCase.register(username, email, password, "admin");
         } else {
-            UserReadWriter.writeUsers(username, email, password, "customer");
+            result = RegisterUseCase.register(username, email, password, "customer");
         }
-        return true;
+        return result;
     }
 
     /**

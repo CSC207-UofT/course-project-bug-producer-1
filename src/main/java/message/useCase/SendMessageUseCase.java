@@ -10,7 +10,7 @@ import order.Order;
  * feedback of order for customer and the feedback of order for admin when he/she require to see the order details.
  * This class is used for creating new message entity for Customer and Admin.
  *
- * @author GEN LI (Reagan_)
+ * @author GEN LI (Reagan)
  */
 
 public class SendMessageUseCase {
