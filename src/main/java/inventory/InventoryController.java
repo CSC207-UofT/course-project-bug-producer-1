@@ -2,6 +2,7 @@ package inventory;
 
 import inventory.UseCase.InventoryStockinUseCase;
 import inventory.UseCase.InventoryStockoutUseCase;
+import inventory.UseCase.generate_reportUseCase;
 import order.Order;
 
 import java.io.IOException;
@@ -34,5 +35,9 @@ public class InventoryController {
      */
     public HashMap<String, Integer> generate_stock_out(Order order, Inventory inventory) throws IOException {
         return InventoryStockoutUseCase.stock_out(order, inventory);
+    }
+
+    public HashMap<String,Integer> generate_report(Inventory inventory) throws IOException {
+        return generate_reportUseCase.generate_report(inventory);
     }
 }
