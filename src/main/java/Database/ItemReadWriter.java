@@ -1,6 +1,7 @@
-package Database;
+package main.java.Database;
 
 import java.io.*;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 
@@ -33,23 +34,21 @@ public class ItemReadWriter {
      * Store the items to file at filePath.
      * @return A list of items
      */
-    public static HashMap<String, Integer> readItems() {
-//        File csv = new File("itemname.csv ");
-//        Hashmap<> result = new HashMap<Object, Object>();
-//
-//        try (BufferedReader br = new BufferedReader(new FileReader(csv))) {
-//            String s;
-//            // Reads it line by line
-//            while ((s = br.readLine()) != null) {
-//                String[] values = s.split(",");
-//                for(String str: values) {
-//                    result.put(str[0], str[1]);
-//                }
-//            }
-//        }
-//        catch (FileNotFoundException e) {
-//            e.printStackTrace();
-//        }
-        return null;
+
+    public static HashMap<String, Integer> readItems() throws IOException {
+        File csv = new File("itemname.csv ");
+        HashMap<String, Integer> result = new HashMap<>();
+        try (BufferedReader br = new BufferedReader(new FileReader(csv))) {
+            String s;
+            // Reads it line by line
+            br.readline()
+            while ((s = br.readLine()) != null) {
+                String[] values = s.split(",");
+                result.put(values[0], values[1])
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        return result;
     }
 }
