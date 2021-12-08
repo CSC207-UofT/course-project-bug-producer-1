@@ -53,6 +53,12 @@ public class OrderController {
     public static Order generate_order_from_GUI(String item, String userID) throws IOException {
         return OrderGenerateUseCase.Generate_order_in_GUI(item,userID);
     }
-
-
+    /**
+     * this method uses input from GUI to produce an order for admin.
+     * @param item string of input that requires certain items.
+     * @return create an order for customer
+     */
+    public static Order generate_order_from_GUI_admin(String item){
+        return OrderGenerateUseCase.Generate_order_in_GUI_admin(item);
+    }
 }
