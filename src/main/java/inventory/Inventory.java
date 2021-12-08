@@ -1,6 +1,6 @@
 package inventory;
 
-import Database.ItemReadWriter;
+//import Database.ItemReadWriter;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -25,12 +25,12 @@ public class Inventory {
      * @return return the list of the items in the inventory
      */
     public HashMap<String, Integer> get_item() throws IOException {
-        set_inventory();
+//        set_inventory();
         return item_list;
     }
-    private void set_inventory() throws IOException {
-        this.item_list = ItemReadWriter.readItems();
-    }
+//    private void set_inventory() throws IOException {
+//        this.item_list = ItemReadWriter.readItems();
+//    }
 }
 
 
