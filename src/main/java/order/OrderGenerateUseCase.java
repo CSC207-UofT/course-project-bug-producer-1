@@ -32,17 +32,14 @@ public class OrderGenerateUseCase {
      * @return create an order for customer
      */
     public static Order Generate_order_in_GUI(String item, String username) throws IOException {
-        item = item.substring(1, item.length() -1);
-        HashMap<Item, Integer> order_component = new HashMap<>();
-        String[] str_ary = item.split(" \\.");
-        for(String str: str_ary){
-            String[] temp = str.split(" \\| ");
-            order_component.put(new Item(temp[0],Integer.parseInt(temp[1])),Integer.parseInt(temp[1]));
-        }
-        Order rel = Generate_order_customer(order_component);
+        Order rel = Generate_order_customer(helper_method_gui(item));
         rel.update_customer(username);
         file_writer.write_Order_history(rel,username,item);
         return rel;
+    }
+
+    public static Order Generate_order_in_GUI_admin(String item){
+        return Generate_order_in_stock(helper_method_gui(item));
     }
     /**
      * this method is used to get the id of an order.
@@ -74,5 +71,19 @@ public class OrderGenerateUseCase {
             order_component.put(new Item(temp[0],Integer.parseInt(temp[1])),Integer.parseInt(temp[1]));
         }
         return Generate_order_customer(order_component);
+    }
+
+    /**
+     * A helper method used to produce a hashmap object given a string.
+     */
+    private static HashMap<Item, Integer> helper_method_gui(String item){
+        item = item.substring(1, item.length() -1);
+        HashMap<Item, Integer> order_component = new HashMap<>();
+        String[] str_ary = item.split(" \\.");
+        for(String str: str_ary){
+            String[] temp = str.split(" \\| ");
+            order_component.put(new Item(temp[0],Integer.parseInt(temp[1])),Integer.parseInt(temp[1]));
+        }
+        return order_component;
     }
 }
