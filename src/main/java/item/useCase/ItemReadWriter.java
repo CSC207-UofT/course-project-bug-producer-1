@@ -16,6 +16,9 @@ public class ItemReadWriter {
     public static void writeItems(String name, int capacity) throws IOException {
         try {
             File csv = new File("itemname.csv");
+            if (!csv.exists()) {
+                boolean newFile = csv.createNewFile();
+            }
             BufferedWriter bw = new BufferedWriter(new FileWriter(csv, true));
 
             String values = name + "," + capacity;
@@ -37,6 +40,9 @@ public class ItemReadWriter {
 
 //    public static HashMap<String, Integer> readItems() throws IOException {
 ////        File csv = new File("itemname.csv ");
+//          if (!csv.exists()) {
+//              boolean newFile = csv.createNewFile();
+//          }
 ////        HashMap<String, Integer> result = new HashMap<>();
 ////        try (BufferedReader br = new BufferedReader(new FileReader(csv))) {
 ////            String s;
