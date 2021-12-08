@@ -21,7 +21,7 @@ public class InventoryController {
      * @param inventory get the item in the inventory
      * @return return a new hashmap of the inventory item after stock in
      */
-    public HashMap<String, Integer> generate_stock_in(Order order, Inventory inventory) throws IOException {
+    public static HashMap<String, Integer> generate_stock_in(Order order, Inventory inventory) throws IOException {
         return InventoryStockinUseCase.stock_in(order, inventory);
     }
 
@@ -31,7 +31,7 @@ public class InventoryController {
      * @param inventory get the item in the inventory
      * @return return a new hashmap of the inventory item after stock out
      */
-    public HashMap<String, Integer> generate_stock_out(Order order, Inventory inventory) throws IOException {
+    public static HashMap<String, Integer> generate_stock_out(Order order, Inventory inventory) throws IOException {
         return InventoryStockoutUseCase.stock_out(order, inventory);
     }
 

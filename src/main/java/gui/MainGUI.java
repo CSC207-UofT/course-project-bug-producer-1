@@ -1,12 +1,12 @@
 package gui;
 
-import order.OrderGenerateUseCase;
-import user.UserController;
+import inventory.InventoryController;
+import order.Order;
+import order.OrderController;
 
 import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
-import java.util.Objects;
 
 import static gui.Constant.*;
 
@@ -122,10 +122,12 @@ public class MainGUI extends JFrame{
                         try {
                             String ordername = orderPanel.getOrder();
                             if (isAdmin()){
-                                OrderGenerateUseCase.Generate_order_in_GUI(ordername, user);
+                                Order order = OrderController.generate_order_from_GUI_admin(ordername);
+                                InventoryController.generate_stock_in(order, getInv());
                                 JOptionPane.showMessageDialog(null, "Order restocked!");
                             }else{
-                                OrderGenerateUseCase.Generate_order_in_GUI(ordername, user);
+                                Order order = OrderController.generate_order_from_GUI(ordername, user);
+                                InventoryController.generate_stock_out(order, getInv());
                                 JOptionPane.showMessageDialog(null, "Order submitted!");
                             }
                             System.out.println(ordername);
@@ -138,7 +140,7 @@ public class MainGUI extends JFrame{
                 }
         );
     }
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args){
         new MainGUI();
     }
 

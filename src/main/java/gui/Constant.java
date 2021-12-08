@@ -3,9 +3,7 @@ package gui;
 import inventory.Inventory;
 import inventory.InventoryController;
 
-import javax.swing.*;
 import java.awt.*;
-import java.io.IOException;
 import java.net.URL;
 
 public class Constant {

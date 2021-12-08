@@ -58,7 +58,7 @@ public class OrderController {
      * @param item string of input that requires certain items.
      * @return create an order for customer
      */
-    public static Order generate_order_from_GUI_admin(String item){
+    public static Order generate_order_from_GUI_admin(String item) throws IOException {
         return OrderGenerateUseCase.Generate_order_in_GUI_admin(item);
     }
 }
