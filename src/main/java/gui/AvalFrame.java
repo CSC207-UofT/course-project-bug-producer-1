@@ -1,14 +1,20 @@
 package gui;
 
 import message.MessageController;
+import message.MessagePresenter;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
+
+import static order.order_history_controller.get_order_history_for_user;
 
 
 public class AvalFrame extends JFrame {
     public static DefaultListModel<String> listModel;
     public static JList<String> itemlist;
+    private static final String refreshString = "Refresh";
+    private final JButton refreshButton;
 
     /**
      * Class constructor
@@ -26,7 +32,7 @@ public class AvalFrame extends JFrame {
 //        MessagePresenter.return_list_model_order_detail(listModel, )
         JPanel labelPane = new JPanel();
         labelPane.setLayout(new FlowLayout());
-        JLabel orderDetailLabel = new JLabel("Here is the latest available products");
+        JLabel orderDetailLabel = new JLabel("Available products");
         labelPane.add(orderDetailLabel);
 
         listModel = MessageController.create_new_list_model();
@@ -39,22 +45,40 @@ public class AvalFrame extends JFrame {
         itemlist.setSelectedIndex(0);
         itemlist.setVisibleRowCount(10);
 
+        refreshButton = new JButton(refreshString);
+        refreshButton.setActionCommand(refreshString);
+        refreshButton.setEnabled(true);
+        JPanel buttonPane = new JPanel();
+        buttonPane.setLayout(new FlowLayout());
+        buttonPane.add(refreshButton);
+        buttonPane.setBorder(BorderFactory.createEmptyBorder(5,5,5,5));
+
         JScrollPane listScrollPane = new JScrollPane(itemlist);
-        listModel.addElement("Item A | 16");
-        listModel.addElement("Item B | 3");
-        listModel.addElement("Item C | 4");
-        listModel.addElement("Item D | 1");
-        listModel.addElement("Item D | 1");
-        listModel.addElement("Item D | 1");
-        listModel.addElement("Item D | 1");
-        listModel.addElement("Item D | 1");
-        listModel.addElement("Item D | 1");
-        listModel.addElement("Item D | 1");
-        listModel.addElement("Item D | 1");
+        loadListElements();
 
         container.add(labelPane, BorderLayout.PAGE_START);
         container.add(listScrollPane, BorderLayout.CENTER);
+        container.add(buttonPane, BorderLayout.PAGE_END);
+        listener();
     }
+
+    private void listener(){
+
+        refreshButton.addActionListener(
+                e -> {
+                    loadListElements();
+
+                }
+        );
+    }
+
+    private void loadListElements(){
+        listModel.removeAllElements();
+        ArrayList<String[]> avalItem = get_order_history_for_user(Constant.getCurrUsername());
+//        MessagePresenter.return_list_model_availability_list(listModel, avalItem);
+    }
+
+
 
 
 }

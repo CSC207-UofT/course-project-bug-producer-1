@@ -6,7 +6,7 @@ package user;
 
 public class Admin extends User {
 
-    protected String user_type;
+    protected final String user_type;
 
     /**
      * Constructs an instance of User

@@ -1,4 +1,4 @@
-package main.java.Database;
+package Database;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -35,20 +35,20 @@ public class ItemReadWriter {
      * @return A list of items
      */
 
-    public static HashMap<String, Integer> readItems() throws IOException {
-        File csv = new File("itemname.csv ");
-        HashMap<String, Integer> result = new HashMap<>();
-        try (BufferedReader br = new BufferedReader(new FileReader(csv))) {
-            String s;
-            // Reads it line by line
-            br.readline()
-            while ((s = br.readLine()) != null) {
-                String[] values = s.split(",");
-                result.put(values[0], values[1])
-            }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        return result;
-    }
+//    public static HashMap<String, Integer> readItems() throws IOException {
+////        File csv = new File("itemname.csv ");
+////        HashMap<String, Integer> result = new HashMap<>();
+////        try (BufferedReader br = new BufferedReader(new FileReader(csv))) {
+////            String s;
+////            // Reads it line by line
+////            br.readline();
+////            while ((s = br.readLine()) != null) {
+////                String[] values = s.split(",");
+////                result.put(values[0], values[1])
+////            }
+////        } catch (FileNotFoundException e) {
+////            e.printStackTrace();
+////        }
+////        return result;
+//    }
 }

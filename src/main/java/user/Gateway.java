@@ -1,6 +1,6 @@
 package user;
 
-import user.UseCase.UserReadWriter;
+import user.useCase.UserReadWriter;
 
 import java.io.IOException;
 import java.util.ArrayList;
