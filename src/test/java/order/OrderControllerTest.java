@@ -2,11 +2,8 @@ package order;
 
 import item.Item;
 import order.Order;
-import org.junit.Test;
 
 import java.util.HashMap;
-
-import static org.junit.Assert.assertEquals;
 
 
 public class OrderControllerTest {

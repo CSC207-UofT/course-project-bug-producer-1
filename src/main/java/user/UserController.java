@@ -1,11 +1,15 @@
 package user;
 
+
 import user.UseCase.GetCurrentUser;
+import user.UseCase.GetType;
 import user.UseCase.Log_inUseCase;
-import user.UseCase.RegisterUseCase;
+import user.UseCase.UserReadWriter;
 
 import java.io.IOException;
 import java.util.ArrayList;
+
+
 
 
 public class UserController {
@@ -23,19 +27,21 @@ public class UserController {
      */
     public static boolean register(String username, String user_input_secret_code, String password, String email) throws IOException {
         if (user_input_secret_code.equals("asd")){
-            return RegisterUseCase.register(username,email,password, "admin");
+            UserReadWriter.writeUsers(username,email,password, "admin");
         }
         else {
-            return RegisterUseCase.register(username,email,password, "customer");
+            UserReadWriter.writeUsers(username,email,password, "customer");
         }
+        return true;
     }
 
-    public ArrayList<String> getCurrentUser (String name, String password, String secretCode) throws IOException{
+    public static ArrayList<String> getCurrentUser (String name, String password, String secretCode) throws IOException{
         return GetCurrentUser.getCurrentUser(name,password,secretCode);
     }
 
-
-
+    public static String getType (String name) throws IOException {
+        return GetType.getType(name);
+    }
 }
 
 

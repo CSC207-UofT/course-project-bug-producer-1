@@ -1,10 +1,12 @@
 package gui;
 
 import order.OrderGenerateUseCase;
+import user.UserController;
 
 import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
+import java.util.Objects;
 
 import static gui.Constant.getImage;
 
@@ -34,7 +36,7 @@ public class MainGUI extends JFrame{
      * Creates a new main program GUI window.
      * This method does not have any return type.
      */
-    public MainGUI() throws IOException {
+    public MainGUI() {
         setIconImage(Constant.getImage("icon.png"));
         setTitle("Bug-Producer Inventory System");
         setBounds(600, 200, 1024, 768);
@@ -115,14 +117,20 @@ public class MainGUI extends JFrame{
                     if (NewOrderGUI.isEmpty()){
                         JOptionPane.showMessageDialog(null, "Order cannot be empty!");
                     }else{
-                        String ordername = orderPanel.getOrder();
-                        System.out.println(ordername);
                         try {
-                            OrderGenerateUseCase.Generate_order_in_GUI(ordername, user);
+                            String ordername = orderPanel.getOrder();
+                            if (UserController.getType(user).equals("admin")){
+                                OrderGenerateUseCase.Generate_order_in_GUI(ordername, user);
+                                JOptionPane.showMessageDialog(null, "Order restocked!");
+                            }else{
+                                OrderGenerateUseCase.Generate_order_in_GUI(ordername, user);
+                                JOptionPane.showMessageDialog(null, "Order submitted!");
+                            }
+                            System.out.println(ordername);
                         } catch (IOException ex) {
                             ex.printStackTrace();
                         }
-                        JOptionPane.showMessageDialog(null, "Order submitted!");
+
                     }
 
                 }

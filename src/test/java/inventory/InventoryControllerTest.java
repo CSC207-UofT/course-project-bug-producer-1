@@ -1,12 +1,5 @@
 package inventory;
 
-import inventory.UseCase.*;
-import item.Item;
-import org.junit.Assert;
-import org.junit.Test;
-
-import java.util.HashMap;
-
 public class InventoryControllerTest {
 //    private Item Apple;
 //    private Item Banana;

@@ -23,9 +23,9 @@ public class UserReadWriter {
             BufferedWriter bw = new BufferedWriter(new FileWriter(csv, true));
 
             String values = name + "," + user_email + "," + pwd + "," + type;
-
-            bw.newLine();
             bw.write(values);
+            bw.newLine();
+
             bw.close();
         }
         catch (FileNotFoundException e) {
@@ -45,7 +45,6 @@ public class UserReadWriter {
         }
         try (BufferedReader br = new BufferedReader(new FileReader(csv))) {
             String s;
-            br.readLine();
             // Reads it line by line
             while ((s = br.readLine()) != null) {
                 String[] values = s.split(",");

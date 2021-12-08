@@ -17,14 +17,16 @@ public class Order {
     private final String OrderID;
     private final String status;
     private String userID;
+
     /**
      * This method is the constructor of the order, which instantiates a new Order object.
      * It is used to create an order of supplement.
+     *
      * @param item_list The list of items bought by the customer.
-     * @param status The status of the order.
+     * @param status    The status of the order.
      */
 
-    public Order(HashMap<Item, Integer> item_list,String status){
+    public Order(HashMap<Item, Integer> item_list, String status) {
         this.date = new Date();
         this.item_list = item_list;
         this.OrderID = generate_order_number();
@@ -37,7 +39,7 @@ public class Order {
      *
      * @param item_list The list of items bought by the customer.
      */
-    public Order(HashMap<Item, Integer> item_list){
+    public Order(HashMap<Item, Integer> item_list) {
         this.date = new Date();
         this.item_list = item_list;
         this.OrderID = generate_order_number();
@@ -47,49 +49,52 @@ public class Order {
     /**
      * This method is used to get the date of string version of order.
      */
-    public String getOrderDate(){
+    public String getOrderDate() {
         return this.date.toString();
     }
 
     /**
      * This method is used to get the date of order.
      */
-    public Date get_date(){
+    public Date get_date() {
         return this.date;
     }
 
     /**
      * This method is used to get the item list of the order.
      */
-    public HashMap<Item, Integer> get_item_list(){
+    public HashMap<Item, Integer> get_item_list() {
         return this.item_list;
     }
+
     /**
      * This method is used to get the id of the order.
      */
-    public String get_id(){
+    public String get_id() {
         return this.OrderID;
     }
     /**
      * This method is used to get the status of the order to distinguish whether order is for supplement or output.
      */
-    public String get_status(){
+    public String get_status() {
         return this.status;
     }
+
     /**
      * This method is used to get customer name for this order.
      */
-    public void update_customer(String input){
+    public void update_customer(String input) {
         this.userID = input;
     }
+
     /**
      * This method is used to get customer name for this order.
      */
-    public String get_username(){
+    public String get_username() {
         return this.userID;
     }
+
     /**
-     *
      * this method is used to return the total number of the order.
      */
     public String get_total_item() {
@@ -109,5 +114,15 @@ public class Order {
             result.append(random.nextInt(9) + 1);
         }
         return result.toString();
+    }
+
+    public HashMap<String, Integer> get_order_list() {
+        HashMap<String, Integer> order_list = new HashMap<>();
+        for (Item key : get_item_list().keySet()) {
+            for (Integer value : get_item_list().values()) {
+                order_list.put(key.toString(), value);
+            }
+        }
+        return order_list;
     }
 }

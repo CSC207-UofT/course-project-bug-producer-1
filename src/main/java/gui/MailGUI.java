@@ -58,6 +58,8 @@ public class MailGUI extends JFrame {
         fieldPanel.add(sendButton);
         sendButton.setBounds(650, 30, 80, 50);
         container.add(fieldPanel, "Center");
+        receiveField.setText("bugproducer207@gmail.com");
+        
         listener();
 
     }
