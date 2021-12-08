@@ -1,4 +1,4 @@
-package user.UseCase;
+package user.useCase;
 
 import user.Admin;
 import user.Customer;

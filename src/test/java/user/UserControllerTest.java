@@ -1,14 +1,14 @@
 package java.user;
 
 import org.junit.Before;
-import user.UseCase.UserReadWriter;
+import user.useCase.UserReadWriter;
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.io.File;
 import java.io.IOException;
 
-import static user.UseCase.RegisterUseCase.register;
+import static user.useCase.RegisterUseCase.register;
 import static user.UserController.log_in;
 
 public class UserControllerTest {
