@@ -1,7 +1,8 @@
 package inventory.UseCase;
 
-import Database.ItemReadWriter;
+
 import inventory.Inventory;
+import item.useCase.ItemReadWriter;
 
 import java.io.IOException;
 import java.util.HashMap;

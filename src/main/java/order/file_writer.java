@@ -41,10 +41,14 @@ public class file_writer{
      * @return A list of lists with each list of 4 element inside outer list is order has username,order number
      * order_date and number of total item.
      */
-    public static ArrayList<String[]> readOrder() throws IOException {
+    public static ArrayList<String[]> readOrder(){
         File csv = new File("order_database.csv");
         if (!csv.exists()) {
-            boolean newFile = csv.createNewFile();
+            try {
+                boolean newFile = csv.createNewFile();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
         ArrayList<String[]> result = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader(csv))) {
@@ -55,7 +59,7 @@ public class file_writer{
                 result.add(values);
             }
         }
-        catch (FileNotFoundException e) {
+        catch (IOException e) {
             e.printStackTrace();
         }
         return result;

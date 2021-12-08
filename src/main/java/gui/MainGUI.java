@@ -8,7 +8,7 @@ import java.awt.*;
 import java.io.IOException;
 import java.util.Objects;
 
-import static gui.Constant.getImage;
+import static gui.Constant.*;
 
 /**
  * This class is the main class for GUI which handles
@@ -29,7 +29,7 @@ public class MainGUI extends JFrame{
     private final JPanel bkgPanel = new JPanel();
     private final NewOrderGUI orderPanel = new NewOrderGUI();
     private final JPanel hisPanel = new OrderHistoryGUI();
-    private static final String user = Constant.getCurrUsername();
+
 
     /**
      * Class constructor
@@ -80,6 +80,7 @@ public class MainGUI extends JFrame{
     private void listener(){
         exitButton.addActionListener(
                 e -> {
+                    initialize();
                     dispose();
                     JOptionPane.showMessageDialog(null, "You have logged off!");
                     new LoginGUI();
@@ -114,12 +115,13 @@ public class MainGUI extends JFrame{
         );
         submitOrderButton.addActionListener(
                 e -> {
+                    String user = getCurrUsername();
                     if (NewOrderGUI.isEmpty()){
                         JOptionPane.showMessageDialog(null, "Order cannot be empty!");
                     }else{
                         try {
                             String ordername = orderPanel.getOrder();
-                            if (UserController.getType(user).equals("admin")){
+                            if (isAdmin()){
                                 OrderGenerateUseCase.Generate_order_in_GUI(ordername, user);
                                 JOptionPane.showMessageDialog(null, "Order restocked!");
                             }else{

@@ -1,8 +1,8 @@
 package message;
 
-import message.UseCase.SendMailUseCase;
+import message.useCase.SendMailUseCase;
 import order.Order;
-import message.UseCase.SendMessageUseCase;
+import message.useCase.SendMessageUseCase;
 
 import javax.swing.*;
 import java.util.Objects;
