@@ -12,7 +12,7 @@ public class Gateway {
 
 
     public static void writeUsers(String name, String user_email, String pwd, String type) throws IOException {
-        UserReadWriter.writeUsers(name,user_email,pwd,type);
+        UserReadWriter.writeUsers(name, user_email, pwd, type);
 
     }
 

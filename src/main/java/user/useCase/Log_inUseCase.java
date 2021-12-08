@@ -7,12 +7,13 @@ public class Log_inUseCase {
 
     /**
      * Verifies whether the password entered by the User matches the saved password of the User.
-     * @param name A string represents the entered username.
+     *
+     * @param name     A string represents the entered username.
      * @param password A string represents the entered password.
-     * @return true for logging in successfully
+     * @return true for logging in successfully, otherwise return false.
      */
 
-    public static boolean login (String name, String password) throws IOException {
+    public static boolean login(String name, String password) throws IOException {
         for (String[] registerUser : UserReadWriter.readUsers()) {
             String username = registerUser[0];
             String existPwd = registerUser[2];
