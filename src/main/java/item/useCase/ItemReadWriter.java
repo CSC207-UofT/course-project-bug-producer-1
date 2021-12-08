@@ -1,4 +1,4 @@
-package item.usecase;
+package item.useCase;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -35,21 +35,20 @@ public class ItemReadWriter {
      * @return A hashmap of items
      */
 
-//    public static HashMap<String, Integer> readItems() throws IOException {
-////        File csv = new File("itemname.csv ");
-////        HashMap<String, Integer> result = new HashMap<>();
-////        try (BufferedReader br = new BufferedReader(new FileReader(csv))) {
-////            String s;
-////            // Reads it line by line
-////            br.readline();
-////            while ((s = br.readLine()) != null) {
-////                String[] values = s.split(",");
-////                int capacity = Integer.parseInt(values[1]);
-////                result.put(values[0], capacity)
-////            }
-////        } catch (FileNotFoundException e) {
-////            e.printStackTrace();
-////        }
-////        return result;
-//    }
+    public static HashMap<String, Integer> readItems() throws IOException {
+        File csv = new File("itemname.csv ");
+        HashMap<String, Integer> result = new HashMap<>();
+        try (BufferedReader br = new BufferedReader(new FileReader(csv))) {
+            String s;
+            // Reads it line by line
+            while ((s = br.readLine()) != null) {
+                String[] values = s.split(",");
+                int capacity = Integer.parseInt(values[1]);
+                result.put(values[0], capacity);
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
 }

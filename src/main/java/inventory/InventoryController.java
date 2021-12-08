@@ -35,7 +35,7 @@ public class InventoryController {
         return InventoryStockoutUseCase.stock_out(order, inventory);
     }
 
-    public HashMap<String,Integer> generate_report(Inventory inventory) throws IOException {
+    public static HashMap<String,Integer> generate_report(Inventory inventory) throws IOException {
         return generate_reportUseCase.generate_report(inventory);
     }
     public HashMap<String,Integer> generate_set_inventory(Inventory inventory) throws IOException {
