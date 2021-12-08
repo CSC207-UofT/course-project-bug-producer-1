@@ -54,17 +54,7 @@ public class AvalFrame extends JFrame {
         buttonPane.setBorder(BorderFactory.createEmptyBorder(5,5,5,5));
 
         JScrollPane listScrollPane = new JScrollPane(itemlist);
-        listModel.addElement("Item A | 16");
-        listModel.addElement("Item B | 3");
-        listModel.addElement("Item C | 4");
-        listModel.addElement("Item D | 1");
-        listModel.addElement("Item D | 1");
-        listModel.addElement("Item D | 1");
-        listModel.addElement("Item D | 1");
-        listModel.addElement("Item D | 1");
-        listModel.addElement("Item D | 1");
-        listModel.addElement("Item D | 1");
-        listModel.addElement("Item D | 1");
+        loadListElements();
 
         container.add(labelPane, BorderLayout.PAGE_START);
         container.add(listScrollPane, BorderLayout.CENTER);
@@ -76,12 +66,16 @@ public class AvalFrame extends JFrame {
 
         refreshButton.addActionListener(
                 e -> {
-                    listModel.removeAllElements();
-                    ArrayList<String[]> orderHis = get_order_history_for_user(Constant.getCurrUsername());
-                    MessagePresenter.return_list_model(listModel, orderHis);
+                    loadListElements();
 
                 }
         );
+    }
+
+    private void loadListElements(){
+        listModel.removeAllElements();
+        ArrayList<String[]> avalItem = get_order_history_for_user(Constant.getCurrUsername());
+//        MessagePresenter.return_list_model_availability_list(listModel, avalItem);
     }
 
 

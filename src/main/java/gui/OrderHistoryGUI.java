@@ -30,8 +30,7 @@ public class OrderHistoryGUI extends JPanel
 
 
         listModel = new DefaultListModel<>();
-        ArrayList<String[]> orderHis = get_order_history_for_user(Constant.getCurrUsername());
-        MessagePresenter.return_list_model(listModel, orderHis);
+        loadListElements();
         //Create the itemlist and put it in a scroll pane.
         itemlist = new JList<>(listModel);
         itemlist.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
@@ -95,14 +94,17 @@ public class OrderHistoryGUI extends JPanel
         );
         refreshButton.addActionListener(
                 e -> {
-                    listModel.removeAllElements();
-                    ArrayList<String[]> orderHis = get_order_history_for_user(Constant.getCurrUsername());
-                    MessagePresenter.return_list_model(listModel, orderHis);
+                    loadListElements();
 
                 }
         );
     }
 
+    private void loadListElements(){
+        listModel.removeAllElements();
+        ArrayList<String[]> orderHis = get_order_history_for_user(Constant.getCurrUsername());
+        MessagePresenter.return_list_model(listModel, orderHis);
+    }
 
     //This method is required by ListSelectionListener.
     public void valueChanged(ListSelectionEvent e) {
