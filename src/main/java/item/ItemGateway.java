@@ -1,6 +1,6 @@
-package main.java.item;
+package item;
 
-import main.java.Database.ItemReadWriter;
+import item.usecase.ItemReadWriter;
 
 import java.io.IOException;
 import java.util.ArrayList;

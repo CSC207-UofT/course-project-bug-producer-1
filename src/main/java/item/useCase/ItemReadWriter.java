@@ -1,4 +1,4 @@
-package Database;
+package item.usecase;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -32,7 +32,7 @@ public class ItemReadWriter {
 
     /**
      * Store the items to file at filePath.
-     * @return A list of items
+     * @return A hashmap of items
      */
 
 //    public static HashMap<String, Integer> readItems() throws IOException {
@@ -44,7 +44,8 @@ public class ItemReadWriter {
 ////            br.readline();
 ////            while ((s = br.readLine()) != null) {
 ////                String[] values = s.split(",");
-////                result.put(values[0], values[1])
+////                int capacity = Integer.parseInt(values[1]);
+////                result.put(values[0], capacity)
 ////            }
 ////        } catch (FileNotFoundException e) {
 ////            e.printStackTrace();
