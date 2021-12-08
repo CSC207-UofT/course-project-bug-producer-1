@@ -42,6 +42,7 @@ public class Order_test {
         HashMap<Item, Integer> actual = order.get_item_list();
         HashMap<Item, Integer> expect = item_list;
         Assert.assertEquals(expect, actual);
+
     }
 
 }
