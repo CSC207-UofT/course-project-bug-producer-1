@@ -26,7 +26,7 @@ public class file_writer{
             BufferedWriter bw = new BufferedWriter(new FileWriter(csv, true));
 
             String values = userID+ "," +order.get_id()+ "," +order.getOrderDate()+ "," +order.get_total_item() +
-                    "," + item + "," + status;
+                    "," + item.substring(1, item.length() - 1) + "," + status;
 
             bw.write(values);
             bw.newLine();

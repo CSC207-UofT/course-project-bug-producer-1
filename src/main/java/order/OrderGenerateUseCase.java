@@ -73,7 +73,7 @@ public class OrderGenerateUseCase {
         HashMap<Item, Integer> order_component = new HashMap<>();
         for(String str: tempo_ary){
             String[] temp = str.split(" \\| ");
-            order_component.put(new Item(temp[0],Integer.parseInt(temp[1])),Integer.parseInt(temp[1]));
+            order_component.put(new Item(temp[0],Integer.parseInt(temp[1])), Integer.parseInt(temp[1]));
         }
         return Generate_order_customer(order_component);
     }
