@@ -34,7 +34,7 @@ public class list_model_add_elementUseCase {
     public static void add_element_to_list_model_admin(DefaultListModel<String> listmodel, String[] order) {
 
         listmodel.addElement("<html>Order ID: " + order[1] + "<br/>Order time: " + order[2] +
-                "<br/>Order items: " + order[3] + "</html>" + "<br/>User name: " + order[0]);
+                "<br/>Order items: " + order[3] + "<br/>User name: " + order[0] + "</html>");
     }
 
     /**

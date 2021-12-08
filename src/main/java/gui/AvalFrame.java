@@ -7,6 +7,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.HashMap;
 
+import static gui.Constant.getInv;
 import static inventory.InventoryController.*;
 
 
@@ -74,8 +75,8 @@ public class AvalFrame extends JFrame {
 
     private void loadListElements(){
         listModel.removeAllElements();
-//        HashMap<String, Integer> avalItem = generate_report();
-//        MessagePresenter.return_list_model_availability_list(listModel, avalItem);
+        HashMap<String, Integer> avalItem = generate_report(getInv());
+        MessagePresenter.return_list_model_availability_list(listModel, avalItem);
     }
 
 

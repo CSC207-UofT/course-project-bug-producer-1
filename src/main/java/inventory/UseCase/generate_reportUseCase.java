@@ -17,7 +17,7 @@ public class generate_reportUseCase {
      * @param inventory get the item in the inventory
      * @return return a long string of like a report include the item in the inventory at the time.
      */
-    public static HashMap<String,Integer> generate_report(Inventory inventory) throws IOException {
+    public static HashMap<String,Integer> generate_report(Inventory inventory){
         return inventory.get_item();
     }
 }
