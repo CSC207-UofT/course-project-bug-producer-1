@@ -3,7 +3,7 @@ package user;
 
 public class Customer extends User {
 
-    protected String user_type;
+    protected final String user_type;
 
     /**
      * Constructs an instance of User

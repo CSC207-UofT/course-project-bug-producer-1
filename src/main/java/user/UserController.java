@@ -1,10 +1,10 @@
 package user;
 
 
-import user.UseCase.GetCurrentUser;
-import user.UseCase.GetType;
-import user.UseCase.Log_inUseCase;
-import user.UseCase.UserReadWriter;
+import user.useCase.GetCurrentUser;
+import user.useCase.GetType;
+import user.useCase.Log_inUseCase;
+import user.useCase.UserReadWriter;
 
 import java.io.IOException;
 import java.util.ArrayList;

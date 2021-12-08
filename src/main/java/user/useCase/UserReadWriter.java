@@ -1,4 +1,4 @@
-package user.UseCase;
+package user.useCase;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -43,7 +43,8 @@ public class UserReadWriter {
         if (!csv.exists()) {
             boolean newFile = csv.createNewFile();
         }
-        try (BufferedReader br = new BufferedReader(new FileReader(csv))) {
+        FileReader fileReader = new FileReader(csv);
+        try (BufferedReader br = new BufferedReader(fileReader)) {
             String s;
             // Reads it line by line
             while ((s = br.readLine()) != null) {
