@@ -44,7 +44,8 @@ public class ItemReadWriter {
 ////            br.readline();
 ////            while ((s = br.readLine()) != null) {
 ////                String[] values = s.split(",");
-////                result.put(values[0], values[1])
+////                int capacity = Integer.parseInt(values[1]);
+////                result.put(values[0], capacity)
 ////            }
 ////        } catch (FileNotFoundException e) {
 ////            e.printStackTrace();
