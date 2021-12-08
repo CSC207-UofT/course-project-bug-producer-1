@@ -6,6 +6,7 @@ import order.Order;
 
 import javax.swing.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -68,14 +69,16 @@ public class MessagePresenter {
         }
     }
 
-
     /**
-     * This is a method that is used for showing the popup notification when the email sent by users successfully.
-     * @return return a String whose content is "The email has been sent successfully! Thank you!"
+     * Return the data prepared for JList, which is used for scrolling the menu for customers to browse available goods in inventory.
+     * @param listmodel a new DefaultListModel that will be processed (add element) in this method.
+     * @param goods a HashMap type report of goods available in the inventory and their quantities.
      */
 
-    public static String print_success_notification_email(){
-        return "The email has been sent successfully! Thank you!";
+    public static void return_list_model_availability_list(DefaultListModel<String> listmodel, HashMap<String, Integer> goods){
+        for (String key : goods.keySet()){
+            list_model_add_elementUseCase.add_element_available_inventory_list_model(listmodel, key, goods.get(key));
+        }
     }
 }
 
