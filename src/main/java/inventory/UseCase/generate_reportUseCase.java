@@ -12,10 +12,10 @@ import java.util.HashMap;
 public class generate_reportUseCase {
     /**
      * this method is used to generate the report of the item list in the inventory
-     * @param inventory get the item in the inventory
      * @return return a hashmap of the item in the inventory
      */
     public static HashMap<String,Integer> generate_report(){
-        return Inventory.get_item();
+        Inventory inventory = read_inventoryUseCase.read_inventory();
+        return inventory.get_item();
     }
 }

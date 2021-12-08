@@ -41,7 +41,7 @@ public class InventoryController {
     public HashMap<String,Integer> generate_set_inventory() throws IOException {
         return set_inventoryUseCase.set_inventory();
     }
-    public static Inventory generate_create_inventory(){
-        return create_inventoryUseCase.create_inventory();
+    public static Inventory generate_read_inventory(){
+        return read_inventoryUseCase.read_inventory();
     }
 }

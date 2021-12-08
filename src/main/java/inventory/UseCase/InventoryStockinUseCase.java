@@ -2,6 +2,7 @@ package inventory.UseCase;
 
 //import Database.ItemReadWriter;
 import inventory.Inventory;
+import item.ItemGateway;
 import item.useCase.ItemReadWriter;
 import order.Order;
 
@@ -21,7 +22,8 @@ public class InventoryStockinUseCase {
      * @return return a new hashmap of the inventory item after stock in
      */
     public static HashMap<String, Integer> stock_in(Order order) throws IOException {
-        HashMap<String,Integer> inventory_list = Inventory.get_item();
+        Inventory inventory = read_inventoryUseCase.read_inventory();
+        HashMap<String,Integer> inventory_list = inventory.get_item();
         HashMap<String,Integer> order_list = order.get_order_list();
         for (String key_inventory: inventory_list.keySet()){
             for (String key_order: order_list.keySet()){
@@ -29,7 +31,7 @@ public class InventoryStockinUseCase {
                     inventory_list.computeIfPresent(key_inventory,(key, value) -> value+ order_list.get(key_order));
                     }
                 }
-                ItemReadWriter.writeItems(key_inventory,inventory_list.get(key_inventory));
+                ItemGateway.writeItems(key_inventory,inventory_list.get(key_inventory));
             }
         return inventory_list;
     }
