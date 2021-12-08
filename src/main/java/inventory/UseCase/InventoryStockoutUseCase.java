@@ -1,6 +1,7 @@
 package inventory.UseCase;
 
 //import Database.ItemReadWriter;
+import Database.ItemReadWriter;
 import inventory.Inventory;
 import order.Order;
 
@@ -29,7 +30,7 @@ public class InventoryStockoutUseCase {
                         inventory_list.computeIfPresent(key_inventory,(key, value) -> value-order_list.get(key_order));
                     }
                 }
-//                ItemReadWriter.writeItems(key_inventory,inventory_list.get(key_inventory));
+                ItemReadWriter.writeItems(key_inventory,inventory_list.get(key_inventory));
             }
         }
         return inventory_list;
