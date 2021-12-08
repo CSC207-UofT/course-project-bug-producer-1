@@ -1,9 +1,7 @@
 package inventory.UseCase;
 
 import inventory.Inventory;
-import item.Item;
 
-import java.io.IOException;
 import java.util.HashMap;
 
 /**

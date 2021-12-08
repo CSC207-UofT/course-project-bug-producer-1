@@ -1,7 +1,6 @@
 package inventory;
 
 
-import java.io.IOException;
 import java.util.HashMap;
 /**
  * this class is a class of the inventory.

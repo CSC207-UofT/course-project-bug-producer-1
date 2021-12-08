@@ -1,4 +1,4 @@
-package java.user;
+package user;
 
 import org.junit.Assert;
 import org.junit.Before;

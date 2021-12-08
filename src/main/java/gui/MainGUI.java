@@ -3,13 +3,10 @@ package gui;
 import inventory.InventoryController;
 import order.Order;
 import order.OrderController;
-import order.OrderGenerateUseCase;
-import user.UserController;
 
 import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
-import java.util.Objects;
 
 import static gui.Constant.*;
 
