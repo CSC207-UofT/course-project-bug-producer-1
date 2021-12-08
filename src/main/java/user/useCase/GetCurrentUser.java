@@ -11,8 +11,9 @@ public class GetCurrentUser {
 
     /**
      * once the user has logged in successfully, this method gets his/her user information.
-     * @param name A string representing username
-     * @param password A string representing password
+     *
+     * @param name       A string representing username
+     * @param password   A string representing password
      * @param secretCode A string representing secret code for verifying users' type
      * @return An Arraylist of the current user's information
      */
@@ -23,13 +24,12 @@ public class GetCurrentUser {
             String username = registerUser[0];
             String existPwd = registerUser[2];
             if (name.equals(username)) {
-                if(password.equals(existPwd)) {
+                if (password.equals(existPwd)) {
                     User currentU;
                     if (secretCode.equals("asd")) {
                         currentU = new Admin(name, password, "");
 
-                    }
-                    else {
+                    } else {
                         currentU = new Customer(name, password, "");
 
                     }

@@ -2,6 +2,7 @@ package user;
 
 /**
  * Represents a User
+ *
  * @author Meilun Shen
  */
 
@@ -13,11 +14,12 @@ public class User {
 
     /**
      * Constructs an instance of User
-     * @param name A string representing user's name.
+     *
+     * @param name       A string representing user's name.
      * @param user_email A string representing user's email address.
-     * @param pwd A string representing user's password.
+     * @param pwd        A string representing user's password.
      */
-    public User (String name, String user_email, String pwd){
+    public User(String name, String user_email, String pwd) {
         this.name = name;
         this.user_email = user_email;
         this.password = pwd;
@@ -27,31 +29,35 @@ public class User {
 
     /**
      * Gets the username of the User.
+     *
      * @return A string contains the username of the User.
      */
-    public String getName(){
+    public String getName() {
         return this.name;
     }
 
     /**
      * Gets the email address of the User.
+     *
      * @return A string contains the email address of the User.
      */
-    public String getUser_email(){
+    public String getUser_email() {
         return this.user_email;
     }
 
     /**
      * Gets the password of the User.
+     *
      * @return A string contains the saved password of the User.
      */
-    public String getPassword(){
+    public String getPassword() {
         return this.password;
     }
 
 
     /**
      * Gets the type of User.
+     *
      * @return A string represents type of User.
      */
 
@@ -62,10 +68,11 @@ public class User {
 
     /**
      * Represents users by their name, email address and password
+     *
      * @return the name, email address and password separated by a comma
      */
     @Override
-    public String toString(){
+    public String toString() {
         return this.name + "," + this.user_email + "," + this.password + "," + this.user_type;
     }
 

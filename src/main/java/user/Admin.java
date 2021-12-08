@@ -11,7 +11,7 @@ public class Admin extends User {
     /**
      * Constructs an instance of User
      *
-     * @param name  A string representing user's name.
+     * @param name       A string representing user's name.
      * @param pwd        A string representing user's password.
      * @param user_email A string representing user's email address.
      */

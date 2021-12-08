@@ -1,31 +1,35 @@
 package java.user;
 
-import org.junit.Before;
-import user.useCase.UserReadWriter;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
+import user.useCase.UserReadWriter;
 
 import java.io.File;
 import java.io.IOException;
 
-import static user.useCase.RegisterUseCase.register;
 import static user.UserController.log_in;
+import static user.useCase.RegisterUseCase.register;
 
 public class UserControllerTest {
 
-    // In case you run test cases more than one time, the initializer before test cases can help to empty the userdatabse.csv.
-    // Otherwise, when running test cases twice without the initializer, the username "Reagan" will be registered twice and test cases will fail.
+    /**
+     * In case you run test cases more than one time,
+     * the initializer before test cases can help to empty the userdatabse.csv.
+     * Otherwise, when running test cases twice without the initializer,
+     * the username "Reagan" will be registered twice and test cases will fail.
+     */
 
 
     @Before
     public void init() {
         File csv = new File("userdatabase.csv");
-        if(csv.delete()){
+        if (csv.delete()) {
             System.out.println("CSV File Deleted Successfully!!");
+        } else {
+            System.out.println("Failed to Delete the CSV File!!");
         }
-        else{System.out.println("Failed to Delete the CSV File!!");}
     }
-
 
 
     @Test
@@ -36,7 +40,6 @@ public class UserControllerTest {
         Assert.assertTrue(actual);
 
     }
-
 
 
     @Test
