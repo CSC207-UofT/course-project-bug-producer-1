@@ -49,3 +49,7 @@ To use the function of sending email, `JavaMail 1.6.0` and `jaf 1.1.1` should be
 The `activation.jar` and `javax.mail.jar` needed to be put in the library of this project library in order to be loaded correctly. 
 The email used to send emails must have the access permission for low-security applications and must be authenticated (recommend Gmail). 
 It also requires to enable the POP/IMAP function. JDK version 1.7 or later is required. `activation.jar` and `javax.mail.jar` have been included in the lib package.
+
+## Security Update
+
+Inventory security measures: admin can only set inventory once, after that, admin can't change the contents of inventory at will. (This is to ensure that the admin cannot change the inventory randomly.) If the admin has new goods and needs to be stored in the inventory, the database of the previous inventory needs to be cleared (equivalent to building the inventory, and put the previous item and the new item again ).
