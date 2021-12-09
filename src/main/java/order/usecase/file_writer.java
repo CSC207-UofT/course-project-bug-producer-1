@@ -1,11 +1,13 @@
-package order;
+package order.usecase;
+
+import order.Order;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Objects;
 
 /**
- * This class is a gateway class of order for storing order information and extracting information.
+ * This class is a use case class of order for storing order information and extracting information.
  * @author Hao li
  */
 
@@ -17,7 +19,7 @@ public class file_writer{
      * @param order an order object that represents an order to be recorded.
      */
 
-    public static void write_Order_history(Order order, String userID,String item, String status) throws IOException {
+    public static void write_Order_history(Order order, String userID, String item, String status) throws IOException {
         try {
             File csv = new File("order_database.csv");
             if (!csv.exists()) {

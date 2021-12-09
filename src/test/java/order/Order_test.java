@@ -40,9 +40,6 @@ public class Order_test {
         item_list.put(apple, apple.getQuantity());
         Order order = new Order(item_list, "Processing");
         HashMap<Item, Integer> actual = order.get_item_list();
-        HashMap<Item, Integer> expect = item_list;
-        Assert.assertEquals(expect, actual);
-
+        Assert.assertEquals(item_list, actual);
     }
-
 }
