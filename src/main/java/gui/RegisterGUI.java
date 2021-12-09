@@ -6,7 +6,11 @@ import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
 
-
+/**
+ * This is a JFrame class is the Register class for GUI which handles
+ * all the account register process
+ * @author Walter
+ */
 public class RegisterGUI extends JFrame {
     private final Container container = getContentPane();
     private final JLabel userLabel = new JLabel("Username: ");

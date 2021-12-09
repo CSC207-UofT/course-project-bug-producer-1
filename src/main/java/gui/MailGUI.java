@@ -6,7 +6,7 @@ import java.awt.*;
  * This class is the mailing class for GUI which handles
  * the mailing notification procedure.
  *
- * @author Yuehao Huang
+ * @author Walter
  */
 
 public class MailGUI extends JFrame {

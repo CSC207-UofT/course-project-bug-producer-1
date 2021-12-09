@@ -9,7 +9,11 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-
+/**
+ * This is a JPanel class is the New Order class for GUI which handles
+ * all the place new order process
+ * @author Walter
+ */
 public class NewOrderGUI extends JPanel
         implements ListSelectionListener {
 
@@ -22,6 +26,11 @@ public class NewOrderGUI extends JPanel
     private final JTextField itemAmount;
     private String oderItem;
 
+    /**
+     * Class constructor
+     * Creates a new Order GUI window.
+     * This method does not have any return type.
+     */
     public NewOrderGUI() {
         super(new BorderLayout());
         this.oderItem = "";

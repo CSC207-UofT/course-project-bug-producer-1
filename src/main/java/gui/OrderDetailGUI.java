@@ -7,11 +7,20 @@ import static order.order_history_controller.find_order;
 
 import javax.swing.*;
 import java.awt.*;
-
+/**
+ * This is a JFrame class is the OrderDetail class for GUI which handles
+ * all the Order detail
+ * @author Walter
+ */
 public class OrderDetailGUI extends JFrame {
     public static DefaultListModel<String> listModel;
     public static JList<String> itemlist;
 
+    /**
+     * Class constructor
+     * Creates a new Order detail window.
+     * This method does not have any return type.
+     */
     public OrderDetailGUI(String order_id){
         setIconImage(Constant.getImage("icon.png"));
         setTitle("Order Detail");

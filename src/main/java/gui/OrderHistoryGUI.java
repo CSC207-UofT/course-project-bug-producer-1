@@ -28,7 +28,11 @@ public class OrderHistoryGUI extends JPanel
     private final JButton refreshButton;
 
 
-
+    /**
+     * Class constructor
+     * Creates a new OrderHistory GUI panel.
+     * This method does not have any return type.
+     */
     public OrderHistoryGUI(){
         super(new BorderLayout());
 

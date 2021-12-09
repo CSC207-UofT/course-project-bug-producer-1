@@ -12,7 +12,7 @@ import static gui.Constant.*;
  * This class is the main class for GUI which handles
  * and represents other panels and connects to other GUIs
  *
- * @author Yuehao Huang
+ * @author Walter
  */
 
 public class MainGUI extends JFrame{
@@ -74,7 +74,11 @@ public class MainGUI extends JFrame{
 
 
     }
-
+    /**
+     * Class which contains the listener function allow the program to react according to the activities.
+     *
+     * This method does not have any return value.
+     */
     private void listener(){
         exitButton.addActionListener(
                 e -> {
@@ -135,9 +139,6 @@ public class MainGUI extends JFrame{
 
                 }
         );
-    }
-    public static void main(String[] args){
-        new MainGUI();
     }
 
 }
