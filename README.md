@@ -7,7 +7,9 @@
 > 
 > Running the project starts a window using JFrame from swing package that allows the user to interact with an inventory control system.
 
-## Sample Usage
+## First-time Usage
+[IMPORTANT]
+If you want to use Admin account instead of customer to Restock items and view all orders of all users, please enter `asd` as your secret code  when registering.
 
 Currently we have a pre-set account for you to try things out!
 1. Run `GUI.java`. Try to log in our test account!
