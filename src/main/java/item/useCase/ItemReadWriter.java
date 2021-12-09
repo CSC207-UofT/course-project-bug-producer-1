@@ -1,4 +1,4 @@
-package item.usecase;
+package item.useCase;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -20,7 +20,6 @@ public class ItemReadWriter {
                 boolean newFile = csv.createNewFile();
             }
             BufferedWriter bw = new BufferedWriter(new FileWriter(csv, true));
-
             String c = Integer.toString(capacity);
             String values = name + "," + c;
 
@@ -48,12 +47,20 @@ public class ItemReadWriter {
         try (BufferedReader br = new BufferedReader(new FileReader(csv))) {
             String s;
             // Reads it line by line
+
+            br.readLine();
+            while ((s = br.readLine()) != null) {
+                String[] values = s.split(",");
+                int capacity = Integer.parseInt(values[1]);
+                result.put(values[0], capacity);
+
             br.readline();
             while ((s = br.readLine()) != null) {
                 String[] values = s.split(",");
                 String key = values[0]
                 int capacity = Integer.parseInt(values[1]);
                 result.put(key, capacity)
+
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();

@@ -1,7 +1,8 @@
 package inventory.UseCase;
 
 import inventory.Inventory;
-import item.ItemGateway;
+import item.Gateway;
+
 import order.Order;
 
 import java.io.IOException;
@@ -25,7 +26,7 @@ public class InventoryStockinUseCase {
         if (inventory_list.isEmpty()){
             for (String key_order: order_list.keySet()){
                 inventory_list.computeIfAbsent(key_order, key -> order_list.get(key_order));
-                ItemGateway.writeItems(key_order,order_list.get(key_order));
+                Gateway.writeItems(key_order,order_list.get(key_order));
             }
         }
         else {
@@ -37,7 +38,7 @@ public class InventoryStockinUseCase {
                     else {
                         inventory_list.computeIfAbsent(key_order, key -> order_list.get(key_order));
                     }
-                    ItemGateway.writeItems(key_inventory,inventory_list.get(key_inventory));
+                    Gateway.writeItems(key_inventory,inventory_list.get(key_inventory));
                 }
             }
         }
