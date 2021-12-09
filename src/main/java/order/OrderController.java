@@ -1,6 +1,5 @@
 package order;
 
-import gui.Constant;
 import inventory.InventoryController;
 import item.Item;
 
