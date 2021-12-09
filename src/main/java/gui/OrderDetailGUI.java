@@ -2,7 +2,6 @@ package gui;
 
 import message.MessageController;
 import message.MessagePresenter;
-import order.Order;
 
 import static order.order_history_controller.find_order;
 
@@ -21,9 +20,8 @@ public class OrderDetailGUI extends JFrame {
         container.setLayout(new BorderLayout());
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setVisible(true);
-        Order order = find_order(order_id);
         listModel = MessageController.create_new_list_model();
-        MessagePresenter.return_list_model_order_detail(listModel, order);
+        MessagePresenter.return_list_model_order_detail(listModel, find_order(order_id));
         JPanel labelPane = new JPanel();
         labelPane.setLayout(new FlowLayout());
         JLabel orderDetailLabel = new JLabel("Selected order detail");
