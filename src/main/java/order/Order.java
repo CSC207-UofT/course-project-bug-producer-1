@@ -88,13 +88,6 @@ public class Order {
     }
 
     /**
-     * This method is used to get customer name for this order.
-     */
-    public String get_username() {
-        return this.userID;
-    }
-
-    /**
      * this method is used to return the total number of the order.
      */
     public String get_total_item() {

@@ -1,7 +1,8 @@
-package order;
+package order.usecase;
 
 import gui.Constant;
 import item.*;
+import order.Order;
 
 import java.io.IOException;
 import java.util.*;
@@ -21,13 +22,6 @@ public class OrderGenerateUseCase {
     }
 
     /**
-     * this method is used to create an order for inventory to supply items.
-     */
-    public static Order Generate_order_in_stock(HashMap<Item, Integer> item_list){
-        return new Order(item_list,"Order_in");
-    }
-
-    /**
      * this method uses input from GUI to produce an order
      * @param item string of input that requires certain items.
      * @return create an order for customer
@@ -38,7 +32,11 @@ public class OrderGenerateUseCase {
         file_writer.write_Order_history(rel,username,item, "out");
         return rel;
     }
-
+    /**
+     * this method uses input from GUI to produce an order for admin to increase order.
+     * @param item string of input that requires certain items.
+     * @return create an order for customer
+     */
     public static Order Generate_order_in_GUI_admin(String item) throws IOException {
         String username = Constant.getCurrUsername();
         Order rel = Generate_order_customer(helper_method_gui(item));
@@ -47,26 +45,10 @@ public class OrderGenerateUseCase {
         return rel;
     }
     /**
-     * this method is used to get the id of an order.
+     * this method uses input from GUI to find an order
+     * @param orderID string of input that requires certain items.
+     * @return create an order for customer
      */
-    public static String getOrderID(Order order){
-        return order.get_id();
-    }
-
-    /**
-     * this method is used to get the date of an order.
-     */
-    public static String getOrderDate(Order order){
-        return order.getOrderDate();
-    }
-
-    /**
-     * this method is used to get the total number of item(s) of an order.
-     */
-    public static String get_total_item(Order order){
-        return order.get_total_item();
-    }
-
     public static Order find_order(String orderID){
         String tempo = file_writer.get_order_specific(orderID);
         String[] tempo_ary = tempo.split(" \\.");
