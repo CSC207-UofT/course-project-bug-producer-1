@@ -1,8 +1,7 @@
 package inventory.UseCase;
 
 import inventory.Inventory;
-import item.ItemGateway;
-import item.useCase.ItemReadWriter;
+import item.Gateway;
 import order.Order;
 
 import java.io.IOException;
@@ -17,7 +16,6 @@ public class InventoryStockoutUseCase {
     /**
      * this method show how to stock out the item into the inventory
      * @param order get the order list and the number of the item need stock out
-     * @param inventory get the item in the inventory
      * @return return a new hashmap of the inventory item after stock out
      */
     public static HashMap<String, Integer> stock_out(Order order) throws IOException {
@@ -31,7 +29,7 @@ public class InventoryStockoutUseCase {
                         inventory_list.computeIfPresent(key_inventory,(key, value) -> value-order_list.get(key_order));
                     }
                 }
-                ItemGateway.writeItems(key_inventory,inventory_list.get(key_inventory));
+                    Gateway.writeItems(key_inventory,inventory_list.get(key_inventory));
             }
         }
         return inventory_list;
