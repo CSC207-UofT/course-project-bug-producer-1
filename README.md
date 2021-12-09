@@ -11,11 +11,8 @@
 [IMPORTANT]
 If you want to use Admin account instead of customer to Restock items and view all orders of all users, please enter `asd` as your secret code  when registering.
 
-Currently, we have a pre-set account for you to try things out!
-1. Run `GUI.java`. Try to log in our test account!
-   - Username: `root`;
-   - Password: `admin`.
-2. After login, you are logged in as an admin, so you can do various actions with this account.
+
+After login, you are logged in as an admin, so you can do various actions with this account.
    - Create orders;
    - View past orders [WiP].
    - Create / View messages
