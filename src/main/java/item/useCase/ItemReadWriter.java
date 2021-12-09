@@ -51,15 +51,10 @@ public class ItemReadWriter {
             br.readLine();
             while ((s = br.readLine()) != null) {
                 String[] values = s.split(",");
+                String key = values[0];
                 int capacity = Integer.parseInt(values[1]);
-                result.put(values[0], capacity);
+                result.put(key, capacity);
 
-            br.readline();
-            while ((s = br.readLine()) != null) {
-                String[] values = s.split(",");
-                String key = values[0]
-                int capacity = Integer.parseInt(values[1]);
-                result.put(key, capacity)
 
             }
         } catch (FileNotFoundException e) {
