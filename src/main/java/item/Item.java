@@ -10,30 +10,12 @@ public class Item {
     private int quantity;
     /**
      * This method is the initiator of class Item.
-     * It requires the name, ID, capacity and quantity of each item.
+     * It requires the name and quantity of each item.
      */
     public Item(String name, int quantity){
         this.name = name;
         this.quantity = quantity;
     }
-
-    /**
-     * This method update the quantity of item by adding specific number to quantity.
-     * This method does not return anything.
-     */
-    public void update_quantity_in(int num){
-        this.quantity = this.quantity + num;
-    }
-
-
-    /**
-     * This method update the quantity of item by subtracting specific number to quantity.
-     * This method does not return anything.
-     */
-    public void update_quantity_out(int num){
-        this.quantity = this.quantity - num;
-    }
-
 
     /**
      * This method return the name of the item.
