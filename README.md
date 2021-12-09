@@ -9,8 +9,21 @@
 
 ## First-time Usage
 [IMPORTANT]
+
 If you want to use Admin account instead of customer to Restock items and view all orders of all users, please enter `asd` as your secret code  when registering.
 
+Procedure to use this App:
+1. Register as Admin
+2. Login
+3. Stock in Items for sale (one-time) (Since admin cannot change inventory as he wish, only first-time is permitted.)
+4. log out
+5. Register as Customer
+6. login
+7. checks availability list
+8. place order
+9. view order history
+10. send email
+11. logout
 
 After login, you are logged in as an admin, so you can do various actions with this account.
    - Create orders;
