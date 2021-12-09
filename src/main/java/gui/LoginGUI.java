@@ -10,8 +10,8 @@ import java.io.IOException;
 
 /**
  * This class is the login class for GUI which handles
- * the login and registration process. (only GUI)
- * @author Yuehao Huang
+ * the login and registration process.
+ * @author Walter
  */
 
 public class LoginGUI extends JFrame {
@@ -44,10 +44,6 @@ public class LoginGUI extends JFrame {
         user = "";
     }
 
-    /**
-     * Returns the username of the user who is currently using this software.
-     * @return the username of the User
-     */
 
 
     /**

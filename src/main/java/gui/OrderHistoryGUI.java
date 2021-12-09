@@ -12,7 +12,11 @@ import static gui.Constant.isAdmin;
 import static order.order_history_controller.get_order_history_all;
 import static order.order_history_controller.get_order_history_for_user;
 
-
+/**
+ * This is a JPanel class is the Order history class for GUI which handles
+ * all the order history display
+ * @author Walter
+ */
 public class OrderHistoryGUI extends JPanel
         implements ListSelectionListener {
 
@@ -81,7 +85,11 @@ public class OrderHistoryGUI extends JPanel
 
     }
 
-
+    /**
+     * Class which contains the listener function allow the program to react according to the activities.
+     *
+     * This method does not have any return value.
+     */
     private void listener(){
         selectButton.addActionListener(
                 e -> {
@@ -94,13 +102,12 @@ public class OrderHistoryGUI extends JPanel
                 }
         );
         refreshButton.addActionListener(
-                e -> {
-                    loadListElements();
-
-                }
+                e -> loadListElements()
         );
     }
-
+    /**
+     * Helper function which help load all the list elements in the JList
+     */
     private void loadListElements(){
         ArrayList<String[]> orderHis;
         listModel.removeAllElements();
@@ -111,8 +118,12 @@ public class OrderHistoryGUI extends JPanel
         }
         MessagePresenter.return_list_model(listModel, orderHis);
     }
-
-    //This method is required by ListSelectionListener.
+    /**
+     * Helper function which help load all the list elements in the JList
+     *
+     * This method is required by ListSelectionListener.
+     * @param e Listener even if something in the list get selected.
+     */
     public void valueChanged(ListSelectionEvent e) {
         if(!e.getValueIsAdjusting()) itemlist.setCellRenderer(new myRenderer());
         if (!e.getValueIsAdjusting()) {
@@ -121,31 +132,5 @@ public class OrderHistoryGUI extends JPanel
             //Selection, enable the select button.
             selectButton.setEnabled(itemlist.getSelectedIndex() != -1);
         }
-    }
-
-    /**
-     * Create the GUI and show it.  For thread safety,
-     * this method should be invoked from the
-     * event-dispatching thread.
-     */
-    private static void createAndShowGUI() {
-        //Create and set up the window.
-        JFrame frame = new JFrame("NewOrderGUI");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-        //Create and set up the content pane.
-        JComponent newContentPane = new OrderHistoryGUI();
-        newContentPane.setOpaque(true); //content panes must be opaque
-        frame.setContentPane(newContentPane);
-
-        //Display the window.
-        frame.pack();
-        frame.setVisible(true);
-    }
-
-    public static void main(String[] args) {
-        //Schedule a job for the event-dispatching thread:
-        //creating and showing this application's GUI.
-        SwingUtilities.invokeLater(OrderHistoryGUI::createAndShowGUI);
     }
 }

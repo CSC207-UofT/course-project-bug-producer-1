@@ -4,6 +4,7 @@ import java.awt.*;
 import java.net.URL;
 /**
  * A class responsible for storing all the constants when user logins.
+ * @author Walter
  */
 public class Constant {
     private static String currentUsername;

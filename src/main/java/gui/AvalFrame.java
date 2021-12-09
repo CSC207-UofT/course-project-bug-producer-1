@@ -9,7 +9,10 @@ import java.util.HashMap;
 
 import static inventory.InventoryController.*;
 
-
+/**
+ * A JFrame class responsible for availability list frame.
+ * @author Walter
+ */
 public class AvalFrame extends JFrame {
     public static DefaultListModel<String> listModel;
     public static JList<String> itemlist;
