@@ -9,7 +9,6 @@ import java.net.URL;
 public class Constant {
     private static String currentUsername;
     private static String currrentUserType;
-    private static Inventory inv;
 
 
     public Constant(){
@@ -19,7 +18,6 @@ public class Constant {
     public static void initialize(){
         setCurrUserType("");
         setCurrUsername("");
-        newInv();
     }
 
     public static void setCurrUserType(String type){
@@ -38,12 +36,6 @@ public class Constant {
         return currrentUserType.equals("admin");
     }
 
-    public static void newInv(){
-        inv = InventoryController.generate_create_inventory();
-    }
-    public static Inventory getInv(){
-        return inv;
-    }
 
 
 
