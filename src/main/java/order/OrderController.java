@@ -1,4 +1,5 @@
 package order;
+
 import inventory.InventoryController;
 import order.usecase.OrderGenerateUseCase;
 import java.io.IOException;

@@ -1,8 +1,5 @@
 package gui;
 
-import inventory.Inventory;
-import inventory.InventoryController;
-
 import java.awt.*;
 import java.net.URL;
 
@@ -10,10 +7,6 @@ public class Constant {
     private static String currentUsername;
     private static String currrentUserType;
 
-
-    public Constant(){
-        initialize();
-    }
 
     public static void initialize(){
         setCurrUserType("");
