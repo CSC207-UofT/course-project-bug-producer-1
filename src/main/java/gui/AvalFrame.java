@@ -61,16 +61,22 @@ public class AvalFrame extends JFrame {
         container.add(buttonPane, BorderLayout.PAGE_END);
         listener();
     }
+    /**
+     * Class which contains the listener function allow the program to react according to the activities.
+     *
+     * This method does not have any return value.
+     */
 
     private void listener(){
 
         refreshButton.addActionListener(
-                e -> {
-                    loadListElements();
-
-                }
+                e -> loadListElements()
         );
     }
+
+    /**
+     * Helper function which help load all the list elements in the JList
+     */
 
     private void loadListElements(){
         listModel.removeAllElements();
