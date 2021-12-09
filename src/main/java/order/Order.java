@@ -111,7 +111,7 @@ public class Order {
 
     /**
      *  This method is used to change hashmap<Item, Integer> into hashmap<String, Integer>
-     * @return return a hashmap<String, Interger>.
+     * @return return a hashmap<String, Integer>.
      */
     public HashMap<String, Integer> get_order_list() {
         HashMap<String, Integer> order_list = new HashMap<>();
