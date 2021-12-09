@@ -116,6 +116,10 @@ public class Order {
         return result.toString();
     }
 
+    /**
+     *  This method is used to change hashmap<Item, Integer> into hashmap<String, Integer>
+     * @return return a hashmap<String, Interger>.
+     */
     public HashMap<String, Integer> get_order_list() {
         HashMap<String, Integer> order_list = new HashMap<>();
         for (Item key : get_item_list().keySet()) {

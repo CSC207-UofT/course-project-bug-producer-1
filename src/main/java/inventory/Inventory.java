@@ -11,8 +11,7 @@ public class Inventory {
 
     /**
      * this method is the initiator of the Inventory
-     * Used to view the item_list and order_list in the inventory, and the capacity of the inventory
-     *
+     * Used to view the item_list in the inventory
      */
     public Inventory(HashMap<String, Integer> list) {
         this.item_list = list;
