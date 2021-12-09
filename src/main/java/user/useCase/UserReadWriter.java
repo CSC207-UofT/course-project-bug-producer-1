@@ -4,6 +4,7 @@ import java.io.*;
 import java.util.ArrayList;
 
 
+@SuppressWarnings("unused")
 public class UserReadWriter {
     /**
      * Writes the users to file at filePath.

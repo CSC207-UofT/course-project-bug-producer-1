@@ -144,6 +144,7 @@ public class NewOrderGUI extends JPanel
     }
 
     //This listener is shared by the text field and the Add button.
+    @SuppressWarnings("unused")
     class AddListener implements ActionListener, DocumentListener {
         private boolean alreadyEnabled = false;
         private final JButton button;

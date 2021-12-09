@@ -4,7 +4,6 @@ package user;
 import user.useCase.*;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 
 public class UserController {
@@ -30,12 +29,14 @@ public class UserController {
         return result;
     }
 
-    /**
-     * A Controller for the method called getCurrentUser defined by the GetCurrentUser class
-     */
-    public static ArrayList<String> getCurrentUser(String name, String password, String secretCode) throws IOException {
-        return GetCurrentUser.getCurrentUser(name, password, secretCode);
-    }
+// --Commented out by Inspection START (2021/12/8 23:35):
+//    /**
+//     * A Controller for the method called getCurrentUser defined by the GetCurrentUser class
+//     */
+//    public static ArrayList<String> getCurrentUser(String name, String password, String secretCode) throws IOException {
+//        return GetCurrentUser.getCurrentUser(name, password, secretCode);
+//    }
+// --Commented out by Inspection STOP (2021/12/8 23:35)
 
     /**
      * A controller for the method called getType defined by the GetType class.
