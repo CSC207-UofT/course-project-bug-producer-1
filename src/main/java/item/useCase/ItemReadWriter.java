@@ -48,12 +48,18 @@ public class ItemReadWriter {
             String s;
             // Reads it line by line
 
+            br.readLine();
+            while ((s = br.readLine()) != null) {
+                String[] values = s.split(",");
+                int capacity = Integer.parseInt(values[1]);
+                result.put(values[0], capacity);
+
             br.readline();
             while ((s = br.readLine()) != null) {
                 String[] values = s.split(",");
-                String key = values[0];
+                String key = values[0]
                 int capacity = Integer.parseInt(values[1]);
-                result.put(key, capacity);
+                result.put(key, capacity)
 
             }
         } catch (FileNotFoundException e) {
