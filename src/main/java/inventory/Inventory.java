@@ -14,8 +14,8 @@ public class Inventory {
      * Used to view the item_list and order_list in the inventory, and the capacity of the inventory
      *
      */
-    public Inventory(HashMap<String, Integer> item_list) {
-        this.item_list = item_list;
+    public Inventory(HashMap<String, Integer> list) {
+        this.item_list = list;
     }
 
     /**

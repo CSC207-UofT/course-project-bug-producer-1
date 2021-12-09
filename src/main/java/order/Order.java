@@ -119,10 +119,10 @@ public class Order {
     public HashMap<String, Integer> get_order_list() {
         HashMap<String, Integer> order_list = new HashMap<>();
         for (Item key : get_item_list().keySet()) {
-            for (Integer value : get_item_list().values()) {
-                order_list.put(key.toString(), value);
+            String name = key.getName();
+            int q = key.getQuantity();
+            order_list.put(name, q);
             }
-        }
         return order_list;
     }
 }

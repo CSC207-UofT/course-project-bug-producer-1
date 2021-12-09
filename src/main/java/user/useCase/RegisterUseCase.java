@@ -17,7 +17,7 @@ public class RegisterUseCase {
      * @return true indicating registration success, otherwise return false.
      */
     public static boolean register(String name, String user_email, String pwd, String type) throws IOException {
-        if (!UserReadWriter.readUsers().equals(new ArrayList<String[]>())) {
+        if (!UserReadWriter.readUsers().isEmpty()) {
             for (String[] registerUser : UserReadWriter.readUsers()) {
                 String username = registerUser[0];
 
