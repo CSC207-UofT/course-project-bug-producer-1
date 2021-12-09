@@ -11,7 +11,7 @@ import java.awt.*;
 
 public class MailGUI extends JFrame {
     private final Container container = getContentPane();
-    private final JLabel receiveLabel = new JLabel("Reciever Address: ");
+    private final JLabel receiveLabel = new JLabel("Receiver Address: ");
     private final JTextField receiveField = new JTextField();
     private final JLabel senderLabel = new JLabel("Sender Address: ");
     private final JTextField senderField = new JTextField();

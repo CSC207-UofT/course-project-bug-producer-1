@@ -10,7 +10,7 @@ import java.util.HashMap;
 import java.util.Objects;
 
 /**this class is an usecase class of the inventory
- * this class is uesed for stock in the item into the inventory
+ * this class is used for stock in the item into the inventory
  * @author kurisu
  */
 public class InventoryStockinUseCase {

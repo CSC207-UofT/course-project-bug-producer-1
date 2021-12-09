@@ -4,6 +4,7 @@ package user;
  * This is a class that represents the entity Admin, which is a subclass of User.
  */
 
+@SuppressWarnings("unused")
 public class Admin extends User {
 
     protected final String user_type;

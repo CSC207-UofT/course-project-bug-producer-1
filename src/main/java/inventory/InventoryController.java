@@ -12,6 +12,7 @@ import java.util.HashMap;
  *this class accept the input of the users and control the action of the program according to the content of the input.
  * @author kurisu
  */
+@SuppressWarnings("unused")
 public class InventoryController {
     public Order order;
     /**

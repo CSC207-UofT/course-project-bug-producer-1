@@ -25,7 +25,7 @@ Currently, we have a pre-set account for you to try things out!
 
 -class `admin` will update inventory;update order.It collaborates with order and inventory.
 
--class `inventory` contains capacity and item, it provides status of order and item list;updates item and process order.It collabrates with order and admin.
+-class `inventory` contains capacity and item, it provides status of order and item list;updates item and process order.It collaborates with order and admin.
 
 -class `item` contains availability and description.It collaborates with inventory.
 

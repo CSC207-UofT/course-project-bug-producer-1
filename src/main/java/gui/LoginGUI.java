@@ -96,7 +96,6 @@ public class LoginGUI extends JFrame {
                 e -> {
                     user = usernameField.getText();
                     String pass = String.valueOf(passwordField.getPassword());
-                    String code = String.valueOf(codeField.getPassword());
                     if (null == user
                             || user.trim().length() == 0
                             || pass.trim().length() == 0){

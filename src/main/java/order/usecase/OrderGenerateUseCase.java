@@ -28,7 +28,6 @@ public class OrderGenerateUseCase {
      */
     public static Order Generate_order_in_GUI(String item, String username) throws IOException {
         Order rel = Generate_order_customer(helper_method_gui(item));
-        rel.update_customer(username);
         file_writer.write_Order_history(rel,username,item, "out");
         return rel;
     }
@@ -40,7 +39,6 @@ public class OrderGenerateUseCase {
     public static Order Generate_order_in_GUI_admin(String item) throws IOException {
         String username = Constant.getCurrUsername();
         Order rel = Generate_order_customer(helper_method_gui(item));
-        rel.update_customer(username);
         file_writer.write_Order_history(rel,username,item, "in");
         return rel;
     }

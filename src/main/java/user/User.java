@@ -19,6 +19,7 @@ public class User {
      * @param user_email A string representing user's email address.
      * @param pwd        A string representing user's password.
      */
+    @SuppressWarnings("unused")
     public User(String name, String user_email, String pwd) {
         this.name = name;
         this.user_email = user_email;

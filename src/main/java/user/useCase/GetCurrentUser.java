@@ -7,6 +7,7 @@ import user.User;
 import java.io.IOException;
 import java.util.ArrayList;
 
+@SuppressWarnings("unused")
 public class GetCurrentUser {
 
     /**

@@ -16,7 +16,7 @@ public class Order {
     private final HashMap<Item, Integer> item_list;
     private final String OrderID;
     private final String status;
-    private String userID;
+    // --Commented out by Inspection (2021/12/8 23:45):private String userID;
 
     /**
      * This method is the constructor of the order, which instantiates a new Order object.
@@ -35,7 +35,7 @@ public class Order {
 
     /**
      * This method is the constructor of the order, which instantiates a new Order object. except it is overlaoding
-     * version of thr original constructor used to creat an order for output.
+     * version of thr original constructor used to create an order for output.
      *
      * @param item_list The list of items bought by the customer.
      */
@@ -44,7 +44,7 @@ public class Order {
         this.item_list = item_list;
         this.OrderID = generate_order_number();
         this.status = "Order_out";
-        this.userID = "";
+//        this.userID = "";
     }
     /**
      * This method is used to get the date of string version of order.
@@ -80,12 +80,6 @@ public class Order {
         return this.status;
     }
 
-    /**
-     * This method is used to get customer name for this order.
-     */
-    public void update_customer(String input) {
-        this.userID = input;
-    }
 
     /**
      * this method is used to return the total number of the order.

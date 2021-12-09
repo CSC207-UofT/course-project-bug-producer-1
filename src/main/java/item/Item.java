@@ -1,7 +1,7 @@
 package item;
 
 /**
- * This class is an entity class for items in inverntory . It is a parent class and subclasses are
+ * This class is an entity class for items in inventory . It is a parent class and subclasses are
  * Apple, Banana, Beef and so on.
  * @author Xingru Ren
  */

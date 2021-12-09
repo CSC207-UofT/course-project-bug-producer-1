@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.util.HashMap;
 
 /**this class is an usecase class of the inventory
- * this class is uesed for read item in the database and create a new inventory
+ * this class is used for read item in the database and create a new inventory
  * @author kurisu
  */
 public class read_inventoryUseCase {

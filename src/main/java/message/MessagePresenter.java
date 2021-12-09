@@ -18,7 +18,7 @@ public class MessagePresenter {
 
 
     /**
-     * This is a menthod that is used for generating and showing(print out) messages for Customers in the UI
+     * This is a method that is used for generating and showing(print out) messages for Customers in the UI
      * when an order is placed successfully. The method can be called in the UI.
      *
      * @param message the parameter is the entity created by the MessageController.
@@ -33,7 +33,7 @@ public class MessagePresenter {
     }
 
     /**
-     * This is a menthod that is used for generating and showing(print out) messages for Admin in the UI
+     * This is a method that is used for generating and showing(print out) messages for Admin in the UI
      * when the admin requires to see the details of the order. The method can be called in the UI.
      *
      * @param message the parameter is the entity created by the MessageController.

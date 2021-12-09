@@ -15,7 +15,7 @@ public class UserControllerTest {
 
     /**
      * In case you run test cases more than one time,
-     * the initializer before test cases can help to empty the userdatabse.csv.
+     * the initializer before test cases can help to empty the userdatabase.csv.
      * Otherwise, when running test cases twice without the initializer,
      * the username "Reagan" will be registered twice and test cases will fail.
      */

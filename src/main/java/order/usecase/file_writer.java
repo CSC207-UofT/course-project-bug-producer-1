@@ -12,6 +12,7 @@ import java.util.Objects;
  */
 
 
+@SuppressWarnings("unused")
 public class file_writer{
     /**
      * Writes the order details to file at filePath.

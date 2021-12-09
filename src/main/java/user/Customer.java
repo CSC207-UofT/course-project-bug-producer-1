@@ -1,6 +1,7 @@
 package user;
 
 
+@SuppressWarnings("unused")
 public class Customer extends User {
 
     protected final String user_type;
