@@ -1,10 +1,13 @@
 package order;
 
+import inventory.InventoryController;
 import item.Item;
 
 import java.io.IOException;
 import java.util.HashMap;
 import order.OrderGenerateUseCase;
+
+import static gui.Constant.getInv;
 
 /**
  * This class is a controller class to create order and sent orders to inventory to handle.
@@ -48,17 +51,17 @@ public class OrderController {
     /**
      * this method uses input from GUI to produce an order
      * @param item string of input that requires certain items.
-     * @return create an order for customer
      */
-    public static Order generate_order_from_GUI(String item, String userID) throws IOException {
-        return OrderGenerateUseCase.Generate_order_in_GUI(item,userID);
+    public static void generate_order_from_GUI(String item, String userID) throws IOException {
+        Order order = OrderGenerateUseCase.Generate_order_in_GUI(item,userID);
+        InventoryController.generate_stock_out(order, getInv());
     }
     /**
      * this method uses input from GUI to produce an order for admin.
      * @param item string of input that requires certain items.
-     * @return create an order for customer
      */
-    public static Order generate_order_from_GUI_admin(String item) throws IOException {
-        return OrderGenerateUseCase.Generate_order_in_GUI_admin(item);
+    public static void generate_order_from_GUI_admin(String item) throws IOException {
+        Order order = OrderGenerateUseCase.Generate_order_in_GUI_admin(item);
+        InventoryController.generate_stock_in(order, getInv());
     }
 }
