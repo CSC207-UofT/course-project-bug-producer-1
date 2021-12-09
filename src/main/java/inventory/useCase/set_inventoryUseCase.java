@@ -1,11 +1,11 @@
-package inventory.UseCase;
+package inventory.useCase;
 
 import item.Gateway;
 import java.io.IOException;
 import java.util.HashMap;
 
 /**this class is an Usecase class of the inventory
- * this class is used for set a inventory item list;
+ * this class is used for set an inventory item list;
  * @author kurisu
  */
 public class set_inventoryUseCase {

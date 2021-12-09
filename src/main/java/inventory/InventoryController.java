@@ -1,6 +1,6 @@
 package inventory;
 
-import inventory.UseCase.*;
+import inventory.useCase.*;
 import order.Order;
 
 import java.io.IOException;

@@ -1,4 +1,4 @@
-package inventory.UseCase;
+package inventory.useCase;
 
 import inventory.Inventory;
 import item.Gateway;
@@ -17,9 +17,8 @@ public class InventoryStockinUseCase {
     /**
      * this method show how to stock in the item into the inventory
      * @param order get the order list and the number of the item need stock in
-     * @return return a new hashmap of the inventory item after stock in
      */
-    public static HashMap<String, Integer> stock_in(Order order) throws IOException {
+    public static void stock_in(Order order) throws IOException {
         Inventory inventory = read_inventoryUseCase.read_inventory();
         HashMap<String,Integer> inventory_list = inventory.get_item();
         HashMap<String,Integer> order_list = order.get_order_list();
@@ -42,7 +41,6 @@ public class InventoryStockinUseCase {
                 }
             }
         }
-        return inventory_list;
     }
 }
 

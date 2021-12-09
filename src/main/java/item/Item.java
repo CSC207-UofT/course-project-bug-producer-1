@@ -7,7 +7,7 @@ package item;
  */
 public class Item {
     private final String name;
-    private int quantity;
+    private final int quantity;
     /**
      * This method is the initiator of class Item.
      * It requires the name and quantity of each item.

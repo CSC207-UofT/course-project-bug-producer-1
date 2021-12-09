@@ -1,4 +1,4 @@
-package inventory.UseCase;
+package inventory.useCase;
 
 import inventory.Inventory;
 

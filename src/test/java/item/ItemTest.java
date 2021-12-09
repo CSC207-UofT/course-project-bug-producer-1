@@ -9,14 +9,6 @@ import java.io.*;
 
 public class ItemTest {
 
-    @Before
-    public void setUp() {
-    }
-
-    @After
-    public void tearDown() {
-    }
-
     public String[] getMainOutput() {
         PrintStream originalOut = System.out;
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
