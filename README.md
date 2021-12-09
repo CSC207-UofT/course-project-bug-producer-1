@@ -11,11 +11,11 @@
 [IMPORTANT]
 If you want to use Admin account instead of customer to Restock items and view all orders of all users, please enter `asd` as your secret code  when registering.
 
-Currently we have a pre-set account for you to try things out!
+Currently, we have a pre-set account for you to try things out!
 1. Run `GUI.java`. Try to log in our test account!
    - Username: `root`;
    - Password: `admin`.
-2. After login you are logged in as an admin, so you can do various pactions with this account.
+2. After login, you are logged in as an admin, so you can do various actions with this account.
    - Create orders;
    - View past orders [WiP].
    - Create / View messages
@@ -23,15 +23,15 @@ Currently we have a pre-set account for you to try things out!
 
 ## Class quick dive-in (description)
 
--class `admin` will update inventory;update order.It collabrates with order and inventory.
+-class `admin` will update inventory;update order.It collaborates with order and inventory.
 
 -class `inventory` contains capacity and item, it provides status of order and item list;updates item and process order.It collabrates with order and admin.
 
--class `item` contains avability and description.It collabrates with inventory.
+-class `item` contains availability and description.It collaborates with inventory.
 
--class `customer` could generate order and make wish list.It collabrates with order and admin.
+-class `customer` could generate order and make wish list.It collaborates with order and admin.
 
--class `order` contains item-list, date of order,customer name.It collabrates with item,inventory,customer and admin.
+-class `order` contains item-list, date of order,customer name.It collaborates with item,inventory,customer and admin.
 
 ## Requirements software
 
