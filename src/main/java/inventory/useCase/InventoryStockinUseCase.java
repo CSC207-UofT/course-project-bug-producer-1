@@ -2,7 +2,6 @@ package inventory.useCase;
 
 import inventory.Inventory;
 import item.Gateway;
-
 import order.Order;
 
 import java.io.IOException;
